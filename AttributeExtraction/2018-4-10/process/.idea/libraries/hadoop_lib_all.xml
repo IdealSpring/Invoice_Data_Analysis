@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="hadoop_lib_all">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Desktop/hadoop_lib_all" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Desktop/hadoop_lib_all" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/hadoop-mapreduce-client-core-2.4.1-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Desktop/hadoop_lib_all" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Desktop/hadoop_lib_all" recursive="false" type="SOURCES" />
+  </library>
+</component>
