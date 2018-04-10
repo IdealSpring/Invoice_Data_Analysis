@@ -1,0 +1,4 @@
+Rid Income CreditRating BuysComputer
+1 High Excellent No
+4 Medium Excellent No
+5 Medium Excellent Yes
