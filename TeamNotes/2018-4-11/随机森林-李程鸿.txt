@@ -1,0 +1,10 @@
+1. 随机森林有2个参数需要人为控制，
+	一个是森林中树的数量，一般建议取很大。
+	另一个是m的大小，推荐m的值为M的均方根, 列采样，从M 个feature中，选择m个(m << M)。推荐m的值为M的平方根。
+	https://blog.csdn.net/nongfu_spring/article/details/39644859
+
+2. 在训练每棵树的节点时，使用的特征是从所有的特征中按照一定比例随机的有放回的抽取的，假设有M个特征，这个比例可以是2*根号M，0.5*根号M等。
+	https://blog.csdn.net/gentelyang/article/details/79393923
+	
+	
+	训练准确率和预测准确率
