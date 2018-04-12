@@ -1,0 +1,106 @@
+1.创建nsrxx表
+create table temp(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
+row format delimited 
+fields terminated by ","
+
+create table nsrxx(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
+row format delimited 
+fields terminated by ","
+
+insert into table nsrxx 
+select substr(n.hydm,2),n.nsr_id,n.djzclx_dm,n.kydjrq,n.xgrq,substr(n.label,1,1) from temp n
+
+共计:338293条
+2.创建zzsfp表
+create table temp(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+create table zzsfp(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+insert into table zzsfp
+select substr(z.fp_nid,2) fp_nid,z.xf_id,z.gf_id,z.je,z.se,z.jshj,z.kpyf,z.kprq,substr(z.zfbz,1,1) from temp z
+
+共计:22717565
+3.创建zzsfp_hwmx
+create table temp(fp_nid string,date_key string,hwmc string,ggxh string,dw string,sl double,dj double,je double,se double,spbm string)
+row format delimited 
+fields terminated by ","
+
+create table zzsfp_hwmx(fp_nid string,date_key string,hwmc string,ggxh string,dw string,sl double,dj double,je double,se double,spbm string)
+row format delimited 
+fields terminated by ","
+
+insert into table zzsfp_hwmx
+select substr(z.fp_nid,2) fp_nid,z.date_key,z.hwmc,z.ggxh,z.dw,z.sl,z.dj,z.je,z.se,substr(z.spbm,1,length(z.spbm)-1) spbm from temp z
+
+共计:69435339
+4.nsrxx提取异常企业
+create table nsrxx_abnormal(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
+row format delimited 
+fields terminated by ","
+
+insert into table nsrxx_abnormal
+select * from nsrxx where label="1"
+异常企业共计:3409
+
+select nsr_id from nsrxx_abnormal n where n.nsr_id in (select gf_id from zzsfp)
+select nsr_id from nsrxx_abnormal n where n.nsr_id in (select gf_id from zzsfp)
+
+实际一场企业数:1865
+create table nsrxx_abnormal_actual(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
+row format delimited 
+fields terminated by ","
+
+insert into table nsrxx_abnormal_actual
+select * from nsrxx_abnormal n where n.nsr_id in (select nsr_id from nsrxx_abnormal_id)
+
+5.zzsfp除掉作废
+create table zzsfp_actual(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+insert into table zzsfp_actual
+select * from zzsfp where zfbz="N"
+6.异常企业gf,xf
+create table zzsfp_gf(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+select count(*) from zzsfp_actual z where z.gf_id in (select nsr_id from nsrxx_abnormal_actual)
+
+insert into table zzsfp_gf
+select * from zzsfp_actual z where z.gf_id in (select nsr_id from nsrxx_abnormal_actual)
+
+gf共计:10060
+
+
+create table zzsfp_xf(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+select count(*) from zzsfp_actual z where z.xf_id in (select nsr_id from nsrxx_abnormal_actual)
+
+insert into table zzsfp_xf
+select * from zzsfp_actual z where z.xf_id in (select nsr_id from nsrxx_abnormal_actual)
+
+xf共计:9844
+
+create table zzsfp_enterprise(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+insert into table zzsfp_enterprise
+select * from zzsfp_gf
+
+insert into table zzsfp_enterprise
+select * from zzsfp_xf
+
+select count(*) from zzsfp_enterprise
+发票数量合计:19904
+
+
+
+

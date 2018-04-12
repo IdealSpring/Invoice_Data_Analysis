@@ -1,0 +1,31 @@
+				1.属性名:inputInvoice		--进项发票
+	属性值:exist			--存在
+	       none				--不存在
+		   
+2.属性名:outputInvoice		--销项发票
+	属性值:exist			--存在
+	       none				--不存在
+
+3.属性名:inputInterval 	--最近两次开票时间
+	属性值:withinOneMonth	--一个月内
+	       withinTwoMonth	--两个月内
+		   withoutMonth		--两个月外
+		   
+4.属性名:outputInterval 	--最近两次开票时间
+	属性值:withinOneMonth	--一个月内
+	       withinTwoMonth	--两个月内
+		   withoutMonth		--两个月外
+
+5.属性名:taxChangeRate		--税负变动率
+	属性值:none				--上月无税负
+		   low				--低
+		   high				--高
+
+
+
+
+
+
+
+
+
