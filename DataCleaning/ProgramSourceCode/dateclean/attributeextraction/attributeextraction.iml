@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="library" exported="" name="hadoop_lib_all" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
