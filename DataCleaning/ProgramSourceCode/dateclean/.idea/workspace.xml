@@ -15,8 +15,8 @@
       <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="324">
+              <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,8 +27,8 @@
       <file leaf-file-name="EnterpriesMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="250">
+              <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,21 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enterprise.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Enterprise.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="39" />
+              <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnterpriesReducer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnterpriesReducer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+            <state relative-caret-position="345">
+              <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,7 +61,7 @@
       <file leaf-file-name="AttributeUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1002">
+            <state relative-caret-position="1539">
               <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
               <folding />
             </state>
@@ -102,12 +102,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java" />
-        <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Invoice.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Demo.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" />
+        <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java" />
       </list>
     </option>
   </component>
@@ -117,7 +117,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1386" />
@@ -348,16 +348,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523594990426</updated>
-      <workItem from="1523594995566" duration="12856000" />
+      <workItem from="1523594995566" duration="16450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12856000" />
+    <option name="totallyTimeSpent" value="16450000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -400,26 +399,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Invoice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1944">
@@ -478,29 +457,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java">
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+        <state relative-caret-position="324">
+          <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java">
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1002">
-          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="250">
+          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="39" />
+          <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="53" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

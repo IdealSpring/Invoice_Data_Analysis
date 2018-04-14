@@ -30,7 +30,7 @@ public class AttributeExtraction {
 
         //FileInputFormat.setInputPaths(job, args[0]);
         //FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        FileInputFormat.setInputPaths(job, "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\信息\\异常企业发票.txt");
+        FileInputFormat.setInputPaths(job, "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\信息");
 
         String s = UUID.randomUUID().toString();
 

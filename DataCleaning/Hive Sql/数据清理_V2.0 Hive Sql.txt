@@ -49,7 +49,7 @@ select * from nsrxx where label="1"
 select nsr_id from nsrxx_abnormal n where n.nsr_id in (select gf_id from zzsfp)
 select nsr_id from nsrxx_abnormal n where n.nsr_id in (select gf_id from zzsfp)
 
-实际一场企业数:1865
+实际异常企业数:1865
 create table nsrxx_abnormal_actual(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
 row format delimited 
 fields terminated by ","
