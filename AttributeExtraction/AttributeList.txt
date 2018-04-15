@@ -23,10 +23,15 @@
 		   low				--低
 		   high				--高
 
+6.属性名:invoiceUsageChange	--发票用量变动
+	属性值:none				--本月和上一个月均无发票
+		   low				--低
+		   high				--高
 
-
-
-
+7.属性名:inputTaxAndOutputTaxRatio --进项税额变动率高于销项税额变动率
+	属性值:none					   --上期不存在
+		   low					   --低
+		   high                    --高
 
 
 
