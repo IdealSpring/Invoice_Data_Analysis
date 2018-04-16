@@ -1,0 +1,12 @@
+﻿1.进项发票与销项发票差值
+-small
+-middle
+-large
+2.进项发票与销项发票差值方向
+-plus
+-minus
+3.进销项发票物品相关性 *
+4.水电占比
+-high
+-middle
+-low
