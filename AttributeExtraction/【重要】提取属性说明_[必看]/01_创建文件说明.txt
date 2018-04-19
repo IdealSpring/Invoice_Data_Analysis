@@ -1,0 +1,8 @@
+1.文件夹命名规范: 0X_F1 score=XX_P=XX_R=XX_A=XX	 格式命名(precision精度,recall召回率,Accuracy正确率)
+2.问价夹内容规范:
+	随机森林模型(XX.seq文件),
+	模型属性描述文件(XX.info),
+	训练数据,
+	测试数据,
+	数据字段描述,
+	模型测评结果
