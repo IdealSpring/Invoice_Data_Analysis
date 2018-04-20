@@ -100,6 +100,47 @@ select * from zzsfp_xf
 
 select count(*) from zzsfp_enterprise
 发票数量合计:19904
+7.找出进销项全有的nsr_id
+select count(*) from nsrxx where label="0"
+
+select z.gf_id from zzsfp_actual z where z.gf_id in (select n.nsr_id from nsrxx n where n.label="0")
+
+select z.xf_id from zzsfp_actual z where z.xf_id in (select n.nsr_id from nsrxx n where n.label="0")
+
+select * from gf_iidd g join xf_iidd x on g.gf_id=x.xf_id
+
+
+create table nsrxx_normal_actual(hydm string,nsr_id string,djzclx_dm string,kydjrq string,xgrq string,label string)
+row format delimited 
+fields terminated by ","
+
+insert into table nsrxx_normal_actual
+select * from nsrxx n where n.nsr_id in (select id from narxx_normal_partid)
+
+实际正常企业个数214131。
+8.分离正常企业的发票
+create table zzsfp_normal_gf(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+select count(*) from zzsfp_actual z where z.gf_id in (select id from narxx_normal_partid)
+
+insert into table zzsfp_normal_gf
+select * from zzsfp_actual z where z.gf_id in (select id from narxx_normal_partid)
+
+gf共计:162415
+
+create table zzsfp_normal_xf(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+select count(*) from zzsfp_actual z where z.xf_id in (select id from narxx_normal_partid)
+
+insert into table zzsfp_normal_xf
+select * from zzsfp_actual z where z.xf_id in (select id from narxx_normal_partid)
+
+xf共计:210462
+
 
 
 
