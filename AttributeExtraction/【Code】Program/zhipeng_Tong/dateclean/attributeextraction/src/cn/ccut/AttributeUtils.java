@@ -649,4 +649,196 @@ public class AttributeUtils {
         }
 
     }
+
+    /**
+     * 【7.】进项税额变动率高于销项税额变动率
+     *      1.计算公式：指标值=（进项税额变动率-销项税额变动率）/销项税额变动率；
+     *                  进项税额变动率额=(本期进项-上期进项)/上期进项；
+     *                  销项税额变动率=(本期销项-上期销项)/上期销项。
+     *
+     * @param enterprise
+     * @param inputInvoiceSet
+     * @param outputInvoiceSet
+     */
+    public static void setInputTaxAndOutputTaxRatio(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet) {
+        //将TreeSet中的数据放入到List中，方便操作
+        List<Invoice> inputList = new ArrayList<>();
+        List<Invoice> outputList = new ArrayList<>();
+
+        for(Invoice invoice : inputInvoiceSet) {
+            inputList.add(0, invoice);
+        }
+        for(Invoice invoice : outputInvoiceSet) {
+            outputList.add(0, invoice);
+        }
+
+        //进项税额
+        HashMap<String, Double> inputTaxMap = new HashMap<>();
+        //销项税额
+        HashMap<String, Double> outputTaxMap = new HashMap<>();
+
+        for(int i = 0; i < inputList.size(); i++) {
+            Invoice invoice = inputList.get(i);
+            String kpyf = invoice.getKpyf();
+            double tempInput = 0;
+            tempInput += invoice.getJshj();
+
+            for(int j = i + 1; j < inputList.size(); j++) {
+                Invoice invoice2 = inputList.get(j);
+                String kpyf2 = invoice2.getKpyf();
+                if(kpyf.equals(kpyf2)) {
+                    tempInput += invoice2.getJshj();
+                    inputList.remove(j);
+                    j--;
+                }
+            }
+
+            inputTaxMap.put(kpyf, tempInput);
+        }
+
+        for(int i = 0; i < outputList.size(); i++) {
+            Invoice invoice = outputList.get(i);
+            String kpyf = invoice.getKpyf();
+            double tempOutput = 0;
+            tempOutput += invoice.getJshj();
+
+            for(int j = i + 1; j < outputList.size(); j++) {
+                Invoice invoice2 = outputList.get(j);
+                String kpyf2 = invoice2.getKpyf();
+                if(kpyf.equals(kpyf2)) {
+                    tempOutput += invoice2.getJshj();
+                    outputList.remove(j);
+                    j--;
+                }
+            }
+
+            outputTaxMap.put(kpyf, tempOutput);
+        }
+
+        //计算
+        computeInputTaxAndOutputTaxRatio(enterprise, inputTaxMap, outputTaxMap);
+    }
+
+    /**
+     * 计算
+     *
+     * @param enterprise
+     * @param inputTaxMap
+     * @param outputTaxMap
+     */
+    private static void computeInputTaxAndOutputTaxRatio(Enterprise enterprise, HashMap<String, Double> inputTaxMap, HashMap<String, Double> outputTaxMap) {
+        if(inputTaxMap.size() != 0 && outputTaxMap.size() != 0) {
+            Set<String> inputSet = inputTaxMap.keySet();
+            Set<String> outputSet = outputTaxMap.keySet();
+            int count = 0;
+            String inputNowKey = null;
+            String outputNowKey = null;
+            String inputUpKey = null;
+            String outputUpKey = null;
+
+            for(String key : inputSet) {
+                if(count == 0) {
+                    inputNowKey = key;
+                    count ++;
+                    continue;
+                }
+                if(count == 1) {
+                    inputUpKey = key;
+                    count = 0;
+                    break;
+                }
+            }
+
+            //置零
+            count = 0;
+            for(String key : outputSet) {
+                if(count == 0) {
+                    outputNowKey = key;
+                    count ++;
+                    continue;
+                }
+                if(count == 1) {
+                    outputUpKey = key;
+                    break;
+                }
+            }
+
+            //现在时间
+            String nowDate = null;
+            //上期时间
+            String upDate = null;
+
+            //情况一：上期都存在
+            if(inputUpKey != null && outputUpKey != null) {
+                if(inputNowKey.compareTo(outputNowKey) == 0) {
+                    nowDate = inputNowKey;
+                } else if(inputNowKey.compareTo(outputNowKey) < 0) {
+                    nowDate = outputNowKey;
+                } else {
+                    nowDate = inputNowKey;
+                }
+
+                if(inputUpKey.compareTo(outputUpKey) == 0) {
+                    upDate = inputUpKey;
+                } else if(inputUpKey.compareTo(outputUpKey) < 0) {
+                    upDate = outputUpKey;
+                } else {
+                    upDate = inputUpKey;
+                }
+
+                Calendar now = Calendar.getInstance();
+                Calendar up = Calendar.getInstance();
+                String nowYear = nowDate.substring(0, 4);
+                String nowMonth = nowDate.substring(4);
+                String upYear = upDate.substring(0, 4);
+                String upMonth = upDate.substring(4);
+                now.set(Calendar.YEAR, Integer.parseInt(nowYear));
+                now.set(Calendar.MONTH, Integer.parseInt(nowMonth) - 1);
+                up.set(Calendar.YEAR, Integer.parseInt(upYear));
+                up.set(Calendar.MONTH, Integer.parseInt(upMonth) - 1);
+                now.add(Calendar.MONTH, -1);
+
+                if(now.get(Calendar.YEAR) == up.get(Calendar.YEAR) && now.get(Calendar.MONTH) == up.get(Calendar.MONTH)) {
+                    Double ratio = 0.0;
+                    double inputRatio = 0;
+                    double upRatio = 0;
+
+                    inputRatio = (inputTaxMap.get(inputNowKey) - inputTaxMap.get(inputUpKey))/inputTaxMap.get(inputUpKey);
+                    upRatio = (outputTaxMap.get(outputNowKey) - outputTaxMap.get(outputUpKey))/outputTaxMap.get(outputUpKey);
+                    ratio = (inputRatio - upRatio)/upRatio;
+
+                    if(!ratio.isNaN()) {
+                        if(ratio > 0.1) {
+                            enterprise.setInputTaxAndOutputTaxRatio("high");
+                        } else {
+                            enterprise.setInputTaxAndOutputTaxRatio("low");
+                        }
+                    } else {
+                        enterprise.setInputTaxAndOutputTaxRatio("none");
+                    }
+
+                } else {
+                    enterprise.setInputTaxAndOutputTaxRatio("none");
+                }
+
+                //情况二:上期进项存在，销项不存在
+            } else if(inputUpKey != null && outputUpKey == null) {
+                enterprise.setInputTaxAndOutputTaxRatio("none");
+
+                //情况三:上期进项不存在,销项存在
+            } else if(inputUpKey == null && outputUpKey != null) {
+                enterprise.setInputTaxAndOutputTaxRatio("none");
+            } else {
+                enterprise.setInputTaxAndOutputTaxRatio("none");
+            }
+
+        } else if(inputTaxMap.size() == 0 && outputTaxMap.size() != 0) {
+            enterprise.setInputTaxAndOutputTaxRatio("none");
+        } else {
+            //inputTaxMap.size() == 0 && outputTaxMap.size() == 0
+            enterprise.setInputTaxAndOutputTaxRatio("none");
+        }
+    }
+
+
 }

@@ -62,15 +62,16 @@ public class Enterprise implements Writable{
                 ",outputInvoice=" + outputInvoice + ",inputInterval=" + inputInterval +
                 ",outputInterval=" + outputInterval + ",taxChangeRate=" + taxChangeRate +
                 ",label=" + label;*/
-        /*return nsr_id +
+        return nsr_id +
                 "," + inputInvoice + "," + outputInvoice +
                 "," + inputInterval + "," + outputInterval +
                 "," + taxChangeRate + "," + invoiceUsageChange +
-                "," + label;*/
-        return "nsr_id=" + nsr_id +
+                "," + inputTaxAndOutputTaxRatio +
+                "," + label;
+        /*return "nsr_id=" + nsr_id +
                 ",inputInvoiceNum=" + inputInvoiceNum + ",outputInvoiceNum=" + outputInvoiceNum +
                 ",inputTaxAndOutputTaxRatio=" + inputTaxAndOutputTaxRatio +
-                ",label=" + label;
+                ",label=" + label;*/
     }
 
     @Override
@@ -97,6 +98,7 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.outputInterval);
         dataOutput.writeUTF(this.taxChangeRate);
         dataOutput.writeUTF(this.invoiceUsageChange);
+        dataOutput.writeUTF(this.inputTaxAndOutputTaxRatio);
 
         dataOutput.writeUTF(this.label);
     }
@@ -125,6 +127,7 @@ public class Enterprise implements Writable{
         this.outputInterval = dataInput.readUTF();
         this.taxChangeRate = dataInput.readUTF();
         this.invoiceUsageChange = dataInput.readUTF();
+        this.inputTaxAndOutputTaxRatio = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -287,5 +290,13 @@ public class Enterprise implements Writable{
 
     public void setInvoiceUsageChange(String invoiceUsageChange) {
         this.invoiceUsageChange = invoiceUsageChange;
+    }
+
+    public String getInputTaxAndOutputTaxRatio() {
+        return inputTaxAndOutputTaxRatio;
+    }
+
+    public void setInputTaxAndOutputTaxRatio(String inputTaxAndOutputTaxRatio) {
+        this.inputTaxAndOutputTaxRatio = inputTaxAndOutputTaxRatio;
     }
 }
