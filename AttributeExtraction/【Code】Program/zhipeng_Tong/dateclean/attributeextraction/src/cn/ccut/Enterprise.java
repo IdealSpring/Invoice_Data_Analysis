@@ -51,6 +51,9 @@ public class Enterprise implements Writable{
     private String invoiceUsageChange = "Null";
     //7.进项税额变动率高于销项税额变动率
     private String inputTaxAndOutputTaxRatio = "Null";
+    //8.发票作废率
+    private String invoiceInvalidRatio = "Null";
+
 
     //企业分类
     private String label = "0";
@@ -66,7 +69,7 @@ public class Enterprise implements Writable{
                 "," + inputInvoice + "," + outputInvoice +
                 "," + inputInterval + "," + outputInterval +
                 "," + taxChangeRate + "," + invoiceUsageChange +
-                "," + inputTaxAndOutputTaxRatio +
+                "," + inputTaxAndOutputTaxRatio + "," + invoiceInvalidRatio +
                 "," + label;
         /*return "nsr_id=" + nsr_id +
                 ",inputInvoiceNum=" + inputInvoiceNum + ",outputInvoiceNum=" + outputInvoiceNum +
@@ -99,6 +102,7 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.taxChangeRate);
         dataOutput.writeUTF(this.invoiceUsageChange);
         dataOutput.writeUTF(this.inputTaxAndOutputTaxRatio);
+        dataOutput.writeUTF(this.invoiceInvalidRatio);
 
         dataOutput.writeUTF(this.label);
     }
@@ -128,6 +132,7 @@ public class Enterprise implements Writable{
         this.taxChangeRate = dataInput.readUTF();
         this.invoiceUsageChange = dataInput.readUTF();
         this.inputTaxAndOutputTaxRatio = dataInput.readUTF();
+        this.invoiceInvalidRatio = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -298,5 +303,13 @@ public class Enterprise implements Writable{
 
     public void setInputTaxAndOutputTaxRatio(String inputTaxAndOutputTaxRatio) {
         this.inputTaxAndOutputTaxRatio = inputTaxAndOutputTaxRatio;
+    }
+
+    public String getInvoiceInvalidRatio() {
+        return invoiceInvalidRatio;
+    }
+
+    public void setInvoiceInvalidRatio(String invoiceInvalidRatio) {
+        this.invoiceInvalidRatio = invoiceInvalidRatio;
     }
 }

@@ -37,6 +37,8 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         AttributeUtils.setInvoiceUsageChange(enterprise, inputInvoiceSet, outputInvoiceSet);
         //7.inputTaxAndOutputTaxRatio   --进项税额变动率高于销项税额变动率
         AttributeUtils.setInputTaxAndOutputTaxRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
+        //8.invoiceInvalidRatio --发票作废率
+        AttributeUtils.setInvoiceInvalidRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
 
         //写出
         if(enterprise.isRetain()) {
@@ -52,6 +54,7 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
 
     /**
      * 清理enterprise残留信息
+     *
      * @param enterprise
      */
     private void cleanUp(Enterprise enterprise) {
@@ -78,6 +81,7 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setTaxChangeRate("Null");
         enterprise.setInvoiceUsageChange("Null");
         enterprise.setInputTaxAndOutputTaxRatio("Null");
+        enterprise.setInvoiceInvalidRatio("Null");
 
         enterprise.setLabel("0");
     }

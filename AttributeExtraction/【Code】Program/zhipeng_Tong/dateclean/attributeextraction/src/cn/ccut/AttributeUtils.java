@@ -840,5 +840,74 @@ public class AttributeUtils {
         }
     }
 
+    /**
+     * 发票作废率
+     *
+     * @param enterprise
+     * @param inputInvoiceSet
+     * @param outputInvoiceSet
+     */
+    public static void setInvoiceInvalidRatio(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet) {
+        TreeSet<Invoice> invoices = new TreeSet<>();
+        invoices.addAll(inputInvoiceSet);
+        invoices.addAll(outputInvoiceSet);
 
+        //将所有发票按从大到小放到List中,方便操作
+        List<Invoice> invoiceList = new ArrayList<>();
+        for(Invoice invoice : invoices) {
+            invoiceList.add(0, invoice);
+        }
+
+        if(invoiceList.size() != 0) {
+            Invoice invoice = invoiceList.get(0);
+            Calendar kprq = invoice.getKprq();
+            kprq.add(Calendar.MONTH, -1);
+
+            //发票总数
+            double sum = 1;
+            //作废发票数量
+            double invalidSum = 0;
+
+            if("Y".equals(invoice.getZfbz())) {
+                invalidSum ++;
+            }
+
+            if(invoiceList.size() > 1) {
+                for(int i = 1; i < invoiceList.size(); i++) {
+                    Invoice invoice2 = invoiceList.get(i);
+                    Calendar kprq2 = invoice2.getKprq();
+
+                    if(kprq.before(kprq2)) {
+                        sum ++;
+                        if("Y".equals(invoice2.getZfbz())) {
+                            invalidSum ++;
+                        }
+                    }
+                }
+
+                Double ratio = 0.0;
+                ratio = invalidSum/sum;
+                if(ratio >= 0.3) {
+                    enterprise.setInvoiceInvalidRatio("high");
+                } else if(ratio > 0) {
+                    enterprise.setInvoiceInvalidRatio("low");
+                } else {
+                    enterprise.setInvoiceInvalidRatio("none");
+                }
+
+            } else {
+                if("Y".equals(invoice.getZfbz())) {
+                    enterprise.setInvoiceInvalidRatio("high");
+                } else {
+                    enterprise.setInvoiceInvalidRatio("none");
+                }
+
+            }
+
+        } else {
+            enterprise.setInvoiceInvalidRatio("none");
+        }
+
+
+    }
 }
