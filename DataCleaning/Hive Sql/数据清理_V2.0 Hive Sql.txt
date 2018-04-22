@@ -128,7 +128,7 @@ select count(*) from zzsfp_actual z where z.gf_id in (select id from narxx_norma
 insert into table zzsfp_normal_gf
 select * from zzsfp_actual z where z.gf_id in (select id from narxx_normal_partid)
 
-gf共计:162415
+gf共计:162415 171374
 
 create table zzsfp_normal_xf(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
 row format delimited 
@@ -140,6 +140,7 @@ insert into table zzsfp_normal_xf
 select * from zzsfp_actual z where z.xf_id in (select id from narxx_normal_partid)
 
 xf共计:210462
+
 
 
 

@@ -33,6 +33,10 @@
 		   low					   --低
 		   high                    --高
 
+8.属性名:invoiceInvalidRatio		--发票作废率
+	属性值:none						--不存在
+			low						--低
+			high					--高
 
 
 
