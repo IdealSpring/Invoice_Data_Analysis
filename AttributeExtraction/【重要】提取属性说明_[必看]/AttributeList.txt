@@ -38,5 +38,9 @@
 			low						--低
 			high					--高
 
+9.属性名:continuousLoss		-- 连续亏损
+	属性值: none					-- 没有亏损
+			continuousQuarter		-- 连续一个季度
+			overallLoss				-- 总体亏损
 
 
