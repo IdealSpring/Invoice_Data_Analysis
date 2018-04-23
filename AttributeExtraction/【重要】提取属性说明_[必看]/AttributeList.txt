@@ -1,4 +1,4 @@
-d1.属性名:inputInvoice		--进项发票
+﻿d1.属性名:inputInvoice		--进项发票
 	属性值:exist			--存在
 	       none				--不存在
 		   
@@ -44,4 +44,10 @@ d1.属性名:inputInvoice		--进项发票
 			overallLoss				-- 总体亏损
 			unknown					-- 未知(进销项发票至少一项全无)
 
-
+10.属性名：InvoiceBalance		进销项差额
+	属性值		unknown		进销项其中一个为null
+			balanceHuge	进销项差额巨大
+			normal		正常
+	计算方式：
+		当进项金额小于等于销项金额的50%，或者销项金额小于等于进项金额的30%
+		标记异常
