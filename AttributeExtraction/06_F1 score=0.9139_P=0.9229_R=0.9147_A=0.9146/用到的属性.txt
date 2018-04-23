@@ -1,0 +1,9 @@
+1.inputInvoice
+2.outputInvoice
+3.inputInterval 	--最近两次进项开票时间
+4.outputInterval 	--最近两次销项开票时间
+5.taxChangeRate		--税负变动率
+6.invoiceUsageChange  --发票用量变动
+7.inputTaxAndOutputTaxRatio   --进项税额变动率高于销项税额变动率
+8.invoiceInvalidRatio --发票作废率
+9.setContinuousLoss        --发票显示连续亏损

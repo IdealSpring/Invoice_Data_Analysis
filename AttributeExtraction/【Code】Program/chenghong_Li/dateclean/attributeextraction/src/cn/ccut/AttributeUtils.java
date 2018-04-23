@@ -944,18 +944,9 @@ public class AttributeUtils {
         long inum = inputInvoiceSet.size();
         long onum = outputInvoiceSet.size();
 
-        // 若不存在销项, 设值overlLoss
-        if (onum <= 0 && inum >0) {
-            enterprise.setContinuousLoss("overallLoss");
-        }
-
-        // 若不存在进项, 设值none
-        if (inum <= 0) {
-            if (onum > 0) {
-                enterprise.setContinuousLoss("none");
-            } else {
-                enterprise.setContinuousLoss("overallLoss");
-            }
+        // 若进销项有一项不存在, 设值unknown
+        if ( inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
+            enterprise.setContinuousLoss("unknown");
         }
 
         // 若进销项都存在
@@ -989,42 +980,40 @@ public class AttributeUtils {
             long time1 = (kprq1.getTimeInMillis() - kprq2.getTimeInMillis()) / 1000 / 60 / 60 / 24;
 
             // 若发票时间跨度大于一个季度
-            if (time1 > 90) {
-                // 记录最近一个季度最早的发票在inputList中的位置
+            if (time1 > 30) {
+                // 记录最近一个月最早的发票在inputList中的位置
                 int i = 0;
-                inkprq1.add(Calendar.DAY_OF_MONTH, -90);
+                inkprq1.add(Calendar.MONTH, -1);
                 Calendar inkprq3 = inkprq1;
                 for (Invoice invoice : inputList) {
                     if (invoice.getKprq().compareTo(inkprq3) < 0) {
                         i = inputList.indexOf(invoice);
                     }
                 }
+                // 计算近一个月的进项金额之和
+                for (Invoice invoice : inputList) {
+                    int k = 0;
+                    if (k < i) {
+                        inputAmount += invoice.getJe();
+                        k++;
+                    } else {
+                        break;
+                    }
+                }
 
-                // 记录最近一个季度最早的发票在outputList中的位置
+                // 记录最近一个月最早的发票在outputList中的位置
                 int j = 0;
-                outkprq1.add(Calendar.DAY_OF_MONTH, -90);
+                outkprq1.add(Calendar.MONTH, -1);
                 Calendar outkprq3 = outkprq1;
                 for (Invoice invoice : outputList) {
                     if (invoice.getKprq().compareTo(outkprq3) < 0) {
-                        i = outputList.indexOf(invoice);
+                        j = outputList.indexOf(invoice);
                     }
                 }
-
-                // 计算近一个季度的进项金额之和
-                for (Invoice invoice : inputList) {
-                    int k = 1;
-                    if (k < i) {
-                        inputAmount += invoice.getJe();
-                        k++;
-                    } else {
-                        break;
-                    }
-                }
-
-                // 计算近一个季度的销项金额之和
+                // 计算近一个月的销项金额之和
                 for (Invoice invoice : outputList) {
-                    int k = 1;
-                    if (k < i) {
+                    int k = 0;
+                    if (k < j) {
                         outputAmount += invoice.getJe();
                         k++;
                     } else {
@@ -1032,26 +1021,13 @@ public class AttributeUtils {
                     }
                 }
 
-                // 近一个季度若进项大于等于销项
+                // 近一个月若进项大于等于销项
                 if (inputAmount >= outputAmount) {
                     // 设值:continuousQuarter
-                    enterprise.setContinuousLoss("continuousQuarter");
-                } /*else {
-                    // 计算总进项金额
-                    for (Invoice invoice : inputList) {
-                        inputAmount += invoice.getJe();
-                    }
-                    // 计算总销项金额
-                    for (Invoice invoice : outputList) {
-                        outputAmount += invoice.getJe();
-                    }
-                    // 若总体进项大于销项
-                    if (inputAmount >= outputAmount) {
-                        enterprise.setContinuousLoss("overallLoss");
-                    } else {
-                        enterprise.setContinuousLoss("none");
-                    }
-                }*/
+                    enterprise.setContinuousLoss("continuousMonth");
+                } else {
+                    enterprise.setContinuousLoss("none");
+                }
             } else {
                 // 计算总进项金额
                 for (Invoice invoice : inputList) {
