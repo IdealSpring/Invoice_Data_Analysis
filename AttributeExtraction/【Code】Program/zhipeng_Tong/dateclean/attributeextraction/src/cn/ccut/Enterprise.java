@@ -53,7 +53,8 @@ public class Enterprise implements Writable{
     private String inputTaxAndOutputTaxRatio = "Null";
     //8.发票作废率
     private String invoiceInvalidRatio = "Null";
-
+    //9.发票显示连续亏损
+    private String continuousLoss = "Null";
 
     //企业分类
     private String label = "0";
@@ -70,6 +71,7 @@ public class Enterprise implements Writable{
                 "," + inputInterval + "," + outputInterval +
                 "," + taxChangeRate + "," + invoiceUsageChange +
                 "," + inputTaxAndOutputTaxRatio + "," + invoiceInvalidRatio +
+                "," + continuousLoss +
                 "," + label;
         /*return "nsr_id=" + nsr_id +
                 ",inputInvoiceNum=" + inputInvoiceNum + ",outputInvoiceNum=" + outputInvoiceNum +
@@ -103,6 +105,7 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.invoiceUsageChange);
         dataOutput.writeUTF(this.inputTaxAndOutputTaxRatio);
         dataOutput.writeUTF(this.invoiceInvalidRatio);
+        dataOutput.writeUTF(this.continuousLoss);
 
         dataOutput.writeUTF(this.label);
     }
@@ -133,6 +136,7 @@ public class Enterprise implements Writable{
         this.invoiceUsageChange = dataInput.readUTF();
         this.inputTaxAndOutputTaxRatio = dataInput.readUTF();
         this.invoiceInvalidRatio = dataInput.readUTF();
+        this.continuousLoss = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -311,5 +315,13 @@ public class Enterprise implements Writable{
 
     public void setInvoiceInvalidRatio(String invoiceInvalidRatio) {
         this.invoiceInvalidRatio = invoiceInvalidRatio;
+    }
+
+    public String getContinuousLoss() {
+        return continuousLoss;
+    }
+
+    public void setContinuousLoss(String continuousLoss) {
+        this.continuousLoss = continuousLoss;
     }
 }
