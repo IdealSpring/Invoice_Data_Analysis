@@ -1,4 +1,7 @@
-﻿d1.属性名:inputInvoice		--进项发票
+﻿<<<<<<< HEAD
+=======
+1.属性名:inputInvoice		--进项发票
+>>>>>>> f56881cf75e7155d2996e861a1719045a9fefa78
 	属性值:exist			--存在
 	       none				--不存在
 		   
