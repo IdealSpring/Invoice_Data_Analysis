@@ -1,0 +1,18 @@
+﻿1.https://blog.csdn.net/ydyang1126/article/details/78842952
+Python实现，方法多样，非常详细
+2.https://www.cnblogs.com/native-hadoop/p/7728654.html
+Java程序中实现调用Python脚本
+3.在java中调用python方法
+https://blog.csdn.net/l1028386804/article/details/50915556
+4.https://baike.sogou.com/v135600.htm?fromTitle=Jython
+Jython	Python的java实现
+5.https://wenku.baidu.com/view/0d68d7604b35eefdc8d333fb.html
+可视化原理
+6.https://blog.csdn.net/sinat_33761963/article/details/62433234
+Tensorflow的可视化工具Tensorboard的初步使用
+7.https://vimsky.com/article/3623.html
+TensorFlow for Java
+8.https://blog.csdn.net/fjssharpsword/article/details/80022345
+Tensorflow实现随机森林
+9.https://github.com/loretoparisi/tensorflow-java
+Tensorflow Java示例。--GitHub
