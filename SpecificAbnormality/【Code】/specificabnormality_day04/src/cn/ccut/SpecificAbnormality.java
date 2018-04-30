@@ -39,12 +39,12 @@ public class SpecificAbnormality {
         job.setOutputValueClass(NullWritable.class);
 
         // 指定原始数据存放的路径
-        String inputPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\analyze";
+        String inputPath = "";
         FileInputFormat.setInputPaths(job, inputPath);
 
         // 指定输出数据存放的路径
         String s = UUID.randomUUID().toString();
-        String outputPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\analyze_result\\" + s;
+        String outputPath = "" + s;
         FileOutputFormat.setOutputPath(job, new Path(outputPath));
 
         job.waitForCompletion(true);
