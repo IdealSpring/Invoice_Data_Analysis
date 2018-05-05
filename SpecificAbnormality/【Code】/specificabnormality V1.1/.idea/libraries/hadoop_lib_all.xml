@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="hadoop_lib_all">
+    <CLASSES>
+      <root url="file://F:/Desktop/____异常企业预测分析/jar/hadoop_lib_all" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://F:/Desktop/____异常企业预测分析/jar/hadoop_lib_all" />
+    </SOURCES>
+    <jarDirectory url="file://F:/Desktop/____异常企业预测分析/jar/hadoop_lib_all" recursive="false" />
+    <jarDirectory url="file://F:/Desktop/____异常企业预测分析/jar/hadoop_lib_all" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -51,3 +51,13 @@
 	计算方式：
 		当进项金额小于等于销项金额的50%，或者销项金额小于等于进项金额的30%
 		标记异常
+		
+11.属性名: inputInvoiceInvalid		是否有作废进项发票
+	属性值:
+		none	-- 不存在
+		exist	-- 存在
+
+12.属性名: outputInvoiceInvalid		是否有作废销项发票
+	属性值:
+		none	-- 不存在
+		exist	-- 存在
