@@ -35,11 +35,19 @@ public class AttributeExtraction {
         //FileInputFormat.setInputPaths(job, args[0]);
         //FileOutputFormat.setOutputPath(job, new Path(args[1]));
         // String inputDataPath = "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\信息3";
+<<<<<<< HEAD
         String inputDataPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\信息3";
         FileInputFormat.setInputPaths(job, inputDataPath);
 
         String s = UUID.randomUUID().toString();
         String outputDataPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\result_lch\\" + s;
+=======
+        String inputDataPath = "F:\\Desktop\\信息3";
+        FileInputFormat.setInputPaths(job, inputDataPath);
+
+        String s = UUID.randomUUID().toString();
+        String outputDataPath = "F:\\Desktop\\result_lch\\" + s;
+>>>>>>> 47f3688524d66a88783c0eb870430907011a1821
 
         FileOutputFormat.setOutputPath(job, new Path(outputDataPath));
 
@@ -90,8 +98,13 @@ public class AttributeExtraction {
         }
 
         //将数据输出
+<<<<<<< HEAD
         String trainOutPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\out\\train.dat";
         String testOutPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\out\\test.dat";
+=======
+        String trainOutPath = "F:\\Desktop\\out\\train.dat";
+        String testOutPath = "F:\\Desktop\\out\\test.dat";
+>>>>>>> 47f3688524d66a88783c0eb870430907011a1821
 
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(trainOutPath));
 
