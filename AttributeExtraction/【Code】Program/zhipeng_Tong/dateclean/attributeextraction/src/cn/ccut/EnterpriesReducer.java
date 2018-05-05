@@ -41,6 +41,12 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         AttributeUtils.setInvoiceInvalidRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
         //9.setContinuousLoss        --发票显示连续亏损
         AttributeUtils.setContinuousLoss(enterprise, inputInvoiceSet, outputInvoiceSet);
+        //10.invoiceBalance     --进销项差额
+        AttributeUtils.setInvoiceBalance(enterprise, inputInvoiceSet, outputInvoiceSet);
+        //11.inputInvoiceInvalid
+        AttributeUtils.setInputInvoiceInvalid(enterprise, inputInvoiceSet);
+        //12.outputInvoiceInvalid
+        AttributeUtils.setOutputInvoiceInvalid(enterprise, outputInvoiceSet);
 
         //写出
         if(enterprise.isRetain()) {
@@ -85,6 +91,7 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setInputTaxAndOutputTaxRatio("Null");
         enterprise.setInvoiceInvalidRatio("Null");
         enterprise.setContinuousLoss("Null");
+        enterprise.setInvoiceBalance("Null");
 
         enterprise.setLabel("0");
     }

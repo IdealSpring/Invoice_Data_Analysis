@@ -55,6 +55,12 @@ public class Enterprise implements Writable{
     private String invoiceInvalidRatio = "Null";
     //9.发票显示连续亏损
     private String continuousLoss = "Null";
+    //10.进销项差额巨大
+    private String invoiceBalance = "Null";
+    //11.进项发票作废
+    private String inputInvoiceInvalid = "Null";
+    //12.销项发票作废
+    private String outputInvoiceInvalid = "Null";
 
     //企业分类
     private String label = "0";
@@ -67,12 +73,20 @@ public class Enterprise implements Writable{
                 ",outputInterval=" + outputInterval + ",taxChangeRate=" + taxChangeRate +
                 ",label=" + label;*/
         return nsr_id +
+                "," + inputInvoiceNum + "," + outputInvoiceNum +
                 "," + inputInvoice + "," + outputInvoice +
                 "," + inputInterval + "," + outputInterval +
                 "," + taxChangeRate + "," + invoiceUsageChange +
                 "," + inputTaxAndOutputTaxRatio + "," + invoiceInvalidRatio +
-                "," + continuousLoss +
+                "," + continuousLoss + "," + invoiceBalance +
+                "," + inputInvoiceInvalid + "," + outputInvoiceInvalid +
                 "," + label;
+        /*return nsr_id +
+                "," + inputInvoice + "," + outputInvoice +
+                "," + inputInterval + "," + outputInterval +
+                "," + taxChangeRate + "," + invoiceInvalidRatio +
+                "," + invoiceBalance +
+                "," + label;*/
         /*return "nsr_id=" + nsr_id +
                 ",inputInvoiceNum=" + inputInvoiceNum + ",outputInvoiceNum=" + outputInvoiceNum +
                 ",inputTaxAndOutputTaxRatio=" + inputTaxAndOutputTaxRatio +
@@ -106,6 +120,9 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.inputTaxAndOutputTaxRatio);
         dataOutput.writeUTF(this.invoiceInvalidRatio);
         dataOutput.writeUTF(this.continuousLoss);
+        dataOutput.writeUTF(this.invoiceBalance);
+        dataOutput.writeUTF(this.inputInvoiceInvalid);
+        dataOutput.writeUTF(this.outputInvoiceInvalid);
 
         dataOutput.writeUTF(this.label);
     }
@@ -137,6 +154,9 @@ public class Enterprise implements Writable{
         this.inputTaxAndOutputTaxRatio = dataInput.readUTF();
         this.invoiceInvalidRatio = dataInput.readUTF();
         this.continuousLoss = dataInput.readUTF();
+        this.invoiceBalance = dataInput.readUTF();
+        this.inputInvoiceInvalid = dataInput.readUTF();
+        this.outputInvoiceInvalid = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -323,5 +343,29 @@ public class Enterprise implements Writable{
 
     public void setContinuousLoss(String continuousLoss) {
         this.continuousLoss = continuousLoss;
+    }
+
+    public String getInvoiceBalance() {
+        return invoiceBalance;
+    }
+
+    public void setInvoiceBalance(String invoiceBalance) {
+        this.invoiceBalance = invoiceBalance;
+    }
+
+    public String getInputInvoiceInvalid() {
+        return inputInvoiceInvalid;
+    }
+
+    public void setInputInvoiceInvalid(String inputInvoiceInvalid) {
+        this.inputInvoiceInvalid = inputInvoiceInvalid;
+    }
+
+    public String getOutputInvoiceInvalid() {
+        return outputInvoiceInvalid;
+    }
+
+    public void setOutputInvoiceInvalid(String outputInvoiceInvalid) {
+        this.outputInvoiceInvalid = outputInvoiceInvalid;
     }
 }
