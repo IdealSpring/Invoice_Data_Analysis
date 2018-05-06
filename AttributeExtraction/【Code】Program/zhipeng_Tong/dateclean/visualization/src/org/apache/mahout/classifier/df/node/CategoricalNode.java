@@ -48,6 +48,9 @@ public class CategoricalNode extends Node {
             // value not available, we cannot predict
             return Double.NaN;
         }
+
+        //System.out.println("attr=" + this.attr + ", values=" + Arrays.toString(values) + ", childs=" + this.childs);
+
         return childs[index].classify(instance);
     }
 
@@ -77,7 +80,7 @@ public class CategoricalNode extends Node {
     }
 
     @Override
-    protected Type getType() {
+    public Type getType() {
         return Type.CATEGORICAL;
     }
 
@@ -131,4 +134,31 @@ public class CategoricalNode extends Node {
         DFUtils.writeArray(out, values);
         DFUtils.writeArray(out, childs);
     }
+
+
+
+    public int getAttr() {
+        return attr;
+    }
+
+    public void setAttr(int attr) {
+        this.attr = attr;
+    }
+
+    public double[] getValues() {
+        return values;
+    }
+
+    public void setValues(double[] values) {
+        this.values = values;
+    }
+
+    public Node[] getChilds() {
+        return childs;
+    }
+
+    public void setChilds(Node[] childs) {
+        this.childs = childs;
+    }
+
 }

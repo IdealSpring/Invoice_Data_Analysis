@@ -68,7 +68,7 @@ public class NumericalNode extends Node {
     }
 
     @Override
-    protected Type getType() {
+    public Type getType() {
         return Type.NUMERICAL;
     }
 
@@ -110,5 +110,39 @@ public class NumericalNode extends Node {
         out.writeDouble(split);
         loChild.write(out);
         hiChild.write(out);
+    }
+
+
+
+    public int getAttr() {
+        return attr;
+    }
+
+    public void setAttr(int attr) {
+        this.attr = attr;
+    }
+
+    public double getSplit() {
+        return split;
+    }
+
+    public void setSplit(double split) {
+        this.split = split;
+    }
+
+    public Node getLoChild() {
+        return loChild;
+    }
+
+    public void setLoChild(Node loChild) {
+        this.loChild = loChild;
+    }
+
+    public Node getHiChild() {
+        return hiChild;
+    }
+
+    public void setHiChild(Node hiChild) {
+        this.hiChild = hiChild;
     }
 }

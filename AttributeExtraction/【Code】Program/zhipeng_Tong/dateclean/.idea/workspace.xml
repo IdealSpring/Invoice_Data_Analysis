@@ -27,72 +27,34 @@
       <file leaf-file-name="TestForest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+            <state relative-caret-position="286">
+              <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
               <folding>
-                <element signature="e#0#12636#0" expanded="true" />
+                <element signature="e#0#13542#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java">
+      <file leaf-file-name="ResultAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="556">
+              <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Leaf.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Leaf.java">
+      <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoricalNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/CategoricalNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Enterprise.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="81" column="72" lean-forward="true" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Step123.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildForest.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/BuildForest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="61">
+              <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,10 +76,11 @@
       <find>continuousLoss</find>
       <find>enterprise</find>
       <find>run</find>
-      <find>classify</find>
       <find>toString</find>
       <find>getString</find>
       <find>getType</find>
+      <find>classify</find>
+      <find>static</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -126,8 +89,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -136,18 +102,23 @@
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/NsrID.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Demo.java" />
-        <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" />
         <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step1Describe.java" />
-        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" />
-        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java" />
-        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Leaf.java" />
-        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/CategoricalNode.java" />
         <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/NumericalNode.java" />
-        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" />
-        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/CategoricalNode.java" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Leaf.java" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/demo.js" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/example7.js" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" />
+        <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java" />
+        <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java" />
       </list>
     </option>
   </component>
@@ -156,6 +127,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
@@ -178,30 +155,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dateclean" type="462c0819:PsiDirectoryNode" />
-              <item name="attributeextraction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dateclean" type="462c0819:PsiDirectoryNode" />
-              <item name="attributeextraction" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dateclean" type="462c0819:PsiDirectoryNode" />
-              <item name="attributeextraction" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ccut" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
@@ -226,15 +188,15 @@
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
               <item name="visualization" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="df" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
               <item name="visualization" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
               <item name="df" type="462c0819:PsiDirectoryNode" />
-              <item name="node" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
@@ -245,14 +207,74 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="lib" type="70bed36:NamedLibraryElementNode" />
             </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="apache" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="apache" type="462c0819:PsiDirectoryNode" />
+              <item name="mahout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="apache" type="462c0819:PsiDirectoryNode" />
+              <item name="mahout" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="apache" type="462c0819:PsiDirectoryNode" />
+              <item name="mahout" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="df" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="lib" type="70bed36:NamedLibraryElementNode" />
+              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="apache" type="462c0819:PsiDirectoryNode" />
+              <item name="mahout" type="462c0819:PsiDirectoryNode" />
+              <item name="classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="df" type="462c0819:PsiDirectoryNode" />
+              <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,7 +305,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Step123">
+  <component name="RunManager" selected="Application.AttributeExtraction">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -299,9 +321,9 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="cn.ccut.AttributeExtraction" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="-DHADOOP_USER_NAME=hadoop" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -329,17 +351,17 @@
       <module name="attributeextraction" />
       <envs />
     </configuration>
-    <configuration name="Step123" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="cn.ccut.mahout.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="cn.ccut.mahout.Step123" />
-      <option name="VM_PARAMETERS" value="-DHADOOP_USER_NAME=hadoop" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="MAIN_CLASS_NAME" value="cn.ccut.mahout.MDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -444,13 +466,13 @@
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.AttributeExtraction" />
       <item index="1" class="java.lang.String" itemvalue="Application.Demo" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Step123" />
-      <item index="3" class="java.lang.String" itemvalue="Application.TestForest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TestForest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.MDemo" />
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Step123" />
-        <item index="1" class="java.lang.String" itemvalue="Application.AttributeExtraction" />
+        <item index="0" class="java.lang.String" itemvalue="Application.AttributeExtraction" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MDemo" />
         <item index="2" class="java.lang.String" itemvalue="Application.TestForest" />
         <item index="3" class="java.lang.String" itemvalue="Application.Demo" />
       </list>
@@ -481,12 +503,16 @@
       <workItem from="1524902877441" duration="1206000" />
       <workItem from="1524911032468" duration="2772000" />
       <workItem from="1525155962535" duration="2765000" />
-      <workItem from="1525217967164" duration="21180000" />
+      <workItem from="1525217967164" duration="32397000" />
+      <workItem from="1525390322827" duration="1046000" />
+      <workItem from="1525391437546" duration="2867000" />
+      <workItem from="1525411311724" duration="29335000" />
+      <workItem from="1525517806136" duration="16808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137042000" />
+    <option name="totallyTimeSpent" value="198315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -500,20 +526,20 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.510274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26399395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.204236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24583964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6917808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5291096" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -527,15 +553,15 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18176638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53253424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -543,10 +569,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18662351" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46232876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15726496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2322239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -562,99 +588,59 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java</url>
-          <line>214</line>
+          <url>file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java</url>
+          <line>178</line>
           <properties />
-          <option name="timeStamp" value="79" />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ResultAnalyzer.java</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java</url>
+          <line>319</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java</url>
+          <line>114</line>
+          <properties />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/example7.js</url>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/example7.js</url>
+          <line>1</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/example7.js</url>
+          <line>35</line>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="80" />
+      <option name="time" value="134" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2754">
-          <caret line="109" column="30" lean-forward="false" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Demo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3078">
-          <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/EnterpriesMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
           <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,9 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1431">
           <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2025">
           <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,9 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3078">
           <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,7 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="1164" column="50" lean-forward="false" selection-start-line="1164" selection-start-column="50" selection-end-line="1164" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,9 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,19 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,16 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-          <folding>
-            <marker date="1524049471654" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1524049471654" expanded="false" signature="161:1186" ph="..." />
-            <marker date="1524049471654" expanded="true" signature="1321:1328" ph="{}" />
-            <marker date="1524049471654" expanded="true" signature="1413:3666" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="3824:4285" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="4426:4615" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="4692:4968" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5032:5279" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -770,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="108" column="22" lean-forward="true" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
           <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="126" column="17" lean-forward="false" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="438" column="8" lean-forward="false" selection-start-line="438" selection-start-column="8" selection-end-line="438" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57">
           <caret line="104" column="14" lean-forward="false" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="318" column="24" lean-forward="false" selection-start-line="318" selection-start-column="24" selection-end-line="318" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -834,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="753">
           <caret line="182" column="9" lean-forward="false" selection-start-line="182" selection-start-column="9" selection-end-line="182" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,299 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#1347#1348#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/commons/lang3/ArrayUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="905" column="0" lean-forward="false" selection-start-line="905" selection-start-column="0" selection-end-line="905" selection-end-column="0" />
-          <folding>
-            <marker date="1524049471654" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1524049471654" expanded="false" signature="148:602" ph="..." />
-            <marker date="1524049471654" expanded="true" signature="2039:2046" ph="{}" />
-            <marker date="1524049471654" expanded="false" signature="2095:2106" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="2135:2141" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="2212:2348" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="2394:2405" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="2463:2469" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="2536:2615" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="2677:3736" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="3783:3794" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="3807:3813" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="3857:3868" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="3922:3928" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="3974:3985" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4037:4043" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4087:4098" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4149:4155" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4203:4214" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4267:4273" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4319:4330" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4382:4388" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4434:4445" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4497:4503" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4553:4564" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4618:4624" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4672:4683" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4736:4742" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="4794:4805" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="4860:4866" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="4923:5010" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5067:5154" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5207:5292" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5343:5427" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5482:5568" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5621:5706" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5759:5844" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5901:5988" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6043:6129" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6188:6276" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6329:6421" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6480:6575" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6630:6723" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6786:6883" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6936:7028" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="7085:7179" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="7234:7327" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="7386:7481" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="7577:8421" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="8519:9168" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="9264:9910" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="10010:10662" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="10760:11409" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="11507:12156" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="12258:12913" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="13013:13665" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="13769:14427" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="14502:14714" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="14785:14997" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="15066:15278" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="15351:15563" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="15634:15846" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="15917:16129" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="16204:16416" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="16489:16701" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="16778:16990" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="17037:17048" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="17098:17104" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="17173:17417" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="17466:17736" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="17783:18051" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="18097:18364" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="18412:18681" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="18728:18996" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="19043:19311" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="19360:19630" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="19678:19947" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="19997:20268" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="20336:20347" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="20386:20392" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="20477:21199" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="21272:21340" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="21429:22218" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="22291:22302" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="22344:22350" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="22413:22424" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="22462:22468" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="22548:22909" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="22977:23044" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="23128:23566" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="23634:23645" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="23686:23692" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="23753:23764" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="23814:23820" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="23898:24259" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="24324:24335" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="24386:24392" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="24474:24912" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="24978:24989" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="25030:25036" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="25102:25172" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="25254:25615" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="25685:25752" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="25838:26276" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="26346:26357" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="26398:26404" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="26467:26478" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="26530:26536" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="26616:26977" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="27045:27112" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="27196:27634" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="27702:27713" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="27754:27760" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="27823:27834" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="27886:27892" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="27972:28333" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="28401:28468" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="28552:28990" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="29058:29069" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="29110:29116" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="29183:29194" ph=" { " />
-            <marker date="1524049471654" expanded="true" signature="29232:29238" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="29324:29389" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="29473:29835" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="29937:30411" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="30483:30550" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="30640:30718" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="30806:31245" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="31351:31902" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="31974:31985" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="32026:32032" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="32123:32194" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="32259:32270" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="32308:32314" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="32396:32758" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="32828:32895" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="32981:33420" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="33490:33501" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="33542:33548" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="33617:33628" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="33666:33672" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="33758:34120" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="34194:34261" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="34351:34790" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="34864:34875" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="34916:34922" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="34980:35330" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="35407:35817" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="35872:36244" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="36297:36647" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="36719:37124" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="37174:37531" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="37586:37933" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="38006:38411" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="38463:38829" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="38884:39237" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="39312:39721" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="39773:40133" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="40186:40536" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="40608:41013" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="41063:41420" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="41477:41833" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="41911:42324" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="42378:42741" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="42796:43149" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="43224:43633" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="43685:44045" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="44104:44463" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="44544:44961" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="45017:45414" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="45465:45476" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="45518:45524" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="45573:45584" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="45626:45632" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="45680:45691" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="45733:45739" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="45789:45800" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="45842:45848" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="45897:45908" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="45950:45956" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46005:46016" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46058:46064" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46115:46126" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46168:46174" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46224:46235" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46277:46283" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46335:46346" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46388:46394" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46447:46458" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46500:46506" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46558:46569" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46611:46617" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46668:46679" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46721:46727" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46780:46791" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46833:46839" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="46891:46902" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="46944:46950" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="47002:47013" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="47055:47061" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="47115:47126" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="47168:47174" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="47227:47238" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="47280:47286" ph=" }" />
-            <marker date="1524049471654" expanded="false" signature="47341:47352" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="47394:47400" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="47460:48419" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="48493:48930" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="48995:49426" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="49491:49922" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="49990:50423" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="50485:50914" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="50979:51410" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="51478:51911" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="51982:52417" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="52471:52914" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="52982:53153" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="53212:53371" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="53430:53594" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="53659:53826" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="53888:54051" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="54107:54266" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="54325:54484" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="54546:54709" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="54798:55177" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="55242:55678" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="55757:55845" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="55915:55999" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56069:56148" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56221:56303" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56370:56450" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56520:56599" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56672:56754" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="56830:56915" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="57003:57958" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="58014:58025" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="58083:58089" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="58158:58276" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="58341:58417" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="58495:58613" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="58671:58682" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="58736:58742" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="58811:58929" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="58987:58998" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="59052:59058" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="59127:59245" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="59308:59382" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="59457:59575" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="59635:59646" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="59702:59708" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="59780:59898" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="59954:59965" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="60017:60023" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="60089:60207" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="60265:60276" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="60330:60336" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="60405:60523" ph="{...}" />
-            <marker date="1524049471654" expanded="false" signature="60583:60594" ph=" { " />
-            <marker date="1524049471654" expanded="false" signature="60650:60656" ph=" }" />
-            <marker date="1524049471654" expanded="true" signature="60728:60846" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="60906:61436" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="61501:61587" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="61654:62951" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="63018:63100" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="63172:64507" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="64576:64660" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="64735:66077" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="66142:66222" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="66291:67639" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="67706:67788" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="67860:69220" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="69287:69369" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="69441:70776" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="70845:70929" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="71004:72346" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="72417:72503" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="72581:73930" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="74003:74091" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="74172:75528" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="75596:76966" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="77031:77280" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1142,26 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
-          <folding>
-            <marker date="1524049471654" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1524049471654" expanded="false" signature="165:1746" ph="..." />
-            <marker date="1524049471654" expanded="true" signature="2153:2160" ph="{}" />
-            <marker date="1524049471654" expanded="true" signature="2261:5133" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="5230:6143" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="6239:7746" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="7797:9769" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="9942:10418" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="10599:11979" ph="{...}" />
-            <marker date="1524049471654" expanded="true" signature="12041:12117" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2862">
-          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,23 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="41" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#1935#1936#0" expanded="false" />
-            <element signature="e#1957#1958#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#1958#1959#0" expanded="false" />
-            <element signature="e#1986#1987#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1193,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="29" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1209,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="28" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,74 +833,189 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="28" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/NumericalNode.java">
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="1476">
+          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/commons/lang3/ArrayUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="904" column="22" lean-forward="false" selection-start-line="904" selection-start-column="22" selection-end-line="904" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Leaf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/BuildForest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="241" column="0" lean-forward="false" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+        <state relative-caret-position="213">
+          <caret line="61" column="71" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/CategoricalNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java">
+    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/example7.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+        <state relative-caret-position="54">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12636#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="n#!!block;n#chart#0;n#!!block;n#tree_structure#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="81" column="72" lean-forward="true" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
+        <state relative-caret-position="2079">
+          <caret line="81" column="66" lean-forward="false" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/RegressionResultAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1680">
+          <caret line="68" column="14" lean-forward="false" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ResultAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="29" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ClassifierResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/NumericalNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/util/ToolRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1403330710000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1403330710000" expanded="false" signature="146:372" ph="..." />
+            <marker date="1403330710000" expanded="true" signature="374:389" ph="@{...}" />
+            <marker date="1403330710000" expanded="true" signature="440:447" ph="{}" />
+            <marker date="1403330710000" expanded="true" signature="538:818" ph="{...}" />
+            <marker date="1403330710000" expanded="true" signature="889:944" ph="{...}" />
+            <marker date="1403330710000" expanded="false" signature="1010:1021" ph=" { " />
+            <marker date="1403330710000" expanded="false" signature="1072:1078" ph=" }" />
+            <marker date="1403330710000" expanded="true" signature="1154:2010" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2808">
+          <caret line="168" column="43" lean-forward="false" selection-start-line="168" selection-start-column="43" selection-end-line="168" selection-end-column="43" />
+          <folding>
+            <element signature="e#12538#12539#0" expanded="false" />
+            <element signature="e#12577#12578#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/fs/FileSystem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#537#946#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#13542#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding>
+            <element signature="e#4453#4862#0" expanded="true" />
+            <element signature="e#4861#4862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,7 +1071,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>visualization</last-edited>
+          <last-edited>attributeextraction</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

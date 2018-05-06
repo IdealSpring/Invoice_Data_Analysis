@@ -41,14 +41,13 @@ import org.apache.mahout.classifier.df.DecisionForest;
 import org.apache.mahout.classifier.df.data.DataConverter;
 import org.apache.mahout.classifier.df.data.Dataset;
 import org.apache.mahout.classifier.df.data.Instance;
-import org.apache.mahout.classifier.df.node.Node;
 import org.apache.mahout.common.CommandLineUtil;
 import org.apache.mahout.common.RandomUtils;
 import org.apache.mahout.common.commandline.DefaultOptionCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -202,6 +201,7 @@ public class TestForest extends Configured implements Tool {
                                 new ClassifierResult(dataset.getLabelString(res[1]), 1.0));
                     }
                     log.info("{}", analyzer);
+
                 }
             }
         }
@@ -212,14 +212,7 @@ public class TestForest extends Configured implements Tool {
         log.info("Loading the forest...");
         DecisionForest forest = DecisionForest.load(getConf(), modelPath);
 
-        int i = 1;
-        for(Node node :forest.getTrees()) {
-            System.out.println(i++ + "=>" + node.toString());
-
-            System.out.println();
-        }
-
-        /*if (forest == null) {
+        if (forest == null) {
             log.error("No Decision Forest found!");
             return;
         }
@@ -258,8 +251,47 @@ public class TestForest extends Configured implements Tool {
                             new ClassifierResult(dataset.getLabelString(r[1]), 1.0));
                 }
                 log.info("{}", analyzer);
+
+                //将fiscore写入文档
+                String weightedF1score = analyzer.getWeightedF1score();
+                writeF1scoreToFile(weightedF1score);
             }
-        }*/
+        }
+    }
+
+    /**
+     * 将F1score写进文件
+     *
+     * @param weightedF1score
+     * @throws IOException
+     */
+    private void writeF1scoreToFile(String weightedF1score) throws IOException {
+        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        //文件原始数据
+        ArrayList<String> data = new ArrayList<>();
+
+        if(f1scoreFile.exists()) {
+            BufferedReader reader = new BufferedReader(new FileReader(f1scoreFile));
+
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                data.add(line);
+            }
+
+            reader.close();
+        }
+
+        data.add(weightedF1score);
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(f1scoreFile));
+
+        for(String line : data) {
+            writer.write(line);
+            writer.newLine();
+            writer.flush();
+        }
+
+        writer.close();
     }
 
     private void testDirectory(Path outPath,
@@ -284,6 +316,9 @@ public class TestForest extends Configured implements Tool {
                           Dataset dataset,
                           Collection<double[]> results,
                           Random rng) throws IOException {
+        //显示决策森林
+        //forest.showForest();
+
         // create the predictions file
         FSDataOutputStream ofile = null;
 
