@@ -27,7 +27,7 @@
       <file leaf-file-name="TestForest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="8679">
               <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
               <folding>
                 <element signature="e#0#13542#0" expanded="true" />
@@ -40,14 +40,14 @@
       <file leaf-file-name="ResultAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
+            <state relative-caret-position="3696">
               <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="61">
@@ -55,6 +55,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stemp123.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1729">
+              <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,10 +99,10 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
@@ -134,11 +144,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1006" />
+    <option name="width" value="922" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -155,9 +164,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,100 +187,37 @@
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
               <item name="visualization" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mahout" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
               <item name="visualization" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="ccut" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
               <item name="dateclean" type="462c0819:PsiDirectoryNode" />
               <item name="visualization" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="df" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="ccut" type="462c0819:PsiDirectoryNode" />
               <item name="mahout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="mahout" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="mahout" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="df" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dateclean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="lib" type="70bed36:NamedLibraryElementNode" />
-              <item name="mahout-examples-0.10.1-job.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="mahout" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="df" type="462c0819:PsiDirectoryNode" />
-              <item name="mapreduce" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,7 +225,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -508,22 +451,20 @@
       <workItem from="1525391437546" duration="2867000" />
       <workItem from="1525411311724" duration="29335000" />
       <workItem from="1525517806136" duration="16808000" />
+      <workItem from="1525604577347" duration="192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198315000" />
+    <option name="totallyTimeSpent" value="198507000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="100" y="-9" width="1829" height="1098" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -532,7 +473,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.204236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19259259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -544,6 +485,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -710,146 +653,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/mahout/classifier/df/tools/Describe.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/tools/Describe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/mapreduce/Builder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="108" column="22" lean-forward="true" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/hadoop/util/ToolRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/DataUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JDK/Installation/jdk1.7.0_21/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="126" column="17" lean-forward="false" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JDK/Installation/jdk1.7.0_21/src.zip!/java/io/DataInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="438" column="8" lean-forward="false" selection-start-line="438" selection-start-column="8" selection-end-line="438" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/mapreduce/Classifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="104" column="14" lean-forward="false" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/Dataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="318" column="24" lean-forward="false" selection-start-line="318" selection-start-column="24" selection-end-line="318" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/math/src/main/java/org/apache/mahout/math/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="182" column="9" lean-forward="false" selection-start-line="182" selection-start-column="9" selection-end-line="182" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/Instance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/mahout/classifier/df/mapreduce/TestForest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/DecisionForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="41" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/hadoop/io/Writable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="29" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/Leaf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/CategoricalNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/NumericalNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="28" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
-          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/commons/lang3/ArrayUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="904" column="22" lean-forward="false" selection-start-line="904" selection-start-column="22" selection-end-line="904" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/mahout/classifier/df/tools/Describe.class" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/tools/Describe.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/mapreduce/Builder.java" />
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/hadoop/util/ToolRunner.class" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/DataUtils.java" />
+    <entry file="jar://D:/JDK/Installation/jdk1.7.0_21/src.zip!/java/util/Collection.java" />
+    <entry file="jar://D:/JDK/Installation/jdk1.7.0_21/src.zip!/java/io/DataInput.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/mapreduce/Classifier.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/Dataset.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/math/src/main/java/org/apache/mahout/math/Vector.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/data/Instance.java" />
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/mahout/classifier/df/mapreduce/TestForest.class" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/DecisionForest.java" />
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/hadoop/io/Writable.class" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/Node.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/Leaf.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/CategoricalNode.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/df/node/NumericalNode.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/TestForest.java" />
+    <entry file="jar://$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/org/apache/commons/lang3/ArrayUtils.class" />
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Leaf.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -857,18 +680,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/BuildForest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="61" column="71" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/examples/src/main/java/org/apache/mahout/classifier/df/mapreduce/BuildForest.java" />
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,60 +709,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
           <caret line="81" column="66" lean-forward="false" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/RegressionResultAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1680">
-          <caret line="68" column="14" lean-forward="false" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ResultAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="29" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ClassifierResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/RegressionResultAnalyzer.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ResultAnalyzer.java" />
+    <entry file="jar://$USER_HOME$/Desktop/apache-mahout-distribution-0.10.1-src.zip!/apache-mahout-distribution-0.10.1/mr/src/main/java/org/apache/mahout/classifier/ClassifierResult.java" />
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/node/NumericalNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/util/ToolRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1403330710000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1403330710000" expanded="false" signature="146:372" ph="..." />
-            <marker date="1403330710000" expanded="true" signature="374:389" ph="@{...}" />
-            <marker date="1403330710000" expanded="true" signature="440:447" ph="{}" />
-            <marker date="1403330710000" expanded="true" signature="538:818" ph="{...}" />
-            <marker date="1403330710000" expanded="true" signature="889:944" ph="{...}" />
-            <marker date="1403330710000" expanded="false" signature="1010:1021" ph=" { " />
-            <marker date="1403330710000" expanded="false" signature="1072:1078" ph=" }" />
-            <marker date="1403330710000" expanded="true" signature="1154:2010" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/util/ToolRunner.class" />
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2808">
@@ -959,14 +734,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/fs/FileSystem.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/hadoop_lib_all/hadoop-common-2.4.1.jar!/org/apache/hadoop/fs/FileSystem.class" />
     <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -981,7 +749,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="8679">
           <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
           <folding>
             <element signature="e#0#13542#0" expanded="true" />
@@ -992,20 +760,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="3696">
           <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding>
-            <element signature="e#4453#4862#0" expanded="true" />
-            <element signature="e#4861#4862#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1016,6 +773,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
