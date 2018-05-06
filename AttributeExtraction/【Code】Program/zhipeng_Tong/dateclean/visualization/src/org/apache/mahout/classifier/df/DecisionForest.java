@@ -27,11 +27,12 @@ import org.apache.mahout.classifier.df.data.Data;
 import org.apache.mahout.classifier.df.data.DataUtils;
 import org.apache.mahout.classifier.df.data.Dataset;
 import org.apache.mahout.classifier.df.data.Instance;
+import org.apache.mahout.classifier.df.node.CategoricalNode;
+import org.apache.mahout.classifier.df.node.Leaf;
 import org.apache.mahout.classifier.df.node.Node;
+import org.apache.mahout.classifier.df.node.NumericalNode;
 
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,6 +43,8 @@ import java.util.Random;
 public class DecisionForest implements Writable {
 
     private final List<Node> trees;
+    private int flog = 1;
+    private int index = 0;
 
     private DecisionForest() {
         trees = new ArrayList<>();
@@ -105,8 +108,10 @@ public class DecisionForest implements Writable {
             }
         } else {
             int[] predictions = new int[dataset.nblabels()];
+
             for (Node tree : trees) {
                 double prediction = tree.classify(instance);
+
                 if (!Double.isNaN(prediction)) {
                     predictions[(int) prediction]++;
                 }
@@ -117,6 +122,215 @@ public class DecisionForest implements Writable {
             }
 
             return DataUtils.maxindex(rng, predictions);
+        }
+    }
+
+    public void showForest() {
+        int count = 1;
+
+        for(Node tree : this.trees) {
+            System.out.println("第" + count + "棵树，最大深度：" + tree.maxDepth() + ", 节点数量：" + tree.nbNodes());
+            count ++;
+
+            showDecisionTree(tree, 1);
+
+            ArrayList<String> list = new ArrayList<>();
+
+            list.add("var tree_structure = {\n" +
+                    "    chart: {\n" +
+                    "        container: \"#OrganiseChart6\",\n" +
+                    "        levelSeparation:    20,\n" +
+                    "        siblingSeparation:  15,\n" +
+                    "        subTeeSeparation:   15,\n" +
+                    "        rootOrientation: \"EAST\",\n" +
+                    "\n" +
+                    "        node: {\n" +
+                    "            HTMLclass: \"tennis-draw\",\n" +
+                    "            drawLineThrough: true\n" +
+                    "        },\n" +
+                    "        connectors: {\n" +
+                    "            type: \"straight\",\n" +
+                    "            style: {\n" +
+                    "                \"stroke-width\": 2,\n" +
+                    "                \"stroke\": \"#ccc\"\n" +
+                    "            }\n" +
+                    "        }\n" +
+                    "    },");
+
+            //printFileToJavaScript(tree, list, 0);
+
+            list.add("};");
+
+            /*try {
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:/Users/zhipeng-Tong/Desktop/treant-js-master/examples/tennis-draw/example7.js"));
+                for(String line : list) {
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                    bufferedWriter.flush();
+                }
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+        }
+    }
+
+    private void printFileToJavaScript(Node node, ArrayList<String> list, int length) {
+        if(node.getType() == Node.Type.CATEGORICAL) {
+            CategoricalNode categoricalNode = (CategoricalNode) node;
+
+            if(flog == 1) {
+                list.add("nodeStructure: {" + "text: {" + "name: {val: \"" + categoricalNode.getAttr() + "\"}},HTMLclass: \"winner\"");
+
+                flog ++;
+                index ++;
+
+                list.add("}");
+            } else {
+                if(length != 0) {
+                    list.add(++index, ",");
+                }
+
+                list.add(++index,"{text: {" + "name: \"属性名:" + categoricalNode.getAttr() + "\"," + "desc: \"判别值:" + length + "\"}");
+
+
+            }
+
+            for(int i = 0; i < categoricalNode.getChilds().length; i++) {
+                if(i == 0) {
+                    list.add(++index, ",children: [");
+
+                    list.add(++index, "]");
+                }
+                printFileToJavaScript(categoricalNode.getChilds()[i], list, i);
+            }
+
+        } else if(node.getType() == Node.Type.NUMERICAL) {
+            /*NumericalNode numericalNode = (NumericalNode) node;
+
+            if(flog == 1) {
+                list.add("nodeStructure: {\n" +
+                        "        text: {\n" +
+                        "            name: {val: \"");
+                list.add(numericalNode.getAttr() + "\"}\n" +
+                        "        },\n" +
+                        "        HTMLclass: \"winner\",");
+
+                flog ++;
+            }
+
+            System.out.print("【属性名:" + numericalNode.getAttr() + "】");
+
+
+            if(numericalNode.getLoChild() != null) {
+                System.out.println();
+                for (int j = 0; j < blankNum + 3; j++) {
+                    System.out.print("    ");
+                }
+                System.out.print("--");
+                System.out.print("判别值:小于" + numericalNode.getSplit());
+                System.out.print("--");
+                showDecisionTree(numericalNode.getLoChild(), blankNum + 4);
+            }
+
+            if(numericalNode.getHiChild() != null) {
+                System.out.println();
+                for (int j = 0; j < blankNum + 3; j++) {
+                    System.out.print("    ");
+                }
+                System.out.print("--");
+                System.out.print("判别值:大于" + numericalNode.getSplit());
+                System.out.print("--");
+                showDecisionTree(numericalNode.getHiChild(), blankNum + 4);
+            }*/
+
+        } else {
+            Leaf leaf = (Leaf) node;
+
+            if(length != 0) {
+                list.add(++index, ",");
+            }
+
+            list.add(++index,"{text: {" + "name: \"类型:" + leaf.getLabel() + "\"," + "desc: \"判别值:" + length + "\"}}");
+        }
+    }
+
+
+    /**
+     * 控制台展示决策树
+     *
+     * @param node
+     * @param blankNum
+     */
+    public void showDecisionTree(Node node, int blankNum) {
+        if(node.getType() == Node.Type.CATEGORICAL) {
+            CategoricalNode categoricalNode = (CategoricalNode) node;
+
+            System.out.println();
+            for (int i = 0; i < blankNum; i++) {
+                System.out.print("    ");
+            }
+
+            System.out.print("【属性名:" + categoricalNode.getAttr() + "】");
+
+            for(int i = 0; i < categoricalNode.getChilds().length; i++) {
+                System.out.println();
+                for (int j = 0; j < blankNum + 3; j++) {
+                    System.out.print("    ");
+                }
+                System.out.print("--");
+                System.out.print("判别值:" + i);
+                System.out.print("--");
+
+
+                showDecisionTree(categoricalNode.getChilds()[i], blankNum + 4);
+            }
+
+        } else if(node.getType() == Node.Type.NUMERICAL) {
+            NumericalNode numericalNode = (NumericalNode) node;
+
+            System.out.println();
+            for (int i = 0; i < blankNum; i++) {
+                System.out.print("    ");
+            }
+
+            System.out.print("【属性名:" + numericalNode.getAttr() + "】");
+
+
+            if(numericalNode.getLoChild() != null) {
+                System.out.println();
+                for (int j = 0; j < blankNum + 3; j++) {
+                    System.out.print("    ");
+                }
+                System.out.print("--");
+                System.out.print("判别值:小于" + numericalNode.getSplit());
+                System.out.print("--");
+                showDecisionTree(numericalNode.getLoChild(), blankNum + 4);
+            }
+
+            if(numericalNode.getHiChild() != null) {
+                System.out.println();
+                for (int j = 0; j < blankNum + 3; j++) {
+                    System.out.print("    ");
+                }
+                System.out.print("--");
+                System.out.print("判别值:大于" + numericalNode.getSplit());
+                System.out.print("--");
+                showDecisionTree(numericalNode.getHiChild(), blankNum + 4);
+            }
+
+        } else {
+            Leaf leaf = (Leaf) node;
+
+            System.out.println();
+            for (int i = 0; i < blankNum; i++) {
+                System.out.print("    ");
+            }
+
+            System.out.print("[类型:");
+            System.out.print(leaf.getLabel());
+            System.out.println("]");
+
         }
     }
 

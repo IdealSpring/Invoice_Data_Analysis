@@ -53,7 +53,7 @@ public class Leaf extends Node {
     }
 
     @Override
-    protected Type getType() {
+    public Type getType() {
         return Type.LEAF;
     }
 
@@ -90,5 +90,17 @@ public class Leaf extends Node {
     @Override
     protected void writeNode(DataOutput out) throws IOException {
         out.writeDouble(label);
+    }
+
+    public static double getEPSILON() {
+        return EPSILON;
+    }
+
+    public double getLabel() {
+        return label;
+    }
+
+    public void setLabel(double label) {
+        this.label = label;
     }
 }

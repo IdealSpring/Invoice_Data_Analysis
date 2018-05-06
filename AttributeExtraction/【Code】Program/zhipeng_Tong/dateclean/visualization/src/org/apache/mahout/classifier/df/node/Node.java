@@ -29,7 +29,7 @@ import java.io.IOException;
  */
 public abstract class Node implements Writable {
 
-    protected enum Type {
+    public enum Type {
         LEAF,
         NUMERICAL,
         CATEGORICAL
@@ -52,7 +52,7 @@ public abstract class Node implements Writable {
      */
     public abstract long maxDepth();
 
-    protected abstract Type getType();
+    public abstract Type getType();
 
     public static Node read(DataInput in) throws IOException {
         Type type = Type.values()[in.readInt()];
