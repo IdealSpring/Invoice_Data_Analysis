@@ -1,6 +1,6 @@
 package cn.ccut;
 
-import cn.ccut.mahout.Stemp123;
+import cn.ccut.mahout.Step123;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
@@ -12,10 +12,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.mahout.common.HadoopUtil;
 
-import java.awt.*;
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.*;
 import java.util.List;
 
@@ -66,7 +64,7 @@ public class AttributeExtraction {
         uploadFileToHDFS();
 
         //测试
-        Stemp123.main(new String[]{}, fileSystem);
+        Step123.main(new String[]{}, fileSystem);
     }
 
     /**

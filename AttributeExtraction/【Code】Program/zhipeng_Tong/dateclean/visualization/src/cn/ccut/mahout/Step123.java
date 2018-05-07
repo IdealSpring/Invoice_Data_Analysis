@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Stemp123 {
+public class Step123 {
     public static void main(String[] args, FileSystem fileSystem) throws Exception {
         //删除本地f1score文件
         File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
@@ -73,7 +73,7 @@ public class Stemp123 {
     }
 
     /**
-     * Step2：测试模型
+     * Step3：测试模型
      *
      * @throws Exception
      */

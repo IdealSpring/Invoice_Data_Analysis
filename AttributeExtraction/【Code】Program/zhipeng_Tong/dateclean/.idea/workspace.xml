@@ -27,7 +27,7 @@
       <file leaf-file-name="TestForest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="7101">
               <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
               <folding>
                 <element signature="e#0#13542#0" expanded="true" />
@@ -40,21 +40,31 @@
       <file leaf-file-name="ResultAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
+            <state relative-caret-position="3024">
               <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttributeExtraction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+            <state relative-caret-position="-1685">
+              <caret line="101" column="24" lean-forward="false" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Step123.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,11 +99,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeUtils.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -114,11 +124,11 @@
         <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/DecisionForest.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/Enterprise.java" />
         <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java" />
-        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java" />
         <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/MDemo.java" />
         <option value="$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java" />
         <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java" />
         <option value="$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java" />
+        <option value="$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java" />
       </list>
     </option>
   </component>
@@ -134,7 +144,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1386" />
@@ -155,9 +165,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -274,7 +284,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,7 +292,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/lib/mahout-examples-0.10.1-job.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -508,19 +518,19 @@
       <workItem from="1525391437546" duration="2867000" />
       <workItem from="1525411311724" duration="29335000" />
       <workItem from="1525517806136" duration="16808000" />
+      <workItem from="1525604490218" duration="482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198315000" />
+    <option name="totallyTimeSpent" value="198797000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -532,7 +542,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.204236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20801815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22768533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -544,6 +554,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -613,7 +624,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java</url>
-          <line>114</line>
+          <line>112</line>
           <properties />
           <option name="timeStamp" value="133" />
         </line-breakpoint>
@@ -868,7 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,7 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
           <caret line="81" column="66" lean-forward="false" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,7 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1680">
           <caret line="68" column="14" lean-forward="false" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,7 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,7 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,17 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1403330710000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1403330710000" expanded="false" signature="146:372" ph="..." />
-            <marker date="1403330710000" expanded="true" signature="374:389" ph="@{...}" />
-            <marker date="1403330710000" expanded="true" signature="440:447" ph="{}" />
-            <marker date="1403330710000" expanded="true" signature="538:818" ph="{...}" />
-            <marker date="1403330710000" expanded="true" signature="889:944" ph="{...}" />
-            <marker date="1403330710000" expanded="false" signature="1010:1021" ph=" { " />
-            <marker date="1403330710000" expanded="false" signature="1072:1078" ph=" }" />
-            <marker date="1403330710000" expanded="true" signature="1154:2010" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -963,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,7 +974,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/df/mapreduce/TestForest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="7101">
           <caret line="263" column="6" lean-forward="false" selection-start-line="263" selection-start-column="6" selection-end-line="263" selection-end-column="6" />
           <folding>
             <element signature="e#0#13542#0" expanded="true" />
@@ -992,30 +985,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/visualization/src/org/apache/mahout/classifier/ResultAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="3024">
           <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="15" selection-end-line="135" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Stemp123.java">
+    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state relative-caret-position="-1685">
+          <caret line="101" column="24" lean-forward="false" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="24" />
           <folding>
-            <element signature="e#4453#4862#0" expanded="true" />
-            <element signature="e#4861#4862#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attributeextraction/src/cn/ccut/AttributeExtraction.java">
+    <entry file="file://$PROJECT_DIR$/visualization/src/cn/ccut/mahout/Step123.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
