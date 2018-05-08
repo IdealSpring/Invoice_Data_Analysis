@@ -60,11 +60,13 @@ public class AttributeExtraction {
             upDateTrainAndTest(outputDataPath);
         }
 
+        //upDateTrainAndTest("C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\result\\cdfefddc-95cb-46e8-b6c8-e6927855cec9");
+
         //上传文件到HDFS文件系统
         uploadFileToHDFS();
 
         //测试
-        Step123.main(new String[]{}, fileSystem);
+        Step123.main(new String[]{});
     }
 
     /**
@@ -109,8 +111,8 @@ public class AttributeExtraction {
             originalData.add(line);
         }
 
-        //交叉验证, 所打则数5
-        double crossNum = 15;
+        //交叉验证, 所打则数10
+        double crossNum = 2;
         int selectSampleCount = (int) (originalData.size() / crossNum);
 
         ArrayList<ArrayList<String>> data_CV = new ArrayList<>();

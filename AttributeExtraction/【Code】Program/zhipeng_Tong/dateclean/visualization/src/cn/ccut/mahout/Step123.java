@@ -18,7 +18,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Step123 {
-    public static void main(String[] args, FileSystem fileSystem) throws Exception {
+    private static FileSystem fileSystem;
+
+    static {
+        Configuration conf = new Configuration();
+        try {
+            fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
         //删除本地f1score文件
         File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
         if(f1scoreFile.exists()) {
@@ -26,7 +37,7 @@ public class Step123 {
         }
 
         //查询HDFS文件系统中训练集测试集则数
-        int CVNum = getCVNumByHDFS(fileSystem);
+        int CVNum = getCVNumByHDFS();
 
         for(int i = 0; i < CVNum; i++) {
             Step1Describe(i);
@@ -34,6 +45,8 @@ public class Step123 {
             Step3TestForest(i);
         }
 
+        fileSystem.close();
+        //计算F1score
         computeF1score();
     }
 
@@ -61,11 +74,12 @@ public class Step123 {
      */
     private static void Step2BuildForest(int i) throws Exception {
         String[] args = new String[]{
+                "-Drapred.max.split.size=1874231",
                 "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
-                "-sl", "5",
-                /*"-p",*/ "-t", "1"
+                "-sl", "4",
+                "-p", "-t", "100"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
@@ -90,7 +104,6 @@ public class Step123 {
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
 
         TestForest.main(args);
-
     }
 
     /**
@@ -131,7 +144,9 @@ public class Step123 {
      * @return
      * @throws Exception
      */
-    public static int getCVNumByHDFS(FileSystem fileSystem) throws Exception {
+    public static int getCVNumByHDFS() throws Exception {
+        /*Configuration conf = new Configuration();
+        FileSystem fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");*/
         int count = 0;
 
         FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem,
