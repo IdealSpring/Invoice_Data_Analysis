@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/dateclean/attributeextraction/attributeextraction.iml" filepath="$PROJECT_DIR$/dateclean/attributeextraction/attributeextraction.iml" />
-    </modules>
-  </component>
-</project>

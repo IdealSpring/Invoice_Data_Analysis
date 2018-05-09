@@ -43,6 +43,10 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         AttributeUtils.setContinuousLoss(enterprise, inputInvoiceSet, outputInvoiceSet);
         //10.invoiceBalance     --进销项差额
         AttributeUtils.setInvoiceBalance(enterprise, inputInvoiceSet, outputInvoiceSet);
+        //11.inputInvoiceInvalid
+        AttributeUtils.setInputInvoiceInvalid(enterprise, inputInvoiceSet);
+        //12.outputInvoiceInvalid
+        AttributeUtils.setOutputInvoiceInvalid(enterprise, outputInvoiceSet);
 
         //写出
         if(enterprise.isRetain()) {

@@ -1,9 +1,5 @@
 package cn.ccut;
 
-import com.sun.jersey.api.representation.Form;
-
-import java.awt.event.FocusEvent;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -381,6 +377,20 @@ public class AttributeUtils {
                 if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
                     double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
+                    /*double result = Math.abs(change);
+                    if(result <= 0.1) {
+                        enterprise.setTaxChangeRate("zeroToOne");
+                    } else if(result > 0.1 && result <= 0.2) {
+                        enterprise.setTaxChangeRate("oneToTwo");
+                    } else if(result > 0.2 && result <= 0.3) {
+                        enterprise.setTaxChangeRate("twoToTree");
+                    } else if(result > 0.3 && result <= 0.4) {
+                        enterprise.setTaxChangeRate("treeToFour");
+                    } else if(result > 0.4 && result <= 0.5) {
+                        enterprise.setTaxChangeRate("fourToFive");
+                    } else {
+                        enterprise.setTaxChangeRate("high");
+                    }*/
                     enterprise.setTaxChangeRate(result);
                 } else {
                     enterprise.setTaxChangeRate("none");
@@ -455,6 +465,20 @@ public class AttributeUtils {
                 if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
                     double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
+                    /*double result = Math.abs(change);
+                    if(result <= 0.1) {
+                        enterprise.setTaxChangeRate("zeroToOne");
+                    } else if(result > 0.1 && result <= 0.2) {
+                        enterprise.setTaxChangeRate("oneToTwo");
+                    } else if(result > 0.2 && result <= 0.3) {
+                        enterprise.setTaxChangeRate("twoToTree");
+                    } else if(result > 0.3 && result <= 0.4) {
+                        enterprise.setTaxChangeRate("treeToFour");
+                    } else if(result > 0.4 && result <= 0.5) {
+                        enterprise.setTaxChangeRate("fourToFive");
+                    } else {
+                        enterprise.setTaxChangeRate("high");
+                    }*/
                     enterprise.setTaxChangeRate(result);
                 } else {
                     enterprise.setTaxChangeRate("none");
@@ -527,6 +551,20 @@ public class AttributeUtils {
                 if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
                     double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
+                    /*double result = Math.abs(change);
+                    if(result <= 0.1) {
+                        enterprise.setTaxChangeRate("zeroToOne");
+                    } else if(result > 0.1 && result <= 0.2) {
+                        enterprise.setTaxChangeRate("oneToTwo");
+                    } else if(result > 0.2 && result <= 0.3) {
+                        enterprise.setTaxChangeRate("twoToTree");
+                    } else if(result > 0.3 && result <= 0.4) {
+                        enterprise.setTaxChangeRate("treeToFour");
+                    } else if(result > 0.4 && result <= 0.5) {
+                        enterprise.setTaxChangeRate("fourToFive");
+                    } else {
+                        enterprise.setTaxChangeRate("high");
+                    }*/
                     enterprise.setTaxChangeRate(result);
                 } else {
                     enterprise.setTaxChangeRate("none");
@@ -558,14 +596,6 @@ public class AttributeUtils {
 
         invoices.addAll(inputInvoiceSet);
         invoices.addAll(outputInvoiceSet);
-
-        /*System.out.println(enterprise.getNsr_id() + "=");
-
-        for(Invoice invoice : invoices) {
-            System.out.println(invoice.getKpyf() + "---" + invoice.getKprq().toString());
-        }
-
-        System.out.println("结束");*/
 
         if(invoices.size() != 0) {
             //将数据放入到list中，方便操作
@@ -844,7 +874,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 发票作废率
+     * 【8.】发票作废率
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -910,6 +940,8 @@ public class AttributeUtils {
         } else {
             enterprise.setInvoiceInvalidRatio("none");
         }
+
+
     }
 
 
@@ -1047,6 +1079,13 @@ public class AttributeUtils {
         }
     }
 
+    /**
+     * 10.invoiceBalance     --进销项差额
+     *
+     * @param enterprise
+     * @param inputInvoiceSet
+     * @param outputInvoiceSet
+     */
     public static void setInvoiceBalance(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet){
         // 发票进销项金额
         double inputAmount = 0;
@@ -1085,6 +1124,46 @@ public class AttributeUtils {
             enterprise.setInvoiceBalance("balanceHuge");//差额巨大
         } else {
             enterprise.setInvoiceBalance("normal");//差额正常
+        }
+    }
+
+    /**
+     * 属性11:
+     *      是否有进项作废发票
+     *
+     * @param enterprise
+     * @param inputInvoiceSet
+     */
+    public static void setInputInvoiceInvalid(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet) {
+        for(Invoice invoice : inputInvoiceSet) {
+            String zfbz = invoice.getZfbz();
+
+            if(zfbz.equals("Y")) {
+                enterprise.setInputInvoiceInvalid("exist");
+                break;
+            } else {
+                enterprise.setInputInvoiceInvalid("none");
+            }
+        }
+    }
+
+    /**
+     * 属性12:
+     *      是否有进项作废发票
+     *
+     * @param enterprise
+     * @param outputInvoiceSet
+     */
+    public static void setOutputInvoiceInvalid(Enterprise enterprise, TreeSet<Invoice> outputInvoiceSet) {
+        for(Invoice invoice : outputInvoiceSet) {
+            String zfbz = invoice.getZfbz();
+
+            if(zfbz.equals("Y")) {
+                enterprise.setOutputInvoiceInvalid("exist");
+                break;
+            } else {
+                enterprise.setOutputInvoiceInvalid("none");
+            }
         }
     }
 }
