@@ -48,11 +48,11 @@ public class AttributeExtraction {
         job.setOutputKeyClass(Enterprise.class);
         job.setOutputValueClass(NullWritable.class);
 
-        String inputDataPath = "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\信息3";
+        String inputDataPath = "D:\\视频诗词\\异常企业资料\\信息3";
         FileInputFormat.setInputPaths(job, inputDataPath);
 
         String s = UUID.randomUUID().toString();
-        String outputDataPath = "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\result\\" + s;
+        String outputDataPath = "D:\\视频诗词\\异常企业资料\\result\\" + s;
 
         FileOutputFormat.setOutputPath(job, new Path(outputDataPath));
 
@@ -74,7 +74,7 @@ public class AttributeExtraction {
      */
     private static void uploadFileToHDFS() throws Exception {
         //删除HDFS中的残余数据
-        FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem, new Path("/user/hadoop/mahout_IdealSpring"));
+        FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem, new Path("/user/hadoop/mahout"));
 
         for(FileStatus file : fileStatuses) {
             Path path = file.getPath();
@@ -84,11 +84,11 @@ public class AttributeExtraction {
         System.out.println("Delete HDFS FileSystem Successfully......");
 
         //上传文件到HDFS中
-        String outFile = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/out";
+        String outFile = "D:\\视频诗词/异常企业资料/out";
         File file = new File(outFile);
         for(File s : file.listFiles()) {
             String filePath = new File(s.getPath()).toString();
-            fileSystem.copyFromLocalFile(new Path(filePath), new Path("/user/hadoop/mahout_IdealSpring/"));
+            fileSystem.copyFromLocalFile(new Path(filePath), new Path("/user/hadoop/mahout/"));
         }
 
         System.out.println("Uploaded HDFS FileSystem Successfully......");
@@ -112,7 +112,7 @@ public class AttributeExtraction {
         }
 
         //交叉验证, 所打则数5
-        double crossNum = 15;
+        double crossNum = 10;
         int selectSampleCount = (int) (originalData.size() / crossNum);
 
         ArrayList<ArrayList<String>> data_CV = new ArrayList<>();
@@ -137,7 +137,7 @@ public class AttributeExtraction {
 
     private static void writeToFile(ArrayList<ArrayList<String>> data_cv) throws Exception {
         //删除该文件下的所有残留数据
-        String outFile = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/out";
+        String outFile = "D:\\视频诗词\\异常企业资料/out";
         File file = new File(outFile);
         for(File s : file.listFiles()) {
             new File(s.getPath()).delete();
@@ -146,8 +146,8 @@ public class AttributeExtraction {
         //写入数据
         for(int i = 0; i < data_cv.size(); i++) {
             //将数据输出
-            String trainOutPath = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/out/" + i +"-CV_train.dat";
-            String testOutPath = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/out/" + i +"-CV_test.dat";
+            String trainOutPath = "D:\\视频诗词\\异常企业资料/out/" + i +"-CV_train.dat";
+            String testOutPath = "D:\\视频诗词\\异常企业资料/out/" + i +"-CV_test.dat";
             BufferedWriter writerTrain = new BufferedWriter(new FileWriter(trainOutPath));
             BufferedWriter writerTest = new BufferedWriter(new FileWriter(testOutPath));
 

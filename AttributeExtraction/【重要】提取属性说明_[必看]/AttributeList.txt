@@ -1,4 +1,4 @@
-1.属性名:inputInvoice		--进项发票
+﻿1.属性名:inputInvoice		--进项发票
          属性值:exist			--存在
 	       none				--不存在
 		   
@@ -61,3 +61,9 @@
 	属性值:
 		none	-- 不存在
 		exist	-- 存在
+
+13.属性名：lossAddStock			连续亏损仍然加大进货
+	属性值：
+		none		--不存在
+		exist		--存在
+		unknown		--未知(进销项发票至少一项全无)

@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class Stemp123 {
     public static void main(String[] args, FileSystem fileSystem) throws Exception {
         //删除本地f1score文件
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        File f1scoreFile = new File("D://视频诗词/异常企业资料/F1_Score/f1score_list.txt");
         if(f1scoreFile.exists()) {
             f1scoreFile.delete();
         }
@@ -45,9 +45,9 @@ public class Stemp123 {
      */
     public static void Step1Describe(int i) throws IOException, DescriptorException {
         String[] args =new String[]{
-                "-p", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
-                "-f", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
-                "-d", "I", "2", "N", "12", "C", "L"
+                "-p", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_train.dat",
+                "-f", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
+                "-d", "I", "2", "N", "13", "C", "L"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-f") + 1]));
@@ -61,11 +61,11 @@ public class Stemp123 {
      */
     private static void Step2BuildForest(int i) throws Exception {
         String[] args = new String[]{
-                "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
-                "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
-                "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
+                "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_train.dat",
+                "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
+                "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
                 "-sl", "5",
-                /*"-p",*/ "-t", "1"
+                /*"-p",*/ "-t", "1000"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
@@ -79,10 +79,10 @@ public class Stemp123 {
      */
     private static void Step3TestForest(int i) throws Exception {
         String[] args = new String[]{
-                "-i", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_test.dat",
-                "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
-                "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/predictions",
-                "-m", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
+                "-i", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_test.dat",
+                "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
+                "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout/predictions",
+                "-m", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
                 "-a"
         };
 
@@ -99,7 +99,7 @@ public class Stemp123 {
      * @throws IOException
      */
     private static void computeF1score() throws IOException {
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        File f1scoreFile = new File("D://视频诗词/异常企业资料/F1_Score/f1score_list.txt");
         BufferedReader reader = new BufferedReader(new FileReader(f1scoreFile));
         //文件原始数据
         ArrayList<Double> data = new ArrayList<>();
@@ -135,7 +135,7 @@ public class Stemp123 {
         int count = 0;
 
         FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem,
-                new Path("/user/hadoop/mahout_IdealSpring"), new PathFilter() {
+                new Path("/user/hadoop/mahout"), new PathFilter() {
                     @Override
                     public boolean accept(Path path) {
                         String filePath = path.toString();

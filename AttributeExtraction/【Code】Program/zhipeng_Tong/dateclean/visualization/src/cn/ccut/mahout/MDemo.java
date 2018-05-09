@@ -12,7 +12,7 @@ public class MDemo {
         FileSystem fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");
 
         FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem,
-                new Path("/user/hadoop/mahout_IdealSpring"), new PathFilter() {
+                new Path("/user/hadoop/mahout"), new PathFilter() {
                     @Override
                     public boolean accept(Path path) {
                         String filePath = path.toString();
