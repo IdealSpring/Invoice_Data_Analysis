@@ -1,50 +1,58 @@
+<<<<<<< HEAD
 ﻿1.属性名:inputInvoice		--进项发票
+=======
+1.属性名:inputInvoiceNum	--进项发票数量
+
+2.属性名:outputInvoiceNum	--销项发票数量
+
+3.属性名:inputInvoice		--进项发票
+>>>>>>> d42f1edf526bd9890ff3a70092b187b7e798cbfc
          属性值:exist			--存在
 	       none				--不存在
 		   
-2.属性名:outputInvoice		--销项发票
+4.属性名:outputInvoice		--销项发票
 	属性值:exist			--存在
 	       none				--不存在
 
-3.属性名:inputInterval 	--最近两次进项开票时间
+5.属性名:inputInterval 	--最近两次进项开票时间
 	属性值:withinOneMonth	--一个月内
 	       withinTwoMonth	--两个月内
 		   withoutMonth		--两个月外
 		   withoutInvoice	--没有发票
 		   
-4.属性名:outputInterval 	--最近两次销项开票时间
+6.属性名:outputInterval 	--最近两次销项开票时间
 	属性值:withinOneMonth	--一个月内
 	       withinTwoMonth	--两个月内
 		   withoutMonth		--两个月外
 		   withoutInvoice	--没有发票
 
-5.属性名:taxChangeRate		--税负变动率
+7.属性名:taxChangeRate		--税负变动率
 	属性值:none				--上月无税负
 		   low				--低
 		   high				--高
 
-6.属性名:invoiceUsageChange	--发票用量变动
+8.属性名:invoiceUsageChange	--发票用量变动
 	属性值:none				--本月和上一个月均无发票
 		   low				--低
 		   high				--高
 
-7.属性名:inputTaxAndOutputTaxRatio --进项税额变动率高于销项税额变动率
+9.属性名:inputTaxAndOutputTaxRatio --进项税额变动率高于销项税额变动率
 	属性值:none					   --上期不存在
 		   low					   --低
 		   high                    --高
 
-8.属性名:invoiceInvalidRatio		--发票作废率
+10.属性名:invoiceInvalidRatio		--发票作废率
 	属性值:none						--不存在
 			low						--低
 			high					--高
 
-9.属性名:continuousLoss		-- 连续亏损
+11.属性名:continuousLoss		-- 连续亏损
 	属性值: none					-- 没有亏损
 			continuousMonth			-- 连续一个月
 			overallLoss				-- 总体亏损
 			unknown					-- 未知(进销项发票至少一项全无)
 
-10.属性名：InvoiceBalance		进销项差额
+12.属性名：InvoiceBalance		进销项差额
 	属性值		unknown		进销项其中一个为null
 			balanceHuge	进销项差额巨大
 			normal		正常
@@ -52,12 +60,12 @@
 		当进项金额小于等于销项金额的50%，或者销项金额小于等于进项金额的30%
 		标记异常
 		
-11.属性名: inputInvoiceInvalid		是否有作废进项发票
+13.属性名: inputInvoiceInvalid		是否有作废进项发票
 	属性值:
 		none	-- 不存在
 		exist	-- 存在
 
-12.属性名: outputInvoiceInvalid		是否有作废销项发票
+14.属性名: outputInvoiceInvalid		是否有作废销项发票
 	属性值:
 		none	-- 不存在
 		exist	-- 存在

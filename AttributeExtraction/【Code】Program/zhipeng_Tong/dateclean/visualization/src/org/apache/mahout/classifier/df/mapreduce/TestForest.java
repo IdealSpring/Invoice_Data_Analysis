@@ -48,6 +48,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -275,7 +276,7 @@ public class TestForest extends Configured implements Tool {
 
             String line = null;
             while ((line = reader.readLine()) != null) {
-                data.add(line);
+                data.add(line.trim());
             }
 
             reader.close();
@@ -286,7 +287,7 @@ public class TestForest extends Configured implements Tool {
         BufferedWriter writer = new BufferedWriter(new FileWriter(f1scoreFile));
 
         for(String line : data) {
-            writer.write(line);
+            writer.write(line.trim());
             writer.newLine();
             writer.flush();
         }
@@ -336,10 +337,28 @@ public class TestForest extends Configured implements Tool {
                     Instance instance = converter.convert(line);
                     double prediction = forest.classify(dataset, rng, instance);
 
+                    int predictionInt = 0;
+                    if(prediction == 1.0) {
+                        predictionInt = 1;
+                    } else {
+                        predictionInt = 0;
+                    }
+
+                    String nsr_id = line.substring(0, line.indexOf(","));
+
                     if (ofile != null) {
+                        String record = getPrediction(nsr_id);
+                        if(record != null) {
+                            ofile.writeBytes(record + "," + Integer.toString(predictionInt) + "\n");
+                        } else {
+                            ofile.writeBytes(nsr_id + "," + Integer.toString(predictionInt) + "\n");
+                        }
+                    }
+
+                    /*if (ofile != null) {
                         ofile.writeChars(Double.toString(prediction)); // write the prediction
                         ofile.writeChar('\n');
-                    }
+                    }*/
 
                     results.add(new double[]{dataset.getLabel(instance), prediction});
                 }
@@ -347,6 +366,38 @@ public class TestForest extends Configured implements Tool {
 
             scanner.close();
         }
+    }
+
+    /**
+     * 添加完整信息
+     *
+     * @param
+     * @return
+     */
+    private String getPrediction(String nsrxx_id) throws IOException {
+        String fileNsrxx = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/信息3/nsrxx.dat";
+        BufferedReader readerNsrxx = new BufferedReader(new FileReader(fileNsrxx));
+        ArrayList<String> dataNsrxx = new ArrayList<>();
+
+        String line = null;
+        while ((line = readerNsrxx.readLine()) != null) {
+            dataNsrxx.add(line);
+        }
+
+        readerNsrxx.close();
+
+        for(int i = 0; i < dataNsrxx.size(); i++) {
+            String nsrxx = dataNsrxx.get(i);
+            String[] split1 = nsrxx.split(",");
+            String nsr_id = split1[1].trim();
+
+            if(nsrxx_id.equals(nsr_id)) {
+                line = nsrxx.substring(0, nsrxx.lastIndexOf(","));
+                break;
+            }
+        }
+
+        return line;
     }
 
     public static void main(String[] args) throws Exception {

@@ -1,6 +1,6 @@
 package cn.ccut;
 
-import cn.ccut.mahout.Stemp123;
+import cn.ccut.mahout.Step123;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
@@ -12,10 +12,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.mahout.common.HadoopUtil;
 
-import java.awt.*;
 import java.io.*;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.*;
 import java.util.List;
 
@@ -62,11 +60,13 @@ public class AttributeExtraction {
             upDateTrainAndTest(outputDataPath);
         }
 
+        //upDateTrainAndTest("C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\result\\cdfefddc-95cb-46e8-b6c8-e6927855cec9");
+
         //上传文件到HDFS文件系统
         uploadFileToHDFS();
 
         //测试
-        Stemp123.main(new String[]{}, fileSystem);
+        Step123.main(new String[]{});
     }
 
     /**
@@ -111,8 +111,13 @@ public class AttributeExtraction {
             originalData.add(line);
         }
 
+<<<<<<< HEAD
         //交叉验证, 所打则数5
         double crossNum = 10;
+=======
+        //交叉验证, 所打则数10
+        double crossNum = 2;
+>>>>>>> d42f1edf526bd9890ff3a70092b187b7e798cbfc
         int selectSampleCount = (int) (originalData.size() / crossNum);
 
         ArrayList<ArrayList<String>> data_CV = new ArrayList<>();
