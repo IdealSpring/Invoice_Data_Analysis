@@ -267,7 +267,7 @@ public class TestForest extends Configured implements Tool {
      * @throws IOException
      */
     private void writeF1scoreToFile(String weightedF1score) throws IOException {
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        File f1scoreFile = new File("D:/视频诗词/异常企业资料/F1_Score/f1score_list.txt");
         //文件原始数据
         ArrayList<String> data = new ArrayList<>();
 
@@ -375,7 +375,7 @@ public class TestForest extends Configured implements Tool {
      * @return
      */
     private String getPrediction(String nsrxx_id) throws IOException {
-        String fileNsrxx = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/信息3/nsrxx.dat";
+        String fileNsrxx = "D://视频诗词/异常企业资料/信息3/nsrxx.dat";
         BufferedReader readerNsrxx = new BufferedReader(new FileReader(fileNsrxx));
         ArrayList<String> dataNsrxx = new ArrayList<>();
 
