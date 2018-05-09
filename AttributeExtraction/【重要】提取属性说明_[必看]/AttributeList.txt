@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-﻿1.属性名:inputInvoice		--进项发票
-=======
 1.属性名:inputInvoiceNum	--进项发票数量
 
 2.属性名:outputInvoiceNum	--销项发票数量
 
 3.属性名:inputInvoice		--进项发票
->>>>>>> d42f1edf526bd9890ff3a70092b187b7e798cbfc
-         属性值:exist			--存在
+         属性值:exist		--存在
 	       none				--不存在
 		   
 4.属性名:outputInvoice		--销项发票
