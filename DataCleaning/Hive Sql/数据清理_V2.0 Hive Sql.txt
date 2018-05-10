@@ -141,6 +141,41 @@ select * from zzsfp_actual z where z.xf_id in (select id from narxx_normal_parti
 
 xf共计:210462
 
+9.分理处发票的hwmx
+create table use_zzsfp(fp_nid string,xf_id string,gf_id string,je double,se double,jshj double,kpyf string,kprq string,zfbz string)
+row format delimited 
+fields terminated by ","
+
+insert into table use_zzsfp
+select * from zzsfp z where z.xf_id in (select n.nsr_id from use_nsrxx n)
+
+共计:233498
+
+insert into table use_zzsfp
+select * from zzsfp z where z.gf_id in (select n.nsr_id from use_nsrxx n)
+
+共计:415471
+
+create table use_zzsfp_hwmx(fp_nid string,date_key string,hwmc string,ggxh string,dw string,sl double,dj double,je double,se double,spbm string)
+row format delimited 
+fields terminated by ","
+
+insert into table use_zzsfp_hwmx
+select * from zzsfp_hwmx z where z.fp_nid in (select zz.fp_nid fp_nid from use_zzsfp zz)
+
+insert into table use_zzsfp_hwmx
+select * from zzsfp_hwmx z where z.fp_nid in (select fp_nid fp_nid from id zz)
+共计:1266714
+
+hadoop job  -kill job_1525864407532_0001
+
+
+
+
+
+
+
+
 
 
 

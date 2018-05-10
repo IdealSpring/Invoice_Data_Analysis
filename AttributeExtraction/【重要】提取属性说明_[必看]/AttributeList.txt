@@ -66,7 +66,7 @@
 		none	-- 不存在
 		exist	-- 存在
 
-13.属性名：lossAddStock			连续亏损仍然加大进货
+15.属性名：lossAddStock			连续亏损仍然加大进货
 	属性值：
 		none		--不存在
 		exist		--存在
