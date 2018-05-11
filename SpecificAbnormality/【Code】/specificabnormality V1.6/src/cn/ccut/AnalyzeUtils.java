@@ -225,15 +225,14 @@ public class AnalyzeUtils {
 
                 // 近一个季度若进项大于等于销项
                 if (inputAmount > outputAmount) {
-                    if (inputAmount >= outputAmount * 1.3) {
+                    if (inputAmount * 0.5 >= outputAmount) {
                         return LOSS_SERIOUS + LOSS_WARNING_CONTINUOUS_QUARTER;
                     } else {
                         return LOSS_WARNING_CONTINUOUS_QUARTER;
                     }
                 } else if (outputAmount >= inputAmount) {
-                    if (outputAmount >= inputAmount * 1.5) {
-                        // return HUGE_PROFIT;
-                        return "";
+                    if (outputAmount * 0.3 >= inputAmount) {
+                        return HUGE_PROFIT;
                     } else {
                         return "";
                     }
@@ -252,15 +251,14 @@ public class AnalyzeUtils {
 
                 // 若总体进项大于销项
                 if (inputAmount > outputAmount) {
-                    if (inputAmount >= outputAmount * 1.3) {
+                    if (inputAmount * 0.5 >= outputAmount) {
                         return LOSS_SERIOUS + LOSS_WARNING;
                     } else {
                         return LOSS_WARNING;
                     }
                 } else if (outputAmount >= inputAmount) {
-                    if (outputAmount >= inputAmount * 1.5) {
-                        //return HUGE_PROFIT;
-                        return "";
+                    if (outputAmount * 0.3 >= inputAmount) {
+                        return HUGE_PROFIT;
                     } else {
                         return "";
                     }
