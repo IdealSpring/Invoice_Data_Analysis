@@ -1,5 +1,6 @@
 package cn.ccut.mahout;
 
+import cn.ccut.common.FilePathCollections;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
@@ -18,23 +19,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Step123 {
-    private static FileSystem fileSystem;
-
-    static {
-        Configuration conf = new Configuration();
-        try {
-            fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         //删除本地f1score文件
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
-        if(f1scoreFile.exists()) {
-            f1scoreFile.delete();
-        }
+        FilePathCollections.clearUpresultOutputPathFile(FilePathCollections.basePath + "F1_Score");
 
         //查询HDFS文件系统中训练集测试集则数
         int CVNum = getCVNumByHDFS();
@@ -45,7 +32,7 @@ public class Step123 {
             Step3TestForest(i);
         }
 
-        fileSystem.close();
+        FilePathCollections.fileSystem.close();
         //计算F1score
         computeF1score();
     }
@@ -60,7 +47,7 @@ public class Step123 {
         String[] args =new String[]{
                 "-p", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
                 "-f", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
-                "-d", "I", "2", "N", "12", "C", "L"
+                "-d", "I", "2", "N", "12", "C", "N", "L"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-f") + 1]));
@@ -79,7 +66,7 @@ public class Step123 {
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
                 "-sl", "4",
-                "-p", "-t", "100"
+                "-p", "-t", "1000"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
@@ -112,7 +99,7 @@ public class Step123 {
      * @throws IOException
      */
     private static void computeF1score() throws IOException {
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        File f1scoreFile = new File(FilePathCollections.f1scoreFilePath);
         BufferedReader reader = new BufferedReader(new FileReader(f1scoreFile));
         //文件原始数据
         ArrayList<Double> data = new ArrayList<>();
@@ -145,12 +132,10 @@ public class Step123 {
      * @throws Exception
      */
     public static int getCVNumByHDFS() throws Exception {
-        /*Configuration conf = new Configuration();
-        FileSystem fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");*/
         int count = 0;
 
-        FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem,
-                new Path("/user/hadoop/mahout_IdealSpring"), new PathFilter() {
+        FileStatus[] fileStatuses = HadoopUtil.listStatus(FilePathCollections.fileSystem,
+                new Path(FilePathCollections.stage06HDFSTrainAndTestPath), new PathFilter() {
                     @Override
                     public boolean accept(Path path) {
                         String filePath = path.toString();

@@ -71,3 +71,7 @@
 		none		--不存在
 		exist		--存在
 		unknown		--未知(进销项发票至少一项全无)
+
+16.属性名: InputAndOutputDeviation		进项销项商品不同指数
+	属性值:
+		连续值

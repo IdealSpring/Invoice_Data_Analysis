@@ -17,6 +17,7 @@
 
 package org.apache.mahout.classifier.df.mapreduce;
 
+import cn.ccut.common.FilePathCollections;
 import org.apache.commons.cli2.CommandLine;
 import org.apache.commons.cli2.Group;
 import org.apache.commons.cli2.Option;
@@ -48,7 +49,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -267,7 +267,8 @@ public class TestForest extends Configured implements Tool {
      * @throws IOException
      */
     private void writeF1scoreToFile(String weightedF1score) throws IOException {
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
+        new File(FilePathCollections.basePath + "F1_Score").mkdir();
+        File f1scoreFile = new File(FilePathCollections.f1scoreFilePath);
         //文件原始数据
         ArrayList<String> data = new ArrayList<>();
 
@@ -375,7 +376,7 @@ public class TestForest extends Configured implements Tool {
      * @return
      */
     private String getPrediction(String nsrxx_id) throws IOException {
-        String fileNsrxx = "C:/Users/zhipeng-Tong/Desktop/异常企业资料/信息3/nsrxx.dat";
+        String fileNsrxx = FilePathCollections.nsrxxFilePath;
         BufferedReader readerNsrxx = new BufferedReader(new FileReader(fileNsrxx));
         ArrayList<String> dataNsrxx = new ArrayList<>();
 

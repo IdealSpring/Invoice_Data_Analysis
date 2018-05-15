@@ -1,11 +1,13 @@
-package cn.ccut;
+package cn.ccut.stage01;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 /**
  * 发票实体类
  */
 
-public class Invoice implements Comparable<Invoice>{
+public class Invoice implements Comparable<Invoice> {
+    //发票概要
     private String fp_nid;
     private String xf_id;
     private String gf_id;

@@ -1,4 +1,11 @@
-package cn.ccut;
+package cn.ccut.common;
+
+import cn.ccut.stage01.Enterprise;
+import cn.ccut.stage01.Invoice;
+import cn.ccut.stage03.DetailsExtraction;
+import cn.ccut.stage03.InvoicesDetailsS3;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -6,11 +13,12 @@ import java.util.*;
  * 计算属性工具类
  */
 public class AttributeUtils {
+    private static final Logger log = LoggerFactory.getLogger(AttributeUtils.class);
     private AttributeUtils() {}
 
     /**
-     * 1.inputInvoice属性
-     * 2.outputInvoice属性
+     * 3.inputInvoice属性
+     * 4.outputInvoice属性
      * 提取
      *
      * @param enterprise
@@ -34,7 +42,7 @@ public class AttributeUtils {
 
     /**
      * 计算:
-     *      3.inputInterval 	--最近两次进项开票时间
+     *      5.inputInterval 	--最近两次进项开票时间
      *
      * @param inputInvoiceSet   进项发票
      */
@@ -83,7 +91,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 4.outputInterval 	--最近两次销项开票时间
+     * 6.outputInterval 	--最近两次销项开票时间
      *
      * @param enterprise
      * @param outputInvoiceSet
@@ -135,7 +143,7 @@ public class AttributeUtils {
 
     /**
      * 计算：
-     *      5.taxChangeRate		--税负变动率
+     *      7.taxChangeRate		--税负变动率
      * @param enterprise
      * @param inputInvoiceSet
      * @param outputInvoiceSet
@@ -579,7 +587,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 6.属性名:invoiceUsageChange	--发票用量变动
+     * 8.属性名:invoiceUsageChange	--发票用量变动
      *      属性值:none				--本月和上一个月均无发票
      *      low				        --低
      *      high				    --高
@@ -684,7 +692,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 【7.】进项税额变动率高于销项税额变动率
+     * 【9.】进项税额变动率高于销项税额变动率
      *      1.计算公式：指标值=（进项税额变动率-销项税额变动率）/销项税额变动率；
      *                  进项税额变动率额=(本期进项-上期进项)/上期进项；
      *                  销项税额变动率=(本期销项-上期销项)/上期销项。
@@ -874,7 +882,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 【8.】发票作废率
+     * 【10.】发票作废率
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -946,7 +954,7 @@ public class AttributeUtils {
 
 
     /**
-     * 9. --发票显示连续亏损
+     * 11. --发票显示连续亏损
      *      none					-- 没有亏损
      *      continuousQuarter		-- 连续一个季度
      *      overallLoss				-- 总体亏损
@@ -1080,7 +1088,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 10.invoiceBalance     --进销项差额
+     * 12.invoiceBalance     --进销项差额
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -1128,7 +1136,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 属性11:
+     * 属性13:
      *      是否有进项作废发票
      *
      * @param enterprise
@@ -1148,7 +1156,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 属性12:
+     * 属性14:
      *      是否有进项作废发票
      *
      * @param enterprise
@@ -1166,4 +1174,102 @@ public class AttributeUtils {
             }
         }
     }
+
+    /**
+     * 16.inputAndOutputDeviation    --进销项偏离指数(进半年)
+     */
+    public static void setInputAndOutputDeviation(DetailsExtraction detailsExtraction,
+                                                  TreeSet<InvoicesDetailsS3> inputDetailsSet,
+                                                  TreeSet<InvoicesDetailsS3> outputDetailsSet) {
+        //进项商品编码
+        TreeSet<String> inputSpbm = new TreeSet<>();
+        ArrayList<InvoicesDetailsS3> inputDetailsList = new ArrayList<>();
+        //销项商品编码
+        TreeSet<String> outputSpbm = new TreeSet<>();
+        ArrayList<InvoicesDetailsS3> outputDetailsList = new ArrayList<>();
+        //时间戳
+        Calendar lastTime = Calendar.getInstance();
+
+        if(inputDetailsSet != null && inputDetailsSet.size() != 0) {
+            InvoicesDetailsS3 first = inputDetailsSet.first();
+            Calendar date_keyMX = first.getDate_keyMX();
+            int year = date_keyMX.get(Calendar.YEAR);
+            int month = date_keyMX.get(Calendar.MONTH);
+            lastTime.set(Calendar.YEAR, year);
+            lastTime.set(Calendar.MONTH, month);
+        }
+
+        if(outputDetailsSet != null && outputDetailsSet.size() != 0) {
+            InvoicesDetailsS3 first = outputDetailsSet.first();
+            Calendar date_keyMX = first.getDate_keyMX();
+            if(lastTime == null) {
+                int year = date_keyMX.get(Calendar.YEAR);
+                int month = date_keyMX.get(Calendar.MONTH);
+                lastTime.set(Calendar.YEAR, year);
+                lastTime.set(Calendar.MONTH, month);
+            } else if(!lastTime.after(date_keyMX)) {
+                int year = date_keyMX.get(Calendar.YEAR);
+                int month = date_keyMX.get(Calendar.MONTH);
+                lastTime.set(Calendar.YEAR, year);
+                lastTime.set(Calendar.MONTH, month);
+            }
+        }
+
+        if(lastTime != null) {
+            lastTime.add(Calendar.MONTH, -6);
+        }
+
+        try {
+            //遍历获取商品编码
+            //进项
+            for(InvoicesDetailsS3 s3 : inputDetailsSet) {
+                Calendar date_keyMX = s3.getDate_keyMX();
+
+                if(lastTime.before(date_keyMX)) {
+                    inputDetailsList.add(s3);
+                }
+            }
+            for(InvoicesDetailsS3 s3 : inputDetailsList) {
+                String spbmMX = s3.getSpbmMX().substring(0, 3);
+                inputSpbm.add(spbmMX);
+            }
+
+            //销项
+            for(InvoicesDetailsS3 s3 : outputDetailsSet) {
+                Calendar date_keyMX = s3.getDate_keyMX();
+
+                if(lastTime.before(date_keyMX)) {
+                    outputDetailsList.add(s3);
+                }
+            }
+            for(InvoicesDetailsS3 s3 : outputDetailsList) {
+                String spbmMX = s3.getSpbmMX().substring(0, 3);
+                outputSpbm.add(spbmMX);
+            }
+
+            //比较，并且赋值
+            //去掉相同的spbm
+            ArrayList<String> remove = new ArrayList<>();
+            for(String iSpbm : inputSpbm) {
+                for(String oSpbm : outputSpbm) {
+                    if(iSpbm.equals(oSpbm)) {
+                        remove.add(iSpbm);
+                    }
+                }
+            }
+            //移除
+            inputSpbm.removeAll(remove);
+            outputSpbm.removeAll(remove);
+
+            //计算偏离指数,两个集合剩余的数据和为偏离指数
+            int length = inputSpbm.size() + outputSpbm.size();
+
+            detailsExtraction.setInputAndOutputDeviation(length + "");
+        }catch (Exception e) {
+            log.info("AttributeUtils...脏数据！脏数据！脏数据！");
+        }
+
+    }
+
+
 }
