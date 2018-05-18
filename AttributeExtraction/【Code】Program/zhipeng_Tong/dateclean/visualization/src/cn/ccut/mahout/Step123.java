@@ -47,7 +47,7 @@ public class Step123 {
         String[] args =new String[]{
                 "-p", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
                 "-f", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
-                "-d", "I", "2", "N", "12", "C", "N", "L"
+                "-d", "I", "2", "N", "13", "C", "N", "2", "C", "L"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-f") + 1]));
@@ -66,7 +66,7 @@ public class Step123 {
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
                 "-sl", "4",
-                "-p", "-t", "1000"
+                "-p", "-t", "100"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));

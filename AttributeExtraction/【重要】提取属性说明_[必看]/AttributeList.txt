@@ -75,3 +75,11 @@
 16.属性名: InputAndOutputDeviation		进项销项商品不同指数
 	属性值:
 		连续值
+
+17.属性名: inputInvoiceBusinessScope	进项经营范围
+	属性值:
+		待定
+
+18.属性名: outputInvoiceBusinessScope	销项经营范围
+	属性值:
+		待定

@@ -51,6 +51,8 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
             AttributeUtils.setInputInvoiceInvalid(enterprise, inputInvoiceSet);
             //14.outputInvoiceInvalid
             AttributeUtils.setOutputInvoiceInvalid(enterprise, outputInvoiceSet);
+            //15.lossAddStock
+            AttributeUtils.setLossAddStock(enterprise,inputInvoiceSet,outputInvoiceSet);
 
             //写出
             context.write(enterprise, NullWritable.get());
@@ -112,6 +114,7 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setInvoiceInvalidRatio("Null");
         enterprise.setContinuousLoss("Null");
         enterprise.setInvoiceBalance("Null");
+        enterprise.setLossAddStock("Null");
 
         enterprise.setLabel("0");
     }

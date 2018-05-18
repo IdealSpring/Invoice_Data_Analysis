@@ -14,12 +14,14 @@ public class MergerMapper extends Mapper<LongWritable, Text, Text, MergerTwo> {
         String line = value.toString();
         String[] split = line.split(",");
 
-        if(split.length == 16) {
+        //if(split.length == 17) {
+        if(split.length > 10) {
             mergerTwo.setMain(true);
             mergerTwo.setMainFields(line);
 
             context.write(new Text(split[0]), mergerTwo);
-        } else if(split.length == 2) {
+        //} else if(split.length == 4) {
+        } else if(split.length < 10) {
             mergerTwo.setSecondaryFields(line);
 
             context.write(new Text(split[0]), mergerTwo);

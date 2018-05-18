@@ -37,6 +37,8 @@ public class FilePathCollections {
     public static final String zzsfpFilePath = basePath + "信息4/zzsfp_V2.0.dat";
     //指定输入文件中hwmx文件路径
     public static final String hwmxFilePath = basePath + "信息4/hwmx_V2.0.dat";
+    //指定输入文件中hydm_link_spbm文件路径
+    public static final String hydm_link_spbmFilePath = basePath + "信息4/hydm_link_spbm_V2.0.dat";
 
     /**
      * 第一阶段mapreduce(stage01包中)文件路径

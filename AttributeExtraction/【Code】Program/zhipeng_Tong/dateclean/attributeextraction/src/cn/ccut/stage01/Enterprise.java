@@ -75,6 +75,8 @@ public class Enterprise implements Writable{
     private String inputInvoiceInvalid = "Null";
     //14.销项发票作废
     private String outputInvoiceInvalid = "Null";
+    //15.连续亏损仍然加大进货
+    private String lossAddStock = "Null";
 
     //企业分类
     private String label = "0";
@@ -94,6 +96,7 @@ public class Enterprise implements Writable{
                 "," + inputTaxAndOutputTaxRatio + "," + invoiceInvalidRatio +
                 "," + continuousLoss + "," + invoiceBalance +
                 "," + inputInvoiceInvalid + "," + outputInvoiceInvalid +
+                "," + lossAddStock +
                 "," + label;
         /*return nsr_id +
                 "," + inputInvoice + "," + outputInvoice +
@@ -150,6 +153,7 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.invoiceBalance);
         dataOutput.writeUTF(this.inputInvoiceInvalid);
         dataOutput.writeUTF(this.outputInvoiceInvalid);
+        dataOutput.writeUTF(this.lossAddStock);
 
         dataOutput.writeUTF(this.label);
     }
@@ -197,6 +201,7 @@ public class Enterprise implements Writable{
         this.invoiceBalance = dataInput.readUTF();
         this.inputInvoiceInvalid = dataInput.readUTF();
         this.outputInvoiceInvalid = dataInput.readUTF();
+        this.lossAddStock = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -487,5 +492,13 @@ public class Enterprise implements Writable{
 
     public void setSpbmMX(String spbmMX) {
         this.spbmMX = spbmMX;
+    }
+
+    public String getLossAddStock() {
+        return lossAddStock;
+    }
+
+    public void setLossAddStock(String lossAddStock) {
+        this.lossAddStock = lossAddStock;
     }
 }

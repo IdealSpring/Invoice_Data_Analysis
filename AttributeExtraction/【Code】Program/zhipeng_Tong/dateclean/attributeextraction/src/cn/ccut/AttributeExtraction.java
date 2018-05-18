@@ -49,6 +49,5 @@ public class AttributeExtraction {
 
         //测试
         Step123.main(new String[]{});
-
     }
 }

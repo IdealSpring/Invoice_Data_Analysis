@@ -1,5 +1,6 @@
 package cn.ccut.stage03;
 
+import cn.ccut.common.FilePathCollections;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -7,11 +8,49 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Set;
 
 public class DetailsExtractionMapper extends Mapper<LongWritable, Text, Text, DetailsExtraction> {
     private DetailsExtraction detailsExtraction = new DetailsExtraction();
     private static final Logger log = LoggerFactory.getLogger(DetailsExtractionMapper.class);
+    private HashMap<String, String> nsrIdLinkSpbm = new HashMap<>();
+
+    //加载数据字典
+    @Override
+    protected void setup(Context context) throws IOException, InterruptedException {
+        HashMap<String, String> nsrIdLinkHydm = new HashMap<>();
+        BufferedReader reader = new BufferedReader(new FileReader(FilePathCollections.nsrxxFilePath));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            String[] split = line.split(",");
+            nsrIdLinkHydm.put(split[1], split[0].substring(0, 2));
+        }
+        reader.close();
+
+        HashMap<String, String> hydmLinkSpbm = new HashMap<>();
+        BufferedReader reader2 = new BufferedReader(new FileReader(FilePathCollections.hydm_link_spbmFilePath));
+        while ((line = reader2.readLine()) != null) {
+            String[] split = line.split(" ");
+            hydmLinkSpbm.put(split[0], split[1]);
+        }
+        reader2.close();
+
+        Set<String> nsrIdLinkHydmSet = nsrIdLinkHydm.keySet();
+        Set<String> hydmLinkSpbmSet = hydmLinkSpbm.keySet();
+        for(String nsrId : nsrIdLinkHydmSet) {
+            String hydmNsr = nsrIdLinkHydm.get(nsrId);
+
+            for(String hydm : hydmLinkSpbmSet) {
+                if(hydmNsr.equals(hydm)) {
+                    nsrIdLinkSpbm.put(nsrId, hydmLinkSpbm.get(hydm));
+                }
+            }
+        }
+    }
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -65,9 +104,27 @@ public class DetailsExtractionMapper extends Mapper<LongWritable, Text, Text, De
                 detailsExtraction.setSpbmMX(spbm);
 
                 detailsExtraction.setNsrId(split[1]);
+                //设置行业代码
+                Set<String> nsrIdLinkHydmSet = nsrIdLinkSpbm.keySet();
+                for(String nsrIdkey : nsrIdLinkHydmSet) {
+                    if(nsrIdkey.equals(split[1])) {
+                        String spbmSize = nsrIdLinkSpbm.get(nsrIdkey);
+                        detailsExtraction.setHydmLinkSpbm(spbmSize);
+                    }
+                }
                 context.write(new Text(split[1]), detailsExtraction);
 
                 detailsExtraction.setNsrId(split[2]);
+                //设置行业代码
+                detailsExtraction.setHydmLinkSpbm("Null");
+                Set<String> nsrIdLinkHydmSet2 = nsrIdLinkSpbm.keySet();
+                for(String nsrIdkey : nsrIdLinkHydmSet2) {
+                    if(nsrIdkey.equals(split[2])) {
+                        String spbmSize = nsrIdLinkSpbm.get(nsrIdkey);
+                        detailsExtraction.setHydmLinkSpbm(spbmSize);
+                        //nsrIdLinkSpbm.remove(nsrIdkey);
+                    }
+                }
                 context.write(new Text(split[2]), detailsExtraction);
             }
         } catch (Exception e) {
@@ -82,6 +139,7 @@ public class DetailsExtractionMapper extends Mapper<LongWritable, Text, Text, De
      */
     public void clearUpData() {
         detailsExtraction.setNsrId("Null");
+        detailsExtraction.setHydmLinkSpbm("Null");
 
         detailsExtraction.setFp_nidMX("Null");
         detailsExtraction.setXf_id("Null");

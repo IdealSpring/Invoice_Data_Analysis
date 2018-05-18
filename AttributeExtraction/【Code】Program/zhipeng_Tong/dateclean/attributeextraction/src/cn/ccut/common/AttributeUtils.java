@@ -1176,11 +1176,179 @@ public class AttributeUtils {
     }
 
     /**
+     * 属性13：
+     * 连续亏损仍然加大进货
+     *
+     * @param enterprise
+     * @param inputInvoiceSet
+     * @param outputInvoiceSet
+     */
+    public static void setLossAddStock(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet) {
+        // 发票进项金额
+        //最近一个月
+        double inputAmount = 0;
+        double outputAmount = 0;
+        //最近两个月进项金额
+        double inputAmount2 = 0;
+
+        boolean flag = false;
+
+        // 将TreeSet的数据放入List中
+        List<Invoice> inputList = new ArrayList<Invoice>();
+        List<Invoice> outputList = new ArrayList<Invoice>();
+
+        // 将发票按日期从远到近放入list中
+        for (Invoice invoice : inputInvoiceSet) {
+            inputList.add(0, invoice);
+        }
+        for (Invoice invoice : outputInvoiceSet) {
+            outputList.add(0, invoice);
+        }
+
+        // 进销项发票的数目
+        long inum = inputInvoiceSet.size();
+        long onum = outputInvoiceSet.size();
+
+        // 若进销项有一项不存在, 设值unknown
+        if (inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
+            enterprise.setLossAddStock("unknown");
+        }
+
+        // 若进销项都存在
+        if (inum > 0 && onum > 0) {
+            // 获取最近一次的进项发票日期
+            Calendar inkprq1 = inputList.get(0).getKprq();
+            // 获取最早一次的进项发票日期
+            Calendar inkprq2 = inputList.get(inputList.size() - 1).getKprq();
+            // 获取最近一次的进项发票日期
+            Calendar outkprq1 = outputList.get(0).getKprq();
+            // 获取最早一次的进项发票日期
+            Calendar outkprq2 = outputList.get(outputList.size() - 1).getKprq();
+            // 最近一次的发票日期
+            Calendar kprq1;
+            // 最早一次的发票日期
+            Calendar kprq2;
+
+            if (inkprq1.compareTo(outkprq1) > 0) {
+                kprq1 = inkprq1;
+            } else {
+                kprq1 = outkprq2;
+            }
+
+            if (inkprq2.compareTo(outkprq2) < 0) {
+                kprq2 = inkprq2;
+            } else {
+                kprq2 = outkprq2;
+            }
+
+            // 计算发票时间跨度,单位为天
+            long time1 = (kprq1.getTimeInMillis() - kprq2.getTimeInMillis()) / 1000 / 60 / 60 / 24;
+
+            inputAmount2 = twoMonthInput(time1, inkprq1, inputList);
+
+            // 若发票时间跨度大于一个季度
+            if (time1 > 30) {
+                // 记录最近一个月最早的发票在inputList中的位置
+                int i = 0;
+                inkprq1.add(Calendar.MONTH, -1);
+                Calendar inkprq3 = inkprq1;
+                for (Invoice invoice : inputList) {
+                    if (invoice.getKprq().compareTo(inkprq3) < 0) {
+                        i = inputList.indexOf(invoice);
+                    }
+                }
+                // 计算近一个月的进项金额之和
+                for (Invoice invoice : inputList) {
+                    int k = 0;
+                    if (k < i) {
+                        inputAmount += invoice.getJe();
+                        k++;
+                    } else {
+                        break;
+                    }
+                }
+
+                // 记录最近一个月最早的发票在outputList中的位置
+                int j = 0;
+                outkprq1.add(Calendar.MONTH, -1);
+                Calendar outkprq3 = outkprq1;
+                for (Invoice invoice : outputList) {
+                    if (invoice.getKprq().compareTo(outkprq3) < 0) {
+                        j = outputList.indexOf(invoice);
+                    }
+                }
+                // 计算近一个月的销项金额之和
+                for (Invoice invoice : outputList) {
+                    int k = 0;
+                    if (k < j) {
+                        outputAmount += invoice.getJe();
+                        k++;
+                    } else {
+                        break;
+                    }
+                }
+
+                if (inputAmount2 > 2 * inputAmount){
+                    flag = true;
+                }
+
+                // 近一个月若进项大于等于销项
+                if (inputAmount >= outputAmount && flag == true) {
+                    // 设值:continuousQuarter
+                    enterprise.setLossAddStock("exist");
+                } else {
+                    enterprise.setLossAddStock("none");
+                }
+            } else{
+                enterprise.setLossAddStock("unknown");
+            }
+
+        }
+    }
+
+    /**
+     * 属性十三计算工具
+     *
+     * @param time1
+     * @param inkprq1
+     * @param inputList
+     * @return
+     */
+    public static double twoMonthInput(long time1, Calendar inkprq1, List<Invoice> inputList) {
+
+        double inputAmount = 0;
+        //若发票时间跨度大于两个季度
+        if (time1 > 60) {
+            // 记录最近两个月最早的发票在inputList中的位置
+            int i = 0;
+            inkprq1.add(Calendar.MONTH, -1);
+            Calendar inkprq3 = inkprq1;
+            for (Invoice invoice : inputList) {
+                if (invoice.getKprq().compareTo(inkprq3) < 0) {
+                    i = inputList.indexOf(invoice);
+                }
+            }
+            // 计算近两个月的进项金额之和
+            for (Invoice invoice : inputList) {
+                int k = 0;
+                if (k < i) {
+                    inputAmount += invoice.getJe();
+                    k++;
+                } else {
+                    break;
+                }
+            }
+        }
+        return inputAmount;
+    }
+
+    /**
      * 16.inputAndOutputDeviation    --进销项偏离指数(进半年)
      */
     public static void setInputAndOutputDeviation(DetailsExtraction detailsExtraction,
                                                   TreeSet<InvoicesDetailsS3> inputDetailsSet,
-                                                  TreeSet<InvoicesDetailsS3> outputDetailsSet) {
+                                                  TreeSet<InvoicesDetailsS3> outputDetailsSet,
+                                                  ArrayList<String> spbmRange) {
         //进项商品编码
         TreeSet<String> inputSpbm = new TreeSet<>();
         ArrayList<InvoicesDetailsS3> inputDetailsList = new ArrayList<>();
@@ -1189,8 +1357,12 @@ public class AttributeUtils {
         ArrayList<InvoicesDetailsS3> outputDetailsList = new ArrayList<>();
         //时间戳
         Calendar lastTime = Calendar.getInstance();
+        //标记
+        boolean flog = false;
+
 
         if(inputDetailsSet != null && inputDetailsSet.size() != 0) {
+            flog = true;
             InvoicesDetailsS3 first = inputDetailsSet.first();
             Calendar date_keyMX = first.getDate_keyMX();
             int year = date_keyMX.get(Calendar.YEAR);
@@ -1202,7 +1374,7 @@ public class AttributeUtils {
         if(outputDetailsSet != null && outputDetailsSet.size() != 0) {
             InvoicesDetailsS3 first = outputDetailsSet.first();
             Calendar date_keyMX = first.getDate_keyMX();
-            if(lastTime == null) {
+            if(!flog) {
                 int year = date_keyMX.get(Calendar.YEAR);
                 int month = date_keyMX.get(Calendar.MONTH);
                 lastTime.set(Calendar.YEAR, year);
@@ -1263,8 +1435,58 @@ public class AttributeUtils {
 
             //计算偏离指数,两个集合剩余的数据和为偏离指数
             int length = inputSpbm.size() + outputSpbm.size();
-
+            //16个属性赋值
             detailsExtraction.setInputAndOutputDeviation(length + "");
+
+            //计算第17个属性
+            //累加器，计数使用
+            //标记
+            boolean flog2 = false;
+            int count = 0;
+            for(String spbm : inputSpbm) {
+                for(String standardSpbmSize : spbmRange) {
+                    if(spbm.equals(standardSpbmSize)) {
+                        flog2 = true;
+                        break;
+                    }
+                }
+                if(!flog2) {
+                    count ++;
+                }
+                flog2 = false;
+            }
+
+            //设置值
+            if(count == 0) {
+                //相符
+                detailsExtraction.setInputInvoiceBusinessScope("match");
+            } else {
+                //不符
+                detailsExtraction.setInputInvoiceBusinessScope("inconsistent");
+            }
+
+            //计算第18个属性
+            count = 0;
+            flog2 = false;
+            for(String spbm : outputSpbm) {
+                for(String standardSpbmSize : spbmRange) {
+                    if(spbm.equals(standardSpbmSize)) {
+                        flog2 = true;
+                        break;
+                    }
+                }
+                if(!flog2) {
+                    count ++;
+                }
+                flog2 = false;
+            }
+            //设置值
+            if(count == 0) {
+                detailsExtraction.setOutputInvoiceBusinessScope("match");
+            } else {
+                detailsExtraction.setOutputInvoiceBusinessScope("inconsistent");
+            }
+
         }catch (Exception e) {
             log.info("AttributeUtils...脏数据！脏数据！脏数据！");
         }

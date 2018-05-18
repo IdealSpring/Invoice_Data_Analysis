@@ -31,7 +31,12 @@ public class MergerReducer extends Reducer<Text, MergerTwo, MergerTwo, NullWrita
             resultFields = mainFieldsOne + secondaryFieldsOne + mainFieldsLabel;
 
             mergerTwo.setResultFields(resultFields);
-            context.write(mergerTwo, NullWritable.get());
+
+            //去除有Null值的数据
+            if(!secondaryFieldsOne.contains("Null")) {
+                context.write(mergerTwo, NullWritable.get());
+            }
+
         }
 
         clearUp();

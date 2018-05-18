@@ -9,6 +9,8 @@ import java.io.IOException;
 public class DetailsExtraction implements Writable {
     //企业唯一id
     private String nsrId = "Null";
+    //该企业商品编码范围
+    private String hydmLinkSpbm = "Null";
 
     /**
      * 发票明细
@@ -31,7 +33,10 @@ public class DetailsExtraction implements Writable {
      */
     //16.进销项偏离指数
     private String inputAndOutputDeviation = "Null";
-
+    //17.进项经营范围
+    private String inputInvoiceBusinessScope = "Null";
+    //18.销项经营范围
+    private String outputInvoiceBusinessScope = "Null";
 
     public DetailsExtraction() {}
 
@@ -51,13 +56,15 @@ public class DetailsExtraction implements Writable {
     @Override
     public String toString() {
         return nsrId +
-                "," + inputAndOutputDeviation;
+                "," + inputAndOutputDeviation + "," + inputInvoiceBusinessScope +
+                "," + outputInvoiceBusinessScope;
     }
 
     /*@Override
     public String toString() {
         return "DetailsExtraction{" +
                 "nsrId='" + nsrId + '\'' +
+                ", hydmLinkSpbm='" + hydmLinkSpbm + '\'' +
                 ", fp_nidMX='" + fp_nidMX + '\'' +
                 ", xf_id='" + xf_id + '\'' +
                 ", gf_id='" + gf_id + '\'' +
@@ -71,12 +78,15 @@ public class DetailsExtraction implements Writable {
                 ", seMX=" + seMX +
                 ", spbmMX='" + spbmMX + '\'' +
                 ", inputAndOutputDeviation='" + inputAndOutputDeviation + '\'' +
+                ", inputInvoiceBusinessScope='" + inputInvoiceBusinessScope + '\'' +
+                ", outputInvoiceBusinessScope='" + outputInvoiceBusinessScope + '\'' +
                 '}';
     }*/
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeUTF(this.nsrId);
+        dataOutput.writeUTF(this.hydmLinkSpbm);
 
         //发票明细
         dataOutput.writeUTF(this.fp_nidMX);
@@ -92,11 +102,14 @@ public class DetailsExtraction implements Writable {
         dataOutput.writeDouble(this.seMX);
         dataOutput.writeUTF(this.spbmMX);
         dataOutput.writeUTF(this.inputAndOutputDeviation);
+        dataOutput.writeUTF(this.inputInvoiceBusinessScope);
+        dataOutput.writeUTF(this.outputInvoiceBusinessScope);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
         this.nsrId = dataInput.readUTF();
+        this.hydmLinkSpbm = dataInput.readUTF();
 
         //发票明细
         this.fp_nidMX = dataInput.readUTF();
@@ -112,6 +125,8 @@ public class DetailsExtraction implements Writable {
         this.seMX = dataInput.readDouble();
         this.spbmMX = dataInput.readUTF();
         this.inputAndOutputDeviation = dataInput.readUTF();
+        this.inputInvoiceBusinessScope = dataInput.readUTF();
+        this.outputInvoiceBusinessScope = dataInput.readUTF();
     }
 
     public String getNsrId() {
@@ -224,5 +239,29 @@ public class DetailsExtraction implements Writable {
 
     public void setGf_id(String gf_id) {
         this.gf_id = gf_id;
+    }
+
+    public String getHydmLinkSpbm() {
+        return hydmLinkSpbm;
+    }
+
+    public void setHydmLinkSpbm(String hydmLinkSpbm) {
+        this.hydmLinkSpbm = hydmLinkSpbm;
+    }
+
+    public String getInputInvoiceBusinessScope() {
+        return inputInvoiceBusinessScope;
+    }
+
+    public void setInputInvoiceBusinessScope(String inputInvoiceBusinessScope) {
+        this.inputInvoiceBusinessScope = inputInvoiceBusinessScope;
+    }
+
+    public String getOutputInvoiceBusinessScope() {
+        return outputInvoiceBusinessScope;
+    }
+
+    public void setOutputInvoiceBusinessScope(String outputInvoiceBusinessScope) {
+        this.outputInvoiceBusinessScope = outputInvoiceBusinessScope;
     }
 }
