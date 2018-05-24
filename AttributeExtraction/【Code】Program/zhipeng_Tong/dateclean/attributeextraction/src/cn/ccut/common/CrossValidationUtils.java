@@ -29,6 +29,7 @@ public class CrossValidationUtils {
      */
     public static void upDateTrainAndTest(double crossNum) throws Exception {
         String path = FilePathCollections.stage04ResultOutputPath + "/part-r-00000";
+        //String path = FilePathCollections.stage01ResultOutputPath + "/part-r-00000";
         ArrayList<String> originalData = new ArrayList<>();
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
@@ -36,9 +37,6 @@ public class CrossValidationUtils {
         while ((line = bufferedReader.readLine()) != null) {
             originalData.add(line);
         }
-
-        //交叉验证, 所打则数10
-        //double crossNum = 5;
 
         int selectSampleCount = (int) (originalData.size() / crossNum);
 

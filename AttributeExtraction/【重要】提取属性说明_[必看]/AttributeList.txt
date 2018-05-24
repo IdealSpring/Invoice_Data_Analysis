@@ -78,8 +78,6 @@
 
 17.属性名: inputInvoiceBusinessScope	进项经营范围
 	属性值:
-		待定
 
 18.属性名: outputInvoiceBusinessScope	销项经营范围
 	属性值:
-		待定

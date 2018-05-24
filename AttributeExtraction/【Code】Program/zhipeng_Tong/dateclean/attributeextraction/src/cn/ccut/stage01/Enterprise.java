@@ -83,11 +83,6 @@ public class Enterprise implements Writable{
 
     @Override
     public String toString() {
-        /*return "nsr_id=" + nsr_id + ",inputInvoiceNum=" + inputInvoiceNum +
-                ",outputInvoiceNum=" + outputInvoiceNum + ",inputInvoice=" + inputInvoice +
-                ",outputInvoice=" + outputInvoice + ",inputInterval=" + inputInterval +
-                ",outputInterval=" + outputInterval + ",taxChangeRate=" + taxChangeRate +
-                ",label=" + label;*/
         return nsr_id +
                 "," + inputInvoiceNum + "," + outputInvoiceNum +
                 "," + inputInvoice + "," + outputInvoice +
@@ -98,16 +93,6 @@ public class Enterprise implements Writable{
                 "," + inputInvoiceInvalid + "," + outputInvoiceInvalid +
                 "," + lossAddStock +
                 "," + label;
-        /*return nsr_id +
-                "," + inputInvoice + "," + outputInvoice +
-                "," + inputInterval + "," + outputInterval +
-                "," + taxChangeRate + "," + invoiceInvalidRatio +
-                "," + invoiceBalance +
-                "," + label;*/
-        /*return "nsr_id=" + nsr_id +
-                ",inputInvoiceNum=" + inputInvoiceNum + ",outputInvoiceNum=" + outputInvoiceNum +
-                ",inputTaxAndOutputTaxRatio=" + inputTaxAndOutputTaxRatio +
-                ",label=" + label;*/
     }
 
     @Override

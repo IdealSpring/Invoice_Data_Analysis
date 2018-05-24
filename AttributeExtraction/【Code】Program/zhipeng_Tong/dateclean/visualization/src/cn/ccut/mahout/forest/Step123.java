@@ -1,4 +1,4 @@
-package cn.ccut.mahout;
+package cn.ccut.mahout.forest;
 
 import cn.ccut.common.FilePathCollections;
 import org.apache.hadoop.conf.Configuration;
@@ -65,8 +65,8 @@ public class Step123 {
                 "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/" + i + "-CV_train.dat",
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout_IdealSpring/forest_result",
-                "-sl", "4",
-                "-p", "-t", "100"
+                "-sl", "5",
+                "-p", "-t", "1000"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
