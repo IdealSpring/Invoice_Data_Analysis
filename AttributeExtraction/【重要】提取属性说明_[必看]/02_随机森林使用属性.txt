@@ -1,9 +1,14 @@
+【随机森林算法使用属性一览表】
+属性总结:
+	连续属性:1,2,,,16
+	离散属性:3,4,5,6,7,8,9,10,11,12,13,14,15,,,17,18
+
 1.属性名:inputInvoiceNum	--进项发票数量
 
 2.属性名:outputInvoiceNum	--销项发票数量
 
 3.属性名:inputInvoice		--进项发票
-         属性值:exist		--存在
+    属性值:exist			--存在
 	       none				--不存在
 		   
 4.属性名:outputInvoice		--销项发票
@@ -78,6 +83,10 @@
 
 17.属性名: inputInvoiceBusinessScope	进项经营范围
 	属性值:
+		match				--相符
+		inconsistent		--背离
 
 18.属性名: outputInvoiceBusinessScope	销项经营范围
 	属性值:
+		match				--相符
+		inconsistent		--背离
