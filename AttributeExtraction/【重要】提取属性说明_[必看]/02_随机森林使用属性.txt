@@ -1,0 +1,92 @@
+【随机森林算法使用属性一览表】
+属性总结:
+	连续属性:1,2,,,16
+	离散属性:3,4,5,6,7,8,9,10,11,12,13,14,15,,,17,18
+
+1.属性名:inputInvoiceNum	--进项发票数量
+
+2.属性名:outputInvoiceNum	--销项发票数量
+
+3.属性名:inputInvoice		--进项发票
+    属性值:exist			--存在
+	       none				--不存在
+		   
+4.属性名:outputInvoice		--销项发票
+	属性值:exist			--存在
+	       none				--不存在
+
+5.属性名:inputInterval 	--最近两次进项开票时间
+	属性值:withinOneMonth	--一个月内
+	       withinTwoMonth	--两个月内
+		   withoutMonth		--两个月外
+		   withoutInvoice	--没有发票
+		   
+6.属性名:outputInterval 	--最近两次销项开票时间
+	属性值:withinOneMonth	--一个月内
+	       withinTwoMonth	--两个月内
+		   withoutMonth		--两个月外
+		   withoutInvoice	--没有发票
+
+7.属性名:taxChangeRate		--税负变动率
+	属性值:none				--上月无税负
+		   low				--低
+		   high				--高
+
+8.属性名:invoiceUsageChange	--发票用量变动
+	属性值:none				--本月和上一个月均无发票
+		   low				--低
+		   high				--高
+
+9.属性名:inputTaxAndOutputTaxRatio --进项税额变动率高于销项税额变动率
+	属性值:none					   --上期不存在
+		   low					   --低
+		   high                    --高
+
+10.属性名:invoiceInvalidRatio		--发票作废率
+	属性值:none						--不存在
+			low						--低
+			high					--高
+
+11.属性名:continuousLoss		-- 连续亏损
+	属性值: none					-- 没有亏损
+			continuousMonth			-- 连续一个月
+			overallLoss				-- 总体亏损
+			unknown					-- 未知(进销项发票至少一项全无)
+
+12.属性名：InvoiceBalance		进销项差额
+	属性值		unknown		进销项其中一个为null
+			balanceHuge	进销项差额巨大
+			normal		正常
+	计算方式：
+		当进项金额小于等于销项金额的50%，或者销项金额小于等于进项金额的30%
+		标记异常
+		
+13.属性名: inputInvoiceInvalid		是否有作废进项发票
+	属性值:
+		none	-- 不存在
+		exist	-- 存在
+
+14.属性名: outputInvoiceInvalid		是否有作废销项发票
+	属性值:
+		none	-- 不存在
+		exist	-- 存在
+
+15.属性名：lossAddStock			连续亏损仍然加大进货
+	属性值：
+		none		--不存在
+		exist		--存在
+		unknown		--未知(进销项发票至少一项全无)
+
+16.属性名: InputAndOutputDeviation		进项销项商品不同指数
+	属性值:
+		连续值
+
+17.属性名: inputInvoiceBusinessScope	进项经营范围
+	属性值:
+		match				--相符
+		inconsistent		--背离
+
+18.属性名: outputInvoiceBusinessScope	销项经营范围
+	属性值:
+		match				--相符
+		inconsistent		--背离
