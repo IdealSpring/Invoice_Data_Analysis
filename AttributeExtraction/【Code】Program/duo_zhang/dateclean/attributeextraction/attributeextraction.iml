@@ -8,7 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="visualization" />
-    <orderEntry type="library" name="mahout-examples-0.10.1-job" level="project" />
     <orderEntry type="library" name="hadoop_lib_all" level="project" />
+    <orderEntry type="library" name="mahout-examples-0.10.1-job" level="project" />
   </component>
 </module>

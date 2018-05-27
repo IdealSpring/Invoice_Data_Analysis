@@ -1,5 +1,6 @@
 package cn.ccut.mahout;
 
+import cn.ccut.common.FilePathCollections;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
@@ -9,7 +10,10 @@ import org.apache.mahout.classifier.df.data.DescriptorException;
 import org.apache.mahout.classifier.df.mapreduce.BuildForest;
 import org.apache.mahout.classifier.df.mapreduce.TestForest;
 import org.apache.mahout.classifier.df.tools.Describe;
+import org.apache.mahout.classifier.naivebayes.test.TestNaiveBayesDriver;
+import org.apache.mahout.classifier.naivebayes.training.TrainNaiveBayesJob;
 import org.apache.mahout.common.HadoopUtil;
+import org.apache.mahout.utils.vectors.VectorDumper;
 
 import java.io.*;
 import java.net.URI;
@@ -18,36 +22,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Step123 {
-    private static FileSystem fileSystem;
-
-    static {
-        Configuration conf = new Configuration();
-        try {
-            fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         //删除本地f1score文件
-        File f1scoreFile = new File("C:/Users/zhipeng-Tong/Desktop/异常企业资料/F1_Score/f1score_list.txt");
-        if(f1scoreFile.exists()) {
-            f1scoreFile.delete();
-        }
+//        FilePathCollections.clearUpresultOutputPathFile(FilePathCollections.basePath + "F1_Score");
 
         //查询HDFS文件系统中训练集测试集则数
-        int CVNum = getCVNumByHDFS();
+//        int CVNum = getCVNumByHDFS();
 
-        for(int i = 0; i < CVNum; i++) {
-            Step1Describe(i);
-            Step2BuildForest(i);
-            Step3TestForest(i);
-        }
+//        for(int i = 0; i < CVNum; i++) {
+//            Step1Describe(i);
+            Step2BuildForest();
+//            Step3TestForest(i);
+//        }
 
-        fileSystem.close();
+//        FilePathCollections.fileSystem.close();
         //计算F1score
-        computeF1score();
+//        computeF1score();
     }
 
     /**
@@ -60,7 +50,7 @@ public class Step123 {
         String[] args =new String[]{
                 "-p", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_train.dat",
                 "-f", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
-                "-d", "I", "2", "N", "13", "C", "L"
+                "-d", "N", "13", "C", "N", "2", "C", "L"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-f") + 1]));
@@ -72,18 +62,32 @@ public class Step123 {
      *
      * @throws Exception
      */
-    private static void Step2BuildForest(int i) throws Exception {
-        String[] args = new String[]{
-                "-Drapred.max.split.size=1874231",
+    private static void Step2BuildForest() throws Exception {
+        /*String[] args = new String[]{
+                *//*"-Drapred.max.split.size=1874231",
                 "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_train.dat",
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
                 "-sl", "4",
-                "-p", "-t", "100"
+                "-p", "-t", "1000"*//*
+                "-i", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_train.dat",
+                "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
+                "-li", "labelindex",
+                "-ow"
         };
 
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
         BuildForest.main(args);
+        TrainNaiveBayesJob.main(args);*/
+
+//        file:///D://dao/part-m-00000.txt
+
+        String[] args = new String[]{
+                "-i", "file:///D://dao/part-m-00000.txt",
+                "-o", "file:///D://dao/aas.txt",
+        };
+
+        VectorDumper.main(args);
     }
 
     /**
@@ -93,17 +97,25 @@ public class Step123 {
      */
     private static void Step3TestForest(int i) throws Exception {
         String[] args = new String[]{
-                "-i", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_test.dat",
+                /*"-i", "hdfs://111.116.20.110:9000/user/hadoop/mahout/" + i + "-CV_test.dat",
                 "-ds", "hdfs://111.116.20.110:9000/user/hadoop/mahout/train.info",
                 "-o", "hdfs://111.116.20.110:9000/user/hadoop/mahout/predictions",
                 "-m", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
-                "-a"
+                "-a"*/
+                "-default",
+                "-d", "hdfs://111.116.20.110:9000/user/hadoop/mahout/\" + i + \"-CV_test.dat",
+                "-e", "UTF-8",
+                "-ng", "16",
+                "-m", "hdfs://111.116.20.110:9000/user/hadoop/mahout/forest_result",
+                "-type", "bayes ",
+                "-source",
+                "-method"
         };
 
         //删除hdfs中的文件
         HadoopUtil.delete(new Configuration(), new Path(args[Arrays.asList(args).indexOf("-o") + 1]));
 
-        TestForest.main(args);
+        TestNaiveBayesDriver.main(args);
     }
 
     /**
@@ -112,7 +124,7 @@ public class Step123 {
      * @throws IOException
      */
     private static void computeF1score() throws IOException {
-        File f1scoreFile = new File("D:\\视频诗词/异常企业资料/F1_Score/f1score_list.txt");
+        File f1scoreFile = new File(FilePathCollections.f1scoreFilePath);
         BufferedReader reader = new BufferedReader(new FileReader(f1scoreFile));
         //文件原始数据
         ArrayList<Double> data = new ArrayList<>();
@@ -145,12 +157,10 @@ public class Step123 {
      * @throws Exception
      */
     public static int getCVNumByHDFS() throws Exception {
-        /*Configuration conf = new Configuration();
-        FileSystem fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");*/
         int count = 0;
 
-        FileStatus[] fileStatuses = HadoopUtil.listStatus(fileSystem,
-                new Path("/user/hadoop/mahout"), new PathFilter() {
+        FileStatus[] fileStatuses = HadoopUtil.listStatus(FilePathCollections.fileSystem,
+                new Path(FilePathCollections.stage06HDFSTrainAndTestPath), new PathFilter() {
                     @Override
                     public boolean accept(Path path) {
                         String filePath = path.toString();

@@ -1,5 +1,6 @@
-package cn.ccut;
+package cn.ccut.stage01;
 
+import cn.ccut.common.AttributeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
@@ -25,33 +26,35 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         //System.out.println("程序调通！");
         //对数据初始化
         init(key, values);
-        //1.inputInvoice、2.outputInvoice两个属性
-        AttributeUtils.setInputAndOutputInoive(enterprise);
-        //3.inputInterval 	--最近两次进项开票时间
-        AttributeUtils.setInputInterval(enterprise, inputInvoiceSet);
-        //4.outputInterval 	--最近两次销项开票时间
-        AttributeUtils.setOutputInterval(enterprise, outputInvoiceSet);
-        //5.taxChangeRate		--税负变动率
-        AttributeUtils.setTaxChangeRate(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //6.invoiceUsageChange  --发票用量变动
-        AttributeUtils.setInvoiceUsageChange(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //7.inputTaxAndOutputTaxRatio   --进项税额变动率高于销项税额变动率
-        AttributeUtils.setInputTaxAndOutputTaxRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //8.invoiceInvalidRatio --发票作废率
-        AttributeUtils.setInvoiceInvalidRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //9.setContinuousLoss        --发票显示连续亏损
-        AttributeUtils.setContinuousLoss(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //10.invoiceBalance     --进销项差额
-        AttributeUtils.setInvoiceBalance(enterprise, inputInvoiceSet, outputInvoiceSet);
-        //11.inputInvoiceInvalid
-        AttributeUtils.setInputInvoiceInvalid(enterprise, inputInvoiceSet);
-        //12.outputInvoiceInvalid
-        AttributeUtils.setOutputInvoiceInvalid(enterprise, outputInvoiceSet);
-        //13.lossAddStock
-        AttributeUtils.setLossAddStock(enterprise,inputInvoiceSet,outputInvoiceSet);
 
-        //写出
+        //如果这个nsr需要写出，则计算，否则不计算
         if(enterprise.isRetain()) {
+            //3.inputInvoice、4.outputInvoice两个属性
+            AttributeUtils.setInputAndOutputInoive(enterprise);
+            //5.inputInterval 	--最近两次进项开票时间
+            AttributeUtils.setInputInterval(enterprise, inputInvoiceSet);
+            //6.outputInterval 	--最近两次销项开票时间
+            AttributeUtils.setOutputInterval(enterprise, outputInvoiceSet);
+            //7.taxChangeRate		--税负变动率
+            AttributeUtils.setTaxChangeRate(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //8.invoiceUsageChange  --发票用量变动
+            AttributeUtils.setInvoiceUsageChange(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //9.inputTaxAndOutputTaxRatio   --进项税额变动率高于销项税额变动率
+            AttributeUtils.setInputTaxAndOutputTaxRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //10.invoiceInvalidRatio --发票作废率
+            AttributeUtils.setInvoiceInvalidRatio(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //11.setContinuousLoss        --发票显示连续亏损
+            AttributeUtils.setContinuousLoss(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //12.invoiceBalance     --进销项差额
+            AttributeUtils.setInvoiceBalance(enterprise, inputInvoiceSet, outputInvoiceSet);
+            //13.inputInvoiceInvalid
+            AttributeUtils.setInputInvoiceInvalid(enterprise, inputInvoiceSet);
+            //14.outputInvoiceInvalid
+            AttributeUtils.setOutputInvoiceInvalid(enterprise, outputInvoiceSet);
+            //15.lossAddStock
+            AttributeUtils.setLossAddStock(enterprise,inputInvoiceSet,outputInvoiceSet);
+
+            //写出
             context.write(enterprise, NullWritable.get());
         }
 
@@ -71,6 +74,9 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setNsr_id("Null");
         enterprise.setRetain(false);
 
+        /**
+         * 发票信息
+         */
         enterprise.setFp_nid("Null");
         enterprise.setXf_id("Null");
         enterprise.setGf_id("Null");
@@ -80,6 +86,20 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setKpyf("Null");
         enterprise.setKprq("Null");
         enterprise.setZfbz("Null");
+
+        /**
+         * 发票明细
+         */
+        enterprise.setFp_nidMX("Null");
+        enterprise.setDate_keyMX("Null");
+        enterprise.setHwmcMX("Null");
+        enterprise.setGgxhMX("Null");
+        enterprise.setDwMX("Null");
+        enterprise.setSlMX(0);
+        enterprise.setDjMX(0);
+        enterprise.setJeMX(0);
+        enterprise.setSeMX(0);
+        enterprise.setSpbmMX("Null");
 
         enterprise.setInputInvoiceNum(0);
         enterprise.setOutputInvoiceNum(0);
@@ -108,6 +128,8 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         long outputInvoiceNum = 0;
         //发票数据
         Invoice invoice;
+
+        //System.out.println(key.toString());
 
         for(Enterprise value : values) {
             if(!value.isRetain()) {

@@ -12,14 +12,14 @@ public class MDemo {
         Configuration conf = new Configuration();
         FileSystem fileSystem = FileSystem.get(new URI("hdfs://111.116.20.110:9000/"), conf, "hadoop");
 
-        String outFile = "D:\\视频诗词/异常企业资料/预测名单/";
+        String outFile = "D://视频诗词/异常企业资料/预测名单/";
         File file = new File(outFile);
         for(File s : file.listFiles()) {
             File filePath = new File(s.getPath());
             filePath.delete();
         }
 
-        fileSystem.copyToLocalFile(new Path("/user/hadoop/mahout_IdealSpring/predictions"), new Path("D:\\视频诗词/异常企业资料/预测名单"));
+        fileSystem.copyToLocalFile(new Path("/user/hadoop/mahout/predictions"), new Path("D://视频诗词/异常企业资料/预测名单"));
 
     }
 }

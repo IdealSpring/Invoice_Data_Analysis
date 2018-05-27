@@ -1,4 +1,4 @@
-package cn.ccut;
+package cn.ccut.stage01;
 
 import org.apache.hadoop.io.Writable;
 
@@ -29,6 +29,20 @@ public class Enterprise implements Writable{
     private String kprq = "Null";
     private String zfbz = "Null";
 
+    /**
+     * 发票明细
+     */
+    private String fp_nidMX = "Null";
+    private String date_keyMX = "Null";
+    private String hwmcMX = "Null";
+    private String ggxhMX = "Null";
+    private String dwMX = "Null";
+    private double slMX = 0.0;
+    private double djMX = 0.0;
+    private double jeMX = 0.0;
+    private double seMX = 0.0;
+    private String spbmMX = "Null";
+
     //进项发票数量
     private long inputInvoiceNum = 0;
     //销项发票数量
@@ -37,31 +51,31 @@ public class Enterprise implements Writable{
     /**
      * 提取属性
      */
-    //1.只有进项
+    //3.只有进项
     private String inputInvoice = "Null";
-    //2.只有销项
+    //4.只有销项
     private String outputInvoice = "Null";
-    //3.最近两次进项开票时间
+    //5.最近两次进项开票时间
     private String inputInterval = "Null";
-    //4.最近两次销项开票时间
+    //6.最近两次销项开票时间
     private String outputInterval = "Null";
-    //5.税负变动率异常±30% == 0.3
+    //7.税负变动率异常±30% == 0.3
     private String taxChangeRate = "Null";
-    //6.发票用量变动
+    //8.发票用量变动
     private String invoiceUsageChange = "Null";
-    //7.进项税额变动率高于销项税额变动率
+    //9.进项税额变动率高于销项税额变动率
     private String inputTaxAndOutputTaxRatio = "Null";
-    //8.发票作废率
+    //10.发票作废率
     private String invoiceInvalidRatio = "Null";
-    //9.发票显示连续亏损
+    //11.发票显示连续亏损
     private String continuousLoss = "Null";
-    //10.进销项差额巨大
+    //12.进销项差额巨大
     private String invoiceBalance = "Null";
-    //11.进项发票作废
+    //13.进项发票作废
     private String inputInvoiceInvalid = "Null";
-    //12.销项发票作废
+    //14.销项发票作废
     private String outputInvoiceInvalid = "Null";
-    //13.连续亏损仍然加大进货
+    //15.连续亏损仍然加大进货
     private String lossAddStock = "Null";
 
     //企业分类
@@ -75,7 +89,7 @@ public class Enterprise implements Writable{
                 ",outputInterval=" + outputInterval + ",taxChangeRate=" + taxChangeRate +
                 ",label=" + label;*/
         return nsr_id +
-                "," + inputInvoiceNum + "," + outputInvoiceNum +
+                /*"," + inputInvoiceNum + "," + outputInvoiceNum +*/
                 "," + inputInvoice + "," + outputInvoice +
                 "," + inputInterval + "," + outputInterval +
                 "," + taxChangeRate + "," + invoiceUsageChange +
@@ -111,9 +125,22 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.kprq);
         dataOutput.writeUTF(this.zfbz);
 
+        //发票明细
+        dataOutput.writeUTF(this.fp_nidMX);
+        dataOutput.writeUTF(this.date_keyMX);
+        dataOutput.writeUTF(this.hwmcMX);
+        dataOutput.writeUTF(this.ggxhMX);
+        dataOutput.writeUTF(this.dwMX);
+        dataOutput.writeDouble(this.slMX);
+        dataOutput.writeDouble(this.djMX);
+        dataOutput.writeDouble(this.jeMX);
+        dataOutput.writeDouble(this.seMX);
+        dataOutput.writeUTF(this.spbmMX);
+
         dataOutput.writeLong(this.inputInvoiceNum);
         dataOutput.writeLong(this.outputInvoiceNum);
 
+        //属性列表
         dataOutput.writeUTF(this.inputInvoice);
         dataOutput.writeUTF(this.outputInvoice);
         dataOutput.writeUTF(this.inputInterval);
@@ -146,9 +173,22 @@ public class Enterprise implements Writable{
         this.kprq = dataInput.readUTF();
         this.zfbz = dataInput.readUTF();
 
+        //发票明细
+        this.fp_nidMX = dataInput.readUTF();
+        this.date_keyMX = dataInput.readUTF();
+        this.hwmcMX = dataInput.readUTF();
+        this.ggxhMX = dataInput.readUTF();
+        this.dwMX = dataInput.readUTF();
+        this.slMX = dataInput.readDouble();
+        this.djMX = dataInput.readDouble();
+        this.jeMX = dataInput.readDouble();
+        this.seMX = dataInput.readDouble();
+        this.spbmMX = dataInput.readUTF();
+
         this.inputInvoiceNum = dataInput.readLong();
         this.inputInvoiceNum = dataInput.readLong();
 
+        //属性列表
         this.inputInvoice = dataInput.readUTF();
         this.outputInvoice = dataInput.readUTF();
         this.inputInterval = dataInput.readUTF();
@@ -372,6 +412,86 @@ public class Enterprise implements Writable{
 
     public void setOutputInvoiceInvalid(String outputInvoiceInvalid) {
         this.outputInvoiceInvalid = outputInvoiceInvalid;
+    }
+
+    public String getFp_nidMX() {
+        return fp_nidMX;
+    }
+
+    public void setFp_nidMX(String fp_nidMX) {
+        this.fp_nidMX = fp_nidMX;
+    }
+
+    public String getDate_keyMX() {
+        return date_keyMX;
+    }
+
+    public void setDate_keyMX(String date_keyMX) {
+        this.date_keyMX = date_keyMX;
+    }
+
+    public String getHwmcMX() {
+        return hwmcMX;
+    }
+
+    public void setHwmcMX(String hwmcMX) {
+        this.hwmcMX = hwmcMX;
+    }
+
+    public String getGgxhMX() {
+        return ggxhMX;
+    }
+
+    public void setGgxhMX(String ggxhMX) {
+        this.ggxhMX = ggxhMX;
+    }
+
+    public String getDwMX() {
+        return dwMX;
+    }
+
+    public void setDwMX(String dwMX) {
+        this.dwMX = dwMX;
+    }
+
+    public double getSlMX() {
+        return slMX;
+    }
+
+    public void setSlMX(double slMX) {
+        this.slMX = slMX;
+    }
+
+    public double getDjMX() {
+        return djMX;
+    }
+
+    public void setDjMX(double djMX) {
+        this.djMX = djMX;
+    }
+
+    public double getJeMX() {
+        return jeMX;
+    }
+
+    public void setJeMX(double jeMX) {
+        this.jeMX = jeMX;
+    }
+
+    public double getSeMX() {
+        return seMX;
+    }
+
+    public void setSeMX(double seMX) {
+        this.seMX = seMX;
+    }
+
+    public String getSpbmMX() {
+        return spbmMX;
+    }
+
+    public void setSpbmMX(String spbmMX) {
+        this.spbmMX = spbmMX;
     }
 
     public String getLossAddStock() {

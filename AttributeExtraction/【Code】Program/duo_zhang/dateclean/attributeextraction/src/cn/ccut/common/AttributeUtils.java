@@ -1,4 +1,11 @@
-package cn.ccut;
+package cn.ccut.common;
+
+import cn.ccut.stage01.Enterprise;
+import cn.ccut.stage01.Invoice;
+import cn.ccut.stage03.DetailsExtraction;
+import cn.ccut.stage03.InvoicesDetailsS3;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -6,12 +13,12 @@ import java.util.*;
  * 计算属性工具类
  */
 public class AttributeUtils {
-    private AttributeUtils() {
-    }
+    private static final Logger log = LoggerFactory.getLogger(AttributeUtils.class);
+    private AttributeUtils() {}
 
     /**
-     * 1.inputInvoice属性
-     * 2.outputInvoice属性
+     * 3.inputInvoice属性
+     * 4.outputInvoice属性
      * 提取
      *
      * @param enterprise
@@ -20,13 +27,13 @@ public class AttributeUtils {
         long inputInvoiceNum = enterprise.getInputInvoiceNum();
         long outputInvoiceNum = enterprise.getOutputInvoiceNum();
 
-        if (inputInvoiceNum == 0) {
+        if(inputInvoiceNum == 0) {
             enterprise.setInputInvoice("none");
         } else {
             enterprise.setInputInvoice("exist");
         }
 
-        if (outputInvoiceNum == 0) {
+        if(outputInvoiceNum == 0) {
             enterprise.setOutputInvoice("none");
         } else {
             enterprise.setOutputInvoice("exist");
@@ -35,23 +42,23 @@ public class AttributeUtils {
 
     /**
      * 计算:
-     * 3.inputInterval 	--最近两次进项开票时间
+     *      5.inputInterval 	--最近两次进项开票时间
      *
-     * @param inputInvoiceSet 进项发票
+     * @param inputInvoiceSet   进项发票
      */
     public static void setInputInterval(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet) {
-        if (inputInvoiceSet.size() > 0) {
-            if (inputInvoiceSet.size() > 1) {
+        if(inputInvoiceSet.size() > 0) {
+            if(inputInvoiceSet.size() > 1) {
                 //获取最远时间的发票
                 Invoice first = inputInvoiceSet.first();
                 //获取最近时间的发票
                 Invoice last = inputInvoiceSet.last();
 
-                if (first.getKprq().compareTo(last.getKprq()) != 0) {
-                    for (Invoice invoice1 : inputInvoiceSet) {
+                if(first.getKprq().compareTo(last.getKprq()) != 0) {
+                    for(Invoice invoice1 : inputInvoiceSet) {
                         Invoice invoice2 = inputInvoiceSet.higher(invoice1);
 
-                        if (invoice2 == null) {
+                        if(invoice2 == null) {
                             continue;
                         } else {
                             Calendar kprq1 = invoice1.getKprq();
@@ -61,11 +68,11 @@ public class AttributeUtils {
                             long time1 = kprq1.getTimeInMillis();
                             long time2 = kprq2.getTimeInMillis();
 
-                            long time3 = Math.abs(time1 - time2) / 1000 / 60 / 60 / 24;
+                            long time3 = Math.abs(time1 - time2)/1000/60/60/24;
 
-                            if (time3 <= 30) {
+                            if(time3 <= 30) {
                                 enterprise.setInputInterval("withinOneMonth");
-                            } else if (time3 <= 60) {
+                            } else if(time3 <= 60) {
                                 enterprise.setInputInterval("withinTwoMonth");
                             } else {
                                 enterprise.setInputInterval("withoutMonth");
@@ -84,24 +91,24 @@ public class AttributeUtils {
     }
 
     /**
-     * 4.outputInterval 	--最近两次销项开票时间
+     * 6.outputInterval 	--最近两次销项开票时间
      *
      * @param enterprise
      * @param outputInvoiceSet
      */
     public static void setOutputInterval(Enterprise enterprise, TreeSet<Invoice> outputInvoiceSet) {
-        if (outputInvoiceSet.size() > 0) {
-            if (outputInvoiceSet.size() > 1) {
+        if(outputInvoiceSet.size() > 0) {
+            if(outputInvoiceSet.size() > 1) {
                 //获取最远时间的发票
                 Invoice first = outputInvoiceSet.first();
                 //获取最近时间的发票
                 Invoice last = outputInvoiceSet.last();
 
-                if (first.getKprq().compareTo(last.getKprq()) != 0) {
-                    for (Invoice invoice1 : outputInvoiceSet) {
+                if(first.getKprq().compareTo(last.getKprq()) != 0) {
+                    for(Invoice invoice1 : outputInvoiceSet) {
                         Invoice invoice2 = outputInvoiceSet.higher(invoice1);
 
-                        if (invoice2 == null) {
+                        if(invoice2 == null) {
                             continue;
                         } else {
                             Calendar kprq1 = invoice1.getKprq();
@@ -111,11 +118,11 @@ public class AttributeUtils {
                             long time1 = kprq1.getTimeInMillis();
                             long time2 = kprq2.getTimeInMillis();
 
-                            long time3 = Math.abs(time1 - time2) / 1000 / 60 / 60 / 24;
+                            long time3 = Math.abs(time1 - time2)/1000/60/60/24;
 
-                            if (time3 <= 30) {
+                            if(time3 <= 30) {
                                 enterprise.setOutputInterval("withinOneMonth");
-                            } else if (time3 <= 60) {
+                            } else if(time3 <= 60) {
                                 enterprise.setOutputInterval("withinTwoMonth");
                             } else {
                                 enterprise.setOutputInterval("withoutMonth");
@@ -136,8 +143,7 @@ public class AttributeUtils {
 
     /**
      * 计算：
-     * 5.taxChangeRate		--税负变动率
-     *
+     *      7.taxChangeRate		--税负变动率
      * @param enterprise
      * @param inputInvoiceSet
      * @param outputInvoiceSet
@@ -153,24 +159,24 @@ public class AttributeUtils {
         Double[] value;
 
         //将TreeSet中的元素放到list中，方便操作
-        for (Invoice tempInvoice : inputInvoiceSet) {
+        for(Invoice tempInvoice : inputInvoiceSet) {
             Invoice invoice = tempInvoice;
             inputList.add(0, invoice);
         }
-        for (Invoice tempInvoice : outputInvoiceSet) {
+        for(Invoice tempInvoice : outputInvoiceSet) {
             Invoice invoice = tempInvoice;
             outputList.add(0, invoice);
         }
 
-        if (inputInvoiceSet.size() > 0) {
-            if (inputInvoiceSet.size() == 1) {
+        if(inputInvoiceSet.size() > 0) {
+            if(inputInvoiceSet.size() == 1) {
                 Invoice key = inputInvoiceSet.first();
                 value = new Double[2];
                 value[0] = key.getSe();
                 value[1] = key.getJe();
                 inputIfo.put(key.getKpyf(), value);
             } else {
-                for (int i = 0; i < inputList.size(); i++) {
+                for(int i= 0; i < inputList.size(); i++) {
                     Invoice invoice = inputList.get(i);
                     value = new Double[2];
                     double tempSe = 0;
@@ -179,9 +185,9 @@ public class AttributeUtils {
                     tempSe += invoice.getSe();
                     tempJe += invoice.getJe();
 
-                    for (int j = i + 1; j < inputList.size(); j++) {
+                    for(int j = i + 1; j < inputList.size(); j++) {
                         Invoice invoice2 = inputList.get(j);
-                        if (invoice.getKpyf().equals(invoice2.getKpyf())) {
+                        if(invoice.getKpyf().equals(invoice2.getKpyf())) {
                             tempSe += invoice2.getSe();
                             tempJe += invoice2.getJe();
                             inputList.remove(j--);
@@ -195,15 +201,15 @@ public class AttributeUtils {
             }
         }
 
-        if (outputList.size() > 0) {
-            if (outputList.size() == 1) {
+        if(outputList.size() > 0) {
+            if(outputList.size() == 1) {
                 Invoice key = outputList.get(0);
                 value = new Double[2];
                 value[0] = key.getSe();
                 value[1] = key.getJe();
                 outputIfo.put(key.getKpyf(), value);
             } else {
-                for (int i = 0; i < outputList.size(); i++) {
+                for(int i= 0; i < outputList.size(); i++) {
                     Invoice invoice = outputList.get(i);
                     value = new Double[2];
                     double tempSe = 0;
@@ -212,9 +218,9 @@ public class AttributeUtils {
                     tempSe += invoice.getSe();
                     tempJe += invoice.getJe();
 
-                    for (int j = i + 1; j < outputList.size(); j++) {
+                    for(int j = i + 1; j < outputList.size(); j++) {
                         Invoice invoice2 = outputList.get(j);
-                        if (invoice.getKpyf().equals(invoice2.getKpyf())) {
+                        if(invoice.getKpyf().equals(invoice2.getKpyf())) {
                             tempSe += invoice2.getSe();
                             tempJe += invoice2.getJe();
                             outputList.remove(j--);
@@ -233,10 +239,10 @@ public class AttributeUtils {
     }
 
     private static void computeChangeTax(Enterprise enterprise,
-                                         Map<String, Double[]> inputIfo,
-                                         Map<String, Double[]> outputIfo) {
+                                  Map<String, Double[]> inputIfo,
+                                  Map<String, Double[]> outputIfo) {
 
-        if (inputIfo.size() != 0 && outputIfo.size() != 0) {
+        if(inputIfo.size() != 0 && outputIfo.size() != 0) {
             Set<String> inputKeys = inputIfo.keySet();
             Set<String> outputKeys = outputIfo.keySet();
             String inputKeyNow = null;
@@ -248,26 +254,26 @@ public class AttributeUtils {
             Double[] inputDoubles = new Double[2];
             Double[] outputDoubles = new Double[2];
 
-            for (String key : inputKeys) {
-                if (count == 1) {
+            for(String key : inputKeys) {
+                if(count == 1) {
                     inputKeyNow = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 2) {
+                if(count == 2) {
                     inputKeyUp = key;
-                    count++;
+                    count ++;
                 }
             }
 
             count = 1;
-            for (String key : outputKeys) {
-                if (count == 1) {
+            for(String key : outputKeys) {
+                if(count == 1) {
                     outputKeyNow = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 2) {
+                if(count == 2) {
                     outputKeyUp = key;
                 }
             }
@@ -282,83 +288,83 @@ public class AttributeUtils {
             String dateNow = null;
             String dateUp = null;
 
-            if (inputKeyNow.equals(outputKeyNow)) {
+            if(inputKeyNow.equals(outputKeyNow)) {
                 tempSeNow = outputIfo.get(outputKeyNow)[0] - inputIfo.get(inputKeyNow)[0];
                 tempJeNow = outputIfo.get(outputKeyNow)[1] - inputIfo.get(inputKeyNow)[1];
                 dateNow = inputKeyNow;
-                if (tempJeNow != 0) {
-                    now = tempSeNow / tempJeNow;
+                if(tempJeNow != 0) {
+                    now = tempSeNow/tempJeNow;
                 }
 
             }
-            if (inputKeyNow.compareTo(outputKeyNow) < 0) {
+            if(inputKeyNow.compareTo(outputKeyNow) < 0) {
                 tempSeNow = outputIfo.get(outputKeyNow)[0];
                 tempJeNow = outputIfo.get(outputKeyNow)[1];
                 dateNow = outputKeyNow;
-                if (tempJeNow != 0) {
-                    now = tempSeNow / tempJeNow;
+                if(tempJeNow != 0) {
+                    now = tempSeNow/tempJeNow;
                 }
 
             }
-            if (inputKeyNow.compareTo(outputKeyNow) > 0) {
+            if(inputKeyNow.compareTo(outputKeyNow) > 0) {
                 tempSeNow = 0 - inputIfo.get(inputKeyNow)[0];
                 tempJeNow = 0 - inputIfo.get(inputKeyNow)[1];
                 dateNow = inputKeyNow;
-                if (tempJeNow != 0) {
-                    now = tempSeNow / tempJeNow;
+                if(tempJeNow != 0) {
+                    now = tempSeNow/tempJeNow;
                 }
 
             }
 
-            if (inputKeyUp != null && outputKeyUp != null) {
-                if (inputKeyUp.equals(outputKeyUp)) {
+            if(inputKeyUp != null && outputKeyUp != null) {
+                if(inputKeyUp.equals(outputKeyUp)) {
                     tempSeUp = outputIfo.get(outputKeyUp)[0] - inputIfo.get(inputKeyUp)[0];
                     tempJeUp = outputIfo.get(outputKeyUp)[1] - inputIfo.get(inputKeyUp)[1];
                     dateUp = inputKeyUp;
-                    if (tempJeUp != 0) {
-                        up = tempSeUp / tempJeUp;
+                    if(tempJeUp != 0) {
+                        up = tempSeUp/tempJeUp;
                     }
 
                 }
-                if (inputKeyUp.compareTo(outputKeyUp) < 0) {
+                if(inputKeyUp.compareTo(outputKeyUp) < 0) {
                     tempSeUp = outputIfo.get(outputKeyUp)[0];
                     tempJeUp = outputIfo.get(outputKeyUp)[1];
                     dateUp = outputKeyUp;
-                    if (tempJeUp != 0) {
-                        up = tempSeUp / tempJeUp;
+                    if(tempJeUp != 0) {
+                        up = tempSeUp/tempJeUp;
                     }
 
                 }
-                if (inputKeyUp.compareTo(outputKeyUp) > 0) {
+                if(inputKeyUp.compareTo(outputKeyUp) > 0) {
                     tempSeUp = 0 - inputIfo.get(inputKeyUp)[0];
                     tempJeUp = 0 - inputIfo.get(inputKeyUp)[1];
                     dateUp = inputKeyUp;
-                    if (tempJeUp != 0) {
-                        up = tempSeUp / tempJeUp;
+                    if(tempJeUp != 0) {
+                        up = tempSeUp/tempJeUp;
                     }
 
                 }
             }
-            if (inputKeyUp != null && outputKeyUp == null) {
+            if(inputKeyUp != null && outputKeyUp == null) {
                 tempSeUp = 0 - inputIfo.get(inputKeyUp)[0];
                 tempJeUp = 0 - inputIfo.get(inputKeyUp)[1];
                 dateUp = inputKeyUp;
-                if (tempJeUp != 0) {
-                    up = tempSeUp / tempJeUp;
+                if(tempJeUp != 0) {
+                    up = tempSeUp/tempJeUp;
                 }
 
             }
-            if (inputKeyUp == null && outputKeyUp != null) {
+            if(inputKeyUp == null && outputKeyUp != null) {
                 tempSeUp = outputIfo.get(outputKeyUp)[0];
                 tempJeUp = outputIfo.get(outputKeyUp)[1];
                 dateUp = outputKeyUp;
-                if (tempJeUp != 0) {
-                    up = tempSeUp / tempJeUp;
+                if(tempJeUp != 0) {
+                    up = tempSeUp/tempJeUp;
                 }
 
             }
 
-            if (up == 0) {
+            if(up == 0) {
                 enterprise.setTaxChangeRate("none");
                 //enterprise.setTaxChangeRate("0");
             } else {
@@ -376,8 +382,8 @@ public class AttributeUtils {
                 c2.set(Calendar.MONTH, Integer.parseInt(dateUpMonth));
                 c1.add(Calendar.MONTH, -1);
 
-                if (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
-                    double change = (now - up) / up;
+                if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
+                    double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
                     /*double result = Math.abs(change);
                     if(result <= 0.1) {
@@ -402,22 +408,22 @@ public class AttributeUtils {
 
         }
 
-        if (inputIfo.size() != 0 && outputIfo.size() == 0) {
+        if(inputIfo.size() != 0 && outputIfo.size() == 0) {
             Set<String> inputKeys = inputIfo.keySet();
             String inputKeyNow = null;
             String inputKeyUp = null;
             //计算器
             int count = 1;
 
-            for (String key : inputKeys) {
-                if (count == 1) {
+            for(String key : inputKeys) {
+                if(count == 1) {
                     inputKeyNow = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 2) {
+                if(count == 2) {
                     inputKeyUp = key;
-                    count++;
+                    count ++;
                 }
             }
 
@@ -433,21 +439,21 @@ public class AttributeUtils {
 
             tempSeNow += inputIfo.get(inputKeyNow)[0];
             tempJeNow += inputIfo.get(inputKeyNow)[1];
-            if (tempJeNow != 0) {
-                now = tempSeNow / tempJeNow;
+            if(tempJeNow != 0) {
+                now = tempSeNow/tempJeNow;
             }
             dateNow = inputKeyNow;
 
-            if (inputKeyUp != null) {
+            if(inputKeyUp != null) {
                 tempSeUp = 0 - inputIfo.get(inputKeyUp)[0];
                 tempJeUp = 0 - inputIfo.get(inputKeyUp)[1];
-                if (tempJeUp != 0) {
-                    up = tempSeUp / tempJeUp;
+                if(tempJeUp != 0) {
+                    up = tempSeUp/tempJeUp;
                 }
                 dateUp = inputKeyUp;
             }
 
-            if (up == 0) {
+            if(up == 0) {
                 enterprise.setTaxChangeRate("none");
             } else {
                 Calendar c1 = Calendar.getInstance();
@@ -464,8 +470,8 @@ public class AttributeUtils {
                 c2.set(Calendar.MONTH, Integer.parseInt(dateUpMonth));
                 c1.add(Calendar.MONTH, -1);
 
-                if (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
-                    double change = (now - up) / up;
+                if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
+                    double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
                     /*double result = Math.abs(change);
                     if(result <= 0.1) {
@@ -488,22 +494,22 @@ public class AttributeUtils {
             }
         }
 
-        if (inputIfo.size() == 0 && outputIfo.size() != 0) {
+        if(inputIfo.size() == 0 && outputIfo.size() != 0) {
             Set<String> outputKeys = outputIfo.keySet();
             String outputKeyNow = null;
             String outputKeyUp = null;
             //计算器
             int count = 1;
 
-            for (String key : outputKeys) {
-                if (count == 1) {
+            for(String key : outputKeys) {
+                if(count == 1) {
                     outputKeyNow = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 2) {
+                if(count == 2) {
                     outputKeyUp = key;
-                    count++;
+                    count ++;
                 }
             }
 
@@ -519,21 +525,21 @@ public class AttributeUtils {
 
             tempSeNow += outputIfo.get(outputKeyNow)[0];
             tempJeNow += outputIfo.get(outputKeyNow)[1];
-            if (tempJeNow != 0) {
-                now = tempSeNow / tempJeNow;
+            if(tempJeNow != 0) {
+                now = tempSeNow/tempJeNow;
             }
             dateNow = outputKeyNow;
 
-            if (outputKeyUp != null) {
+            if(outputKeyUp != null) {
                 tempSeUp += outputIfo.get(outputKeyUp)[0];
                 tempJeUp += outputIfo.get(outputKeyUp)[1];
-                if (tempJeUp != 0) {
-                    up = tempSeUp / tempJeUp;
+                if(tempJeUp != 0) {
+                    up = tempSeUp/tempJeUp;
                 }
                 dateUp = outputKeyUp;
             }
 
-            if (up == 0) {
+            if(up == 0) {
                 enterprise.setTaxChangeRate("none");
             } else {
                 Calendar c1 = Calendar.getInstance();
@@ -550,8 +556,8 @@ public class AttributeUtils {
                 c2.set(Calendar.MONTH, Integer.parseInt(dateUpMonth) - 1);
                 c1.add(Calendar.MONTH, -1);
 
-                if (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
-                    double change = (now - up) / up;
+                if(c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)) {
+                    double change = (now - up)/up;
                     String result = Math.abs(change) > 0.3 ? "high" : "low";
                     /*double result = Math.abs(change);
                     if(result <= 0.1) {
@@ -574,20 +580,20 @@ public class AttributeUtils {
             }
         }
 
-        if (inputIfo.size() == 0 && outputIfo.size() == 0) {
+        if(inputIfo.size() == 0 && outputIfo.size() == 0) {
             enterprise.setTaxChangeRate("none");
         }
 
     }
 
     /**
-     * 6.属性名:invoiceUsageChange	--发票用量变动
-     * 属性值:none				--本月和上一个月均无发票
-     * low				        --低
-     * high				    --高
-     * <p>
-     * 计算公式：指标值=一般纳税人专票使用量-一般纳税人专票上月使用量。
-     * 预警值：纳税人开具增值税专用发票超过上月30%（含）并超过上月10份以上。
+     * 8.属性名:invoiceUsageChange	--发票用量变动
+     *      属性值:none				--本月和上一个月均无发票
+     *      low				        --低
+     *      high				    --高
+     *
+     *      计算公式：指标值=一般纳税人专票使用量-一般纳税人专票上月使用量。
+     *      预警值：纳税人开具增值税专用发票超过上月30%（含）并超过上月10份以上。
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -599,26 +605,26 @@ public class AttributeUtils {
         invoices.addAll(inputInvoiceSet);
         invoices.addAll(outputInvoiceSet);
 
-        if (invoices.size() != 0) {
+        if(invoices.size() != 0) {
             //将数据放入到list中，方便操作
             ArrayList<Invoice> list = new ArrayList<>();
-            for (Invoice invoice : invoices) {
+            for(Invoice invoice : invoices) {
                 list.add(0, invoice);
             }
 
             HashMap<String, Integer> invoiceMap = new HashMap<>();
 
-            for (int i = 0; i < list.size(); i++) {
+            for(int i = 0; i < list.size(); i++) {
                 Invoice invoice = list.get(i);
                 String kpyf = invoice.getKpyf();
                 int sum = 1;
 
-                for (int j = i + 1; j < list.size(); j++) {
+                for(int j = i + 1; j < list.size(); j++) {
                     Invoice invoice2 = list.get(j);
-                    if (kpyf.equals(invoice2.getKpyf())) {
-                        sum++;
+                    if(kpyf.equals(invoice2.getKpyf())) {
+                        sum ++;
                         list.remove(j);
-                        j--;
+                        j --;
                     }
                 }
 
@@ -631,19 +637,19 @@ public class AttributeUtils {
             String dataNow = null;
             String dataUp = null;
 
-            for (String s : set) {
-                if (count == 0) {
+            for(String s :set) {
+                if(count == 0) {
                     dataNow = s;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 1) {
+                if(count == 1) {
                     dataUp = s;
                     break;
                 }
             }
 
-            if (dataUp != null) {
+            if(dataUp != null) {
                 Calendar calendarNow = Calendar.getInstance();
                 Calendar calendarUp = Calendar.getInstance();
 
@@ -658,14 +664,14 @@ public class AttributeUtils {
                 calendarUp.set(Calendar.MONTH, Integer.parseInt(monthUp) - 1);
                 calendarNow.add(Calendar.MONTH, -1);
 
-                if (calendarNow.get(Calendar.YEAR) == calendarUp.get(Calendar.YEAR) && calendarNow.get(Calendar.MONTH) == calendarUp.get(Calendar.MONTH)) {
+                if(calendarNow.get(Calendar.YEAR) == calendarUp.get(Calendar.YEAR) && calendarNow.get(Calendar.MONTH) == calendarUp.get(Calendar.MONTH)) {
                     double rate = 0;
                     double countNow = invoiceMap.get(dataNow);
                     double countUp = invoiceMap.get(dataUp);
 
                     double change = countNow - countUp;
-                    rate = change / countNow;
-                    if (Math.abs(rate) >= 0.3 && change >= 10) {
+                    rate = change/countNow;
+                    if(Math.abs(rate) >= 0.3 && change >= 10) {
                         enterprise.setInvoiceUsageChange("high");
                     } else {
                         enterprise.setInvoiceUsageChange("low");
@@ -686,10 +692,10 @@ public class AttributeUtils {
     }
 
     /**
-     * 【7.】进项税额变动率高于销项税额变动率
-     * 1.计算公式：指标值=（进项税额变动率-销项税额变动率）/销项税额变动率；
-     * 进项税额变动率额=(本期进项-上期进项)/上期进项；
-     * 销项税额变动率=(本期销项-上期销项)/上期销项。
+     * 【9.】进项税额变动率高于销项税额变动率
+     *      1.计算公式：指标值=（进项税额变动率-销项税额变动率）/销项税额变动率；
+     *                  进项税额变动率额=(本期进项-上期进项)/上期进项；
+     *                  销项税额变动率=(本期销项-上期销项)/上期销项。
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -700,10 +706,10 @@ public class AttributeUtils {
         List<Invoice> inputList = new ArrayList<>();
         List<Invoice> outputList = new ArrayList<>();
 
-        for (Invoice invoice : inputInvoiceSet) {
+        for(Invoice invoice : inputInvoiceSet) {
             inputList.add(0, invoice);
         }
-        for (Invoice invoice : outputInvoiceSet) {
+        for(Invoice invoice : outputInvoiceSet) {
             outputList.add(0, invoice);
         }
 
@@ -712,16 +718,16 @@ public class AttributeUtils {
         //销项税额
         HashMap<String, Double> outputTaxMap = new HashMap<>();
 
-        for (int i = 0; i < inputList.size(); i++) {
+        for(int i = 0; i < inputList.size(); i++) {
             Invoice invoice = inputList.get(i);
             String kpyf = invoice.getKpyf();
             double tempInput = 0;
             tempInput += invoice.getJshj();
 
-            for (int j = i + 1; j < inputList.size(); j++) {
+            for(int j = i + 1; j < inputList.size(); j++) {
                 Invoice invoice2 = inputList.get(j);
                 String kpyf2 = invoice2.getKpyf();
-                if (kpyf.equals(kpyf2)) {
+                if(kpyf.equals(kpyf2)) {
                     tempInput += invoice2.getJshj();
                     inputList.remove(j);
                     j--;
@@ -731,16 +737,16 @@ public class AttributeUtils {
             inputTaxMap.put(kpyf, tempInput);
         }
 
-        for (int i = 0; i < outputList.size(); i++) {
+        for(int i = 0; i < outputList.size(); i++) {
             Invoice invoice = outputList.get(i);
             String kpyf = invoice.getKpyf();
             double tempOutput = 0;
             tempOutput += invoice.getJshj();
 
-            for (int j = i + 1; j < outputList.size(); j++) {
+            for(int j = i + 1; j < outputList.size(); j++) {
                 Invoice invoice2 = outputList.get(j);
                 String kpyf2 = invoice2.getKpyf();
-                if (kpyf.equals(kpyf2)) {
+                if(kpyf.equals(kpyf2)) {
                     tempOutput += invoice2.getJshj();
                     outputList.remove(j);
                     j--;
@@ -762,7 +768,7 @@ public class AttributeUtils {
      * @param outputTaxMap
      */
     private static void computeInputTaxAndOutputTaxRatio(Enterprise enterprise, HashMap<String, Double> inputTaxMap, HashMap<String, Double> outputTaxMap) {
-        if (inputTaxMap.size() != 0 && outputTaxMap.size() != 0) {
+        if(inputTaxMap.size() != 0 && outputTaxMap.size() != 0) {
             Set<String> inputSet = inputTaxMap.keySet();
             Set<String> outputSet = outputTaxMap.keySet();
             int count = 0;
@@ -771,13 +777,13 @@ public class AttributeUtils {
             String inputUpKey = null;
             String outputUpKey = null;
 
-            for (String key : inputSet) {
-                if (count == 0) {
+            for(String key : inputSet) {
+                if(count == 0) {
                     inputNowKey = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 1) {
+                if(count == 1) {
                     inputUpKey = key;
                     count = 0;
                     break;
@@ -786,13 +792,13 @@ public class AttributeUtils {
 
             //置零
             count = 0;
-            for (String key : outputSet) {
-                if (count == 0) {
+            for(String key : outputSet) {
+                if(count == 0) {
                     outputNowKey = key;
-                    count++;
+                    count ++;
                     continue;
                 }
-                if (count == 1) {
+                if(count == 1) {
                     outputUpKey = key;
                     break;
                 }
@@ -804,18 +810,18 @@ public class AttributeUtils {
             String upDate = null;
 
             //情况一：上期都存在
-            if (inputUpKey != null && outputUpKey != null) {
-                if (inputNowKey.compareTo(outputNowKey) == 0) {
+            if(inputUpKey != null && outputUpKey != null) {
+                if(inputNowKey.compareTo(outputNowKey) == 0) {
                     nowDate = inputNowKey;
-                } else if (inputNowKey.compareTo(outputNowKey) < 0) {
+                } else if(inputNowKey.compareTo(outputNowKey) < 0) {
                     nowDate = outputNowKey;
                 } else {
                     nowDate = inputNowKey;
                 }
 
-                if (inputUpKey.compareTo(outputUpKey) == 0) {
+                if(inputUpKey.compareTo(outputUpKey) == 0) {
                     upDate = inputUpKey;
-                } else if (inputUpKey.compareTo(outputUpKey) < 0) {
+                } else if(inputUpKey.compareTo(outputUpKey) < 0) {
                     upDate = outputUpKey;
                 } else {
                     upDate = inputUpKey;
@@ -833,17 +839,17 @@ public class AttributeUtils {
                 up.set(Calendar.MONTH, Integer.parseInt(upMonth) - 1);
                 now.add(Calendar.MONTH, -1);
 
-                if (now.get(Calendar.YEAR) == up.get(Calendar.YEAR) && now.get(Calendar.MONTH) == up.get(Calendar.MONTH)) {
+                if(now.get(Calendar.YEAR) == up.get(Calendar.YEAR) && now.get(Calendar.MONTH) == up.get(Calendar.MONTH)) {
                     Double ratio = 0.0;
                     double inputRatio = 0;
                     double upRatio = 0;
 
-                    inputRatio = (inputTaxMap.get(inputNowKey) - inputTaxMap.get(inputUpKey)) / inputTaxMap.get(inputUpKey);
-                    upRatio = (outputTaxMap.get(outputNowKey) - outputTaxMap.get(outputUpKey)) / outputTaxMap.get(outputUpKey);
-                    ratio = (inputRatio - upRatio) / upRatio;
+                    inputRatio = (inputTaxMap.get(inputNowKey) - inputTaxMap.get(inputUpKey))/inputTaxMap.get(inputUpKey);
+                    upRatio = (outputTaxMap.get(outputNowKey) - outputTaxMap.get(outputUpKey))/outputTaxMap.get(outputUpKey);
+                    ratio = (inputRatio - upRatio)/upRatio;
 
-                    if (!ratio.isNaN()) {
-                        if (ratio > 0.1) {
+                    if(!ratio.isNaN()) {
+                        if(ratio > 0.1) {
                             enterprise.setInputTaxAndOutputTaxRatio("high");
                         } else {
                             enterprise.setInputTaxAndOutputTaxRatio("low");
@@ -857,17 +863,17 @@ public class AttributeUtils {
                 }
 
                 //情况二:上期进项存在，销项不存在
-            } else if (inputUpKey != null && outputUpKey == null) {
+            } else if(inputUpKey != null && outputUpKey == null) {
                 enterprise.setInputTaxAndOutputTaxRatio("none");
 
                 //情况三:上期进项不存在,销项存在
-            } else if (inputUpKey == null && outputUpKey != null) {
+            } else if(inputUpKey == null && outputUpKey != null) {
                 enterprise.setInputTaxAndOutputTaxRatio("none");
             } else {
                 enterprise.setInputTaxAndOutputTaxRatio("none");
             }
 
-        } else if (inputTaxMap.size() == 0 && outputTaxMap.size() != 0) {
+        } else if(inputTaxMap.size() == 0 && outputTaxMap.size() != 0) {
             enterprise.setInputTaxAndOutputTaxRatio("none");
         } else {
             //inputTaxMap.size() == 0 && outputTaxMap.size() == 0
@@ -876,7 +882,7 @@ public class AttributeUtils {
     }
 
     /**
-     * 【8.】发票作废率
+     * 【10.】发票作废率
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -889,11 +895,11 @@ public class AttributeUtils {
 
         //将所有发票按从大到小放到List中,方便操作
         List<Invoice> invoiceList = new ArrayList<>();
-        for (Invoice invoice : invoices) {
+        for(Invoice invoice : invoices) {
             invoiceList.add(0, invoice);
         }
 
-        if (invoiceList.size() != 0) {
+        if(invoiceList.size() != 0) {
             Invoice invoice = invoiceList.get(0);
             Calendar kprq = invoice.getKprq();
             kprq.add(Calendar.MONTH, -1);
@@ -903,35 +909,35 @@ public class AttributeUtils {
             //作废发票数量
             double invalidSum = 0;
 
-            if ("Y".equals(invoice.getZfbz())) {
-                invalidSum++;
+            if("Y".equals(invoice.getZfbz())) {
+                invalidSum ++;
             }
 
-            if (invoiceList.size() > 1) {
-                for (int i = 1; i < invoiceList.size(); i++) {
+            if(invoiceList.size() > 1) {
+                for(int i = 1; i < invoiceList.size(); i++) {
                     Invoice invoice2 = invoiceList.get(i);
                     Calendar kprq2 = invoice2.getKprq();
 
-                    if (kprq.before(kprq2)) {
-                        sum++;
-                        if ("Y".equals(invoice2.getZfbz())) {
-                            invalidSum++;
+                    if(kprq.before(kprq2)) {
+                        sum ++;
+                        if("Y".equals(invoice2.getZfbz())) {
+                            invalidSum ++;
                         }
                     }
                 }
 
                 Double ratio = 0.0;
-                ratio = invalidSum / sum;
-                if (ratio >= 0.3) {
+                ratio = invalidSum/sum;
+                if(ratio >= 0.3) {
                     enterprise.setInvoiceInvalidRatio("high");
-                } else if (ratio > 0) {
+                } else if(ratio > 0) {
                     enterprise.setInvoiceInvalidRatio("low");
                 } else {
                     enterprise.setInvoiceInvalidRatio("none");
                 }
 
             } else {
-                if ("Y".equals(invoice.getZfbz())) {
+                if("Y".equals(invoice.getZfbz())) {
                     enterprise.setInvoiceInvalidRatio("high");
                 } else {
                     enterprise.setInvoiceInvalidRatio("none");
@@ -948,10 +954,10 @@ public class AttributeUtils {
 
 
     /**
-     * 9. --发票显示连续亏损
-     * none					-- 没有亏损
-     * continuousQuarter		-- 连续一个季度
-     * overallLoss				-- 总体亏损
+     * 11. --发票显示连续亏损
+     *      none					-- 没有亏损
+     *      continuousQuarter		-- 连续一个季度
+     *      overallLoss				-- 总体亏损
      *
      * @param enterprise
      * @param inputInvoiceSet
@@ -979,7 +985,7 @@ public class AttributeUtils {
         long onum = outputInvoiceSet.size();
 
         // 若进销项有一项不存在, 设值unknown
-        if (inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
+        if ( inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
             enterprise.setContinuousLoss("unknown");
         }
 
@@ -1082,13 +1088,13 @@ public class AttributeUtils {
     }
 
     /**
-     * 10.invoiceBalance     --进销项差额
+     * 12.invoiceBalance     --进销项差额
      *
      * @param enterprise
      * @param inputInvoiceSet
      * @param outputInvoiceSet
      */
-    public static void setInvoiceBalance(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet) {
+    public static void setInvoiceBalance(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet, TreeSet<Invoice> outputInvoiceSet){
         // 发票进销项金额
         double inputAmount = 0;
         double outputAmount = 0;
@@ -1109,7 +1115,7 @@ public class AttributeUtils {
         long onum = outputInvoiceSet.size();
 
         // 若进销项有一项不存在, 设值unknown
-        if (inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
+        if ( inum <= 0 || onum <= 0 || (inum <= 0 && onum <= 0)) {
             enterprise.setContinuousLoss("unknown");
         }
 
@@ -1122,7 +1128,7 @@ public class AttributeUtils {
         }
 
         //判断进销项差额是否巨大，销项权值为0.5，进项权值为0.3
-        if (outputAmount <= inputAmount * 0.5 || inputAmount <= outputAmount * 0.3) {
+        if (outputAmount <= inputAmount*0.5 || inputAmount <= outputAmount*0.3) {
             enterprise.setInvoiceBalance("balanceHuge");//差额巨大
         } else {
             enterprise.setInvoiceBalance("normal");//差额正常
@@ -1130,17 +1136,17 @@ public class AttributeUtils {
     }
 
     /**
-     * 属性11:
-     * 是否有进项作废发票
+     * 属性13:
+     *      是否有进项作废发票
      *
      * @param enterprise
      * @param inputInvoiceSet
      */
     public static void setInputInvoiceInvalid(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet) {
-        for (Invoice invoice : inputInvoiceSet) {
+        for(Invoice invoice : inputInvoiceSet) {
             String zfbz = invoice.getZfbz();
 
-            if (zfbz.equals("Y")) {
+            if(zfbz.equals("Y")) {
                 enterprise.setInputInvoiceInvalid("exist");
                 break;
             } else {
@@ -1150,17 +1156,17 @@ public class AttributeUtils {
     }
 
     /**
-     * 属性12:
-     * 是否有进项作废发票
+     * 属性14:
+     *      是否有进项作废发票
      *
      * @param enterprise
      * @param outputInvoiceSet
      */
     public static void setOutputInvoiceInvalid(Enterprise enterprise, TreeSet<Invoice> outputInvoiceSet) {
-        for (Invoice invoice : outputInvoiceSet) {
+        for(Invoice invoice : outputInvoiceSet) {
             String zfbz = invoice.getZfbz();
 
-            if (zfbz.equals("Y")) {
+            if(zfbz.equals("Y")) {
                 enterprise.setOutputInvoiceInvalid("exist");
                 break;
             } else {
@@ -1168,7 +1174,6 @@ public class AttributeUtils {
             }
         }
     }
-
 
     /**
      * 属性13：
@@ -1294,7 +1299,10 @@ public class AttributeUtils {
                 } else {
                     enterprise.setLossAddStock("none");
                 }
+            } else{
+                enterprise.setLossAddStock("unknown");
             }
+
         }
     }
 
@@ -1333,4 +1341,157 @@ public class AttributeUtils {
         }
         return inputAmount;
     }
+
+    /**
+     * 16.inputAndOutputDeviation    --进销项偏离指数(进半年)
+     */
+    public static void setInputAndOutputDeviation(DetailsExtraction detailsExtraction,
+                                                  TreeSet<InvoicesDetailsS3> inputDetailsSet,
+                                                  TreeSet<InvoicesDetailsS3> outputDetailsSet,
+                                                  ArrayList<String> spbmRange) {
+        //进项商品编码
+        TreeSet<String> inputSpbm = new TreeSet<>();
+        ArrayList<InvoicesDetailsS3> inputDetailsList = new ArrayList<>();
+        //销项商品编码
+        TreeSet<String> outputSpbm = new TreeSet<>();
+        ArrayList<InvoicesDetailsS3> outputDetailsList = new ArrayList<>();
+        //时间戳
+        Calendar lastTime = Calendar.getInstance();
+        //标记
+        boolean flog = false;
+
+
+        if(inputDetailsSet != null && inputDetailsSet.size() != 0) {
+            flog = true;
+            InvoicesDetailsS3 first = inputDetailsSet.first();
+            Calendar date_keyMX = first.getDate_keyMX();
+            int year = date_keyMX.get(Calendar.YEAR);
+            int month = date_keyMX.get(Calendar.MONTH);
+            lastTime.set(Calendar.YEAR, year);
+            lastTime.set(Calendar.MONTH, month);
+        }
+
+        if(outputDetailsSet != null && outputDetailsSet.size() != 0) {
+            InvoicesDetailsS3 first = outputDetailsSet.first();
+            Calendar date_keyMX = first.getDate_keyMX();
+            if(!flog) {
+                int year = date_keyMX.get(Calendar.YEAR);
+                int month = date_keyMX.get(Calendar.MONTH);
+                lastTime.set(Calendar.YEAR, year);
+                lastTime.set(Calendar.MONTH, month);
+            } else if(!lastTime.after(date_keyMX)) {
+                int year = date_keyMX.get(Calendar.YEAR);
+                int month = date_keyMX.get(Calendar.MONTH);
+                lastTime.set(Calendar.YEAR, year);
+                lastTime.set(Calendar.MONTH, month);
+            }
+        }
+
+        if(lastTime != null) {
+            lastTime.add(Calendar.MONTH, -6);
+        }
+
+        try {
+            //遍历获取商品编码
+            //进项
+            for(InvoicesDetailsS3 s3 : inputDetailsSet) {
+                Calendar date_keyMX = s3.getDate_keyMX();
+
+                if(lastTime.before(date_keyMX)) {
+                    inputDetailsList.add(s3);
+                }
+            }
+            for(InvoicesDetailsS3 s3 : inputDetailsList) {
+                String spbmMX = s3.getSpbmMX().substring(0, 3);
+                inputSpbm.add(spbmMX);
+            }
+
+            //销项
+            for(InvoicesDetailsS3 s3 : outputDetailsSet) {
+                Calendar date_keyMX = s3.getDate_keyMX();
+
+                if(lastTime.before(date_keyMX)) {
+                    outputDetailsList.add(s3);
+                }
+            }
+            for(InvoicesDetailsS3 s3 : outputDetailsList) {
+                String spbmMX = s3.getSpbmMX().substring(0, 3);
+                outputSpbm.add(spbmMX);
+            }
+
+            //比较，并且赋值
+            //去掉相同的spbm
+            ArrayList<String> remove = new ArrayList<>();
+            for(String iSpbm : inputSpbm) {
+                for(String oSpbm : outputSpbm) {
+                    if(iSpbm.equals(oSpbm)) {
+                        remove.add(iSpbm);
+                    }
+                }
+            }
+            //移除
+            inputSpbm.removeAll(remove);
+            outputSpbm.removeAll(remove);
+
+            //计算偏离指数,两个集合剩余的数据和为偏离指数
+            int length = inputSpbm.size() + outputSpbm.size();
+            //16个属性赋值
+            detailsExtraction.setInputAndOutputDeviation(length + "");
+
+            //计算第17个属性
+            //累加器，计数使用
+            //标记
+            boolean flog2 = false;
+            int count = 0;
+            for(String spbm : inputSpbm) {
+                for(String standardSpbmSize : spbmRange) {
+                    if(spbm.equals(standardSpbmSize)) {
+                        flog2 = true;
+                        break;
+                    }
+                }
+                if(!flog2) {
+                    count ++;
+                }
+                flog2 = false;
+            }
+
+            //设置值
+            if(count == 0) {
+                //相符
+                detailsExtraction.setInputInvoiceBusinessScope("match");
+            } else {
+                //不符
+                detailsExtraction.setInputInvoiceBusinessScope("inconsistent");
+            }
+
+            //计算第18个属性
+            count = 0;
+            flog2 = false;
+            for(String spbm : outputSpbm) {
+                for(String standardSpbmSize : spbmRange) {
+                    if(spbm.equals(standardSpbmSize)) {
+                        flog2 = true;
+                        break;
+                    }
+                }
+                if(!flog2) {
+                    count ++;
+                }
+                flog2 = false;
+            }
+            //设置值
+            if(count == 0) {
+                detailsExtraction.setOutputInvoiceBusinessScope("match");
+            } else {
+                detailsExtraction.setOutputInvoiceBusinessScope("inconsistent");
+            }
+
+        }catch (Exception e) {
+            log.info("AttributeUtils...脏数据！脏数据！脏数据！");
+        }
+
+    }
+
+
 }
