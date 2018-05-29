@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="spark-invoice">
+    <CLASSES>
+      <root url="file://D:/commons/spark-invoice" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/commons/spark-invoice" />
+    </SOURCES>
+    <jarDirectory url="file://D:/commons/spark-invoice" recursive="false" />
+    <jarDirectory url="file://D:/commons/spark-invoice" recursive="false" type="SOURCES" />
+  </library>
+</component>
