@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="mahout-examples-0.10.1-job">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jar/apache-mahout-distribution-0.10.1/mahout-examples-0.10.1-job.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../jar/apache-mahout-distribution-0.10.1/mahout-examples-0.10.1-job.jar!/" />
+    </SOURCES>
+  </library>
+</component>
