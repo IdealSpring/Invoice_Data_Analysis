@@ -1,13 +1,20 @@
 package cn.ccut.abiprediction.common;
 
+import cn.ccut.abiprediction.multilayerperceptron.NsrIdLinkDataset;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.mllib.linalg.Vectors;
 import org.apache.spark.mllib.regression.LabeledPoint;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
 import scala.Serializable;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * 文件操作工具
@@ -17,7 +24,7 @@ public class DataFileLoadAndParse implements Serializable {
     // 保存实例对象
     private static DataFileLoadAndParse dataFileLoadAndParse = new DataFileLoadAndParse();
 
-    private DataFileLoadAndParse() {}
+    public DataFileLoadAndParse() {}
 
     /**
      * 获取实例对象
@@ -52,6 +59,13 @@ public class DataFileLoadAndParse implements Serializable {
         return trainData;
     }
 
+    /**
+     * 加载测试集文件
+     *
+     * @param jsc
+     * @param filePath
+     * @return
+     */
     public JavaRDD<NsrIdLinkLabelPoint> loadTestDataByFile(JavaSparkContext jsc, String filePath) {
         JavaRDD<String> textFile = jsc.textFile(filePath);
 
@@ -69,5 +83,90 @@ public class DataFileLoadAndParse implements Serializable {
         });
 
         return hashMapJavaRDD;
+    }
+
+    /**
+     * 删除文件
+     *
+     * @param path
+     * @throws Exception
+     */
+    public static void clearUpOutputPathFile(String path) throws Exception{
+        File file = new File(path);
+        if(file.exists()) {
+            File[] files = file.listFiles();
+            for(File f : files) {
+                if(f.isDirectory()) {
+                    //递归删除
+                    clearUpOutputPathFile(f.toString());
+                }
+                f.delete();
+            }
+            file.delete();
+        }
+    }
+
+    /**
+     * 加载Dataset格式数据
+     * @return
+     */
+    public Dataset<Row> loadTrainDataToDataset(SparkSession spark, String path) throws Exception {
+        // 读取文件
+        HashMap<String, String> recondMap = new HashMap<>();
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            String[] split = line.split(",");
+            recondMap.put(split[0], split[1]);
+        }
+        reader.close();
+
+        //将文件写入
+        new File("data/MultilayerPerceptronData/tempFile/train.txt");
+        new File("data/MultilayerPerceptronData/tempFile").mkdirs();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/MultilayerPerceptronData/tempFile/train.txt"));
+        Set<String> keySet = recondMap.keySet();
+        for(String key : keySet) {
+            writer.write(recondMap.get(key));
+            writer.newLine();
+            writer.flush();
+        }
+        writer.close();
+
+        // 读取并返回文件
+        return spark.read().format("libsvm").load("data/MultilayerPerceptronData/tempFile/train.txt");
+    }
+
+    public NsrIdLinkDataset loadTestDataToDataset(SparkSession spark, String path) throws Exception {
+        // 读取文件
+        HashMap<String, String> recondMap = new HashMap<>();
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            String[] split = line.split(",");
+            recondMap.put(split[0], split[1]);
+            //recondMap.put(split[0], line);
+        }
+        reader.close();
+
+        //将文件写入
+        new File("data/MultilayerPerceptronData/tempFile/test.txt").delete();
+        new File("data/MultilayerPerceptronData/tempFile").mkdirs();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/MultilayerPerceptronData/tempFile/test.txt"));
+        Set<String> keySet = recondMap.keySet();
+        // 将set中的内容放入list中
+        ArrayList<String> nsrIdList = new ArrayList<>();
+        for(String key : keySet) {
+            nsrIdList.add(key);
+            writer.write(recondMap.get(key));
+            writer.newLine();
+            writer.flush();
+        }
+        writer.close();
+
+        NsrIdLinkDataset nsrIdLinkDataset = new NsrIdLinkDataset();
+        nsrIdLinkDataset.setNsrIdList(nsrIdList);
+        nsrIdLinkDataset.setTestDataFrame(spark.read().format("libsvm").load("data/MultilayerPerceptronData/tempFile/test.txt"));
+        return nsrIdLinkDataset;
     }
 }

@@ -1,10 +1,12 @@
 package cn.ccut.abiprediction.common;
 
+import java.io.Serializable;
+
 /**
  * 文件格式:
  *      纳税人id,预测结果,标签
  */
-public class NsrIdAndPredictionAndLabel {
+public class NsrIdAndPredictionAndLabel implements Serializable{
     // 纳税人id
     private String nsrId;
     // 预测结果
