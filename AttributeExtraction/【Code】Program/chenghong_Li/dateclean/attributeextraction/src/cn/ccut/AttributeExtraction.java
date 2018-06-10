@@ -1,137 +1,40 @@
 package cn.ccut;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import cn.ccut.common.CrossValidationUtils;
+import cn.ccut.mahout.forest.Step123;
+import cn.ccut.stage01.Stage01Main;
+import cn.ccut.stage02.Stage02Main;
+import cn.ccut.stage03.Stage03Main;
+import cn.ccut.stage04.Stage04Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * MapReduce程序,属性提取主类
  */
 public class AttributeExtraction {
+    private static final Logger log = LoggerFactory.getLogger(AttributeExtraction.class);
+
     public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "MyFirstJob");
+        //第一阶段MapReduce程序，提取前15个属性
+        Stage01Main.main(args);
 
-        job.setJarByClass(AttributeExtraction.class);
-        job.setMapperClass(EnterpriesMapper.class);
-        job.setReducerClass(EnterpriesReducer.class);
+        //第二阶段MapReduce程序，将hwmx表连接上xf还有gf的ID
+        //Stage02Main.main(args);
 
-        job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(Enterprise.class);
+        //第三阶段MapReduce程序，提取出hwmx中的属性
+        //Stage03Main.main(args);
 
-        job.setOutputKeyClass(Enterprise.class);
-        job.setOutputValueClass(NullWritable.class);
+        //第二阶段MapReduce程序，将第一阶段属性和第三阶段属性进行连接
+        //Stage04Main.main(args);
 
-        //FileInputFormat.setInputPaths(job, args[0]);
-        //FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        // String inputDataPath = "C:\\Users\\zhipeng-Tong\\Desktop\\异常企业资料\\信息3";
-<<<<<<< HEAD
-<<<<<<< HEAD
-        String inputDataPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\信息3";
-        FileInputFormat.setInputPaths(job, inputDataPath);
+        //交叉验证，分出训练集和测试集
+        CrossValidationUtils.upDateTrainAndTest(5);
 
-        String s = UUID.randomUUID().toString();
-        String outputDataPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\result_lch\\" + s;
-=======
-=======
->>>>>>> 703a947d97563922d966f5393b3f164d513532ca
-        String inputDataPath = "F:\\Desktop\\信息3";
-        FileInputFormat.setInputPaths(job, inputDataPath);
+        //上传HDFS文件系统
+        CrossValidationUtils.uploadFileToHDFS();
 
-        String s = UUID.randomUUID().toString();
-        String outputDataPath = "F:\\Desktop\\result_lch\\" + s;
-<<<<<<< HEAD
->>>>>>> 47f3688524d66a88783c0eb870430907011a1821
-=======
->>>>>>> 703a947d97563922d966f5393b3f164d513532ca
-
-        FileOutputFormat.setOutputPath(job, new Path(outputDataPath));
-
-        job.waitForCompletion(true);
-
-        if(inputDataPath.contains("3")) {
-            upDateTrainAndTest(outputDataPath);
-        }
-    }
-
-    private static void upDateTrainAndTest(String path) throws Exception {
-        path = path + "\\" + "part-r-00000";
-        List<String> list = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-
-        String line = null;
-        while ((line = bufferedReader.readLine()) != null) {
-            list.add(line);
-        }
-
-        List<String> trainList = new ArrayList<>();
-        List<String> testList = new ArrayList<>();
-        List<Integer> sampleRandomNum = new ArrayList<>();
-        Random random = new Random();
-        //取出总数的0.7作为训练数据
-        int trainSample = (int) (list.size() * 0.7);
-        int temp = 0;
-
-        for (int i = 0; i < trainSample; ) {
-            temp = random.nextInt(list.size());
-
-            if(!sampleRandomNum.contains(temp)) {
-                sampleRandomNum.add(temp);
-                i++;
-            }
-        }
-
-        //取出
-        for(int dataIndex : sampleRandomNum) {
-            String sample = list.get(dataIndex);
-            trainList.add(sample);
-        }
-        //取出
-        for(int i = 0; i < list.size(); i++) {
-            if(!sampleRandomNum.contains(i)) {
-                testList.add(list.get(i));
-            }
-        }
-
-        //将数据输出
-<<<<<<< HEAD
-<<<<<<< HEAD
-        String trainOutPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\out\\train.dat";
-        String testOutPath = "F:\\Desktop\\____异常企业预测分析\\异常企业资料02\\out\\test.dat";
-=======
-        String trainOutPath = "F:\\Desktop\\out\\train.dat";
-        String testOutPath = "F:\\Desktop\\out\\test.dat";
->>>>>>> 47f3688524d66a88783c0eb870430907011a1821
-=======
-        String trainOutPath = "F:\\Desktop\\out\\train.dat";
-        String testOutPath = "F:\\Desktop\\out\\test.dat";
->>>>>>> 703a947d97563922d966f5393b3f164d513532ca
-
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(trainOutPath));
-
-        for(String s : trainList) {
-            bufferedWriter.write(s);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-        }
-        bufferedWriter.close();
-
-        BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(testOutPath));
-        for(String s : testList) {
-            bufferedWriter2.write(s);
-            bufferedWriter2.newLine();
-            bufferedWriter2.flush();
-        }
-
+        //测试
+        Step123.main(new String[]{});
     }
 }
