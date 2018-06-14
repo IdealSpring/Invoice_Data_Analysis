@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/attributeextraction/attributeextraction.iml" filepath="$PROJECT_DIR$/attributeextraction/attributeextraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dateclean.iml" filepath="$PROJECT_DIR$/dateclean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/visualization/visualization.iml" filepath="$PROJECT_DIR$/visualization/visualization.iml" />
+    </modules>
+  </component>
+</project>
