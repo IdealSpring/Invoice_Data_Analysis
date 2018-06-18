@@ -35,6 +35,6 @@ public class AttributeExtraction {
         CrossValidationUtils.uploadFileToHDFS();
 
         //测试
-        Step123.main(new String[]{});
+         Step123.main(new String[]{});
     }
 }

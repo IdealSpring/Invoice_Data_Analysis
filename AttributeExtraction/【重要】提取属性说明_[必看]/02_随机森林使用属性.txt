@@ -1,7 +1,7 @@
 ﻿【随机森林算法使用属性一览表】
 属性总结:
 	连续属性:1,2,,,16
-	离散属性:3,4,5,6,7,8,9,10,11,12,13,14,15,,,17,18
+	离散属性:3,4,5,6,7,8,9,10,11,12,13,14,15,,,17,18,19,20,21
 
 1.属性名:inputInvoiceNum	--进项发票数量
 
@@ -98,10 +98,19 @@
 		middle		-- 占比中
 		high		-- 占比高(超过总进项金额的三成)
 
-19.属性名: redOutputInvoiceAmountRate		销项红字发票金额占比
+20.属性名: redOutputInvoiceAmountRate		销项红字发票金额占比
 	属性值:
 		none		-- 不存在红字发票
 		low			-- 占比低(不超过总销项金额的一成)
 		middle		-- 占比中
 		high		-- 占比高(超过总销项金额的三成)
+
+21.属性名: numberDifferenceOfInputAndOutput		进销项发票数量差
+	属性值:
+		none		-- 进销项都不存在
+		noInput		-- 不存在进项
+		noOutput	-- 不存在销项
+		low			-- 差别小
+		middle		-- 差别中
+		high 		-- 差别大
 		

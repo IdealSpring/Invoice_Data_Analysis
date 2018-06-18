@@ -58,6 +58,8 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
             AttributeUtils.setRedInputInvoiceAmountRate(enterprise, inputInvoiceSet);
             //20.redOutputInvoiceAmountRate 销项红字发票金额占比
             AttributeUtils.setRedOutputInvoiceAmountRate(enterprise, outputInvoiceSet);
+            //21.numberDifferenceOfInputAndOutput 进销项发票数量差
+			AttributeUtils.setNumberDifferenceOfInputAndOutput(enterprise, inputInvoiceSet, outputInvoiceSet);
 
             //写出
             context.write(enterprise, NullWritable.get());
@@ -122,6 +124,7 @@ public class EnterpriesReducer extends Reducer<Text, Enterprise, Enterprise, Nul
         enterprise.setLossAddStock("Null");
         enterprise.setRedInputInvoiceAmountRate("Null");
         enterprise.setRedOutputInvoiceAmountRate("Null");
+        enterprise.setNumberDifferenceOfInputAndOutput("Null");
 
         enterprise.setLabel("0");
     }

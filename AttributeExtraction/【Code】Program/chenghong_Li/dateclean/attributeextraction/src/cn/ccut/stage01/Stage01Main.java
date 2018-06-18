@@ -44,6 +44,6 @@ public class Stage01Main {
         FileOutputFormat.setOutputPath(job, new Path(FilePathCollections.stage01ResultOutputPath));
 
         job.waitForCompletion(true);
-        log.info("Stage01Main(前15个属性提取完毕) Successful......");
+        log.info("Stage01Main(前17个属性提取完毕) Successful......");
     }
 }

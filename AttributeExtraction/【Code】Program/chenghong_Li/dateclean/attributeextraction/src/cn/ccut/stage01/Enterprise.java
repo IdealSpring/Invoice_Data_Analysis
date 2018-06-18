@@ -81,6 +81,8 @@ public class Enterprise implements Writable{
     private String redInputInvoiceAmountRate = "Null";
     // 20.销项红字发票金额占比
     private String redOutputInvoiceAmountRate = "Null";
+	// 21.进销项发票数量差
+	private String numberDifferenceOfInputAndOutput = "Null";
 
     //企业分类
     private String label = "0";
@@ -96,7 +98,7 @@ public class Enterprise implements Writable{
                 "," + continuousLoss + "," + invoiceBalance +
                 "," + inputInvoiceInvalid + "," + outputInvoiceInvalid +
                 "," + lossAddStock + "," + redInputInvoiceAmountRate +
-                "," + redOutputInvoiceAmountRate +
+                "," + redOutputInvoiceAmountRate + "," + numberDifferenceOfInputAndOutput +
                 "," + label;
     }
 
@@ -146,6 +148,7 @@ public class Enterprise implements Writable{
         dataOutput.writeUTF(this.lossAddStock);
         dataOutput.writeUTF(this.redInputInvoiceAmountRate);
         dataOutput.writeUTF(this.redOutputInvoiceAmountRate);
+        dataOutput.writeUTF(this.numberDifferenceOfInputAndOutput);
 
         dataOutput.writeUTF(this.label);
     }
@@ -196,6 +199,7 @@ public class Enterprise implements Writable{
         this.lossAddStock = dataInput.readUTF();
         this.redInputInvoiceAmountRate = dataInput.readUTF();
         this.redOutputInvoiceAmountRate = dataInput.readUTF();
+		this.numberDifferenceOfInputAndOutput = dataInput.readUTF();
 
         this.label = dataInput.readUTF();
     }
@@ -511,4 +515,12 @@ public class Enterprise implements Writable{
     public void setRedOutputInvoiceAmountRate(String redOutputInvoiceAmountRate) {
         this.redOutputInvoiceAmountRate = redOutputInvoiceAmountRate;
     }
+
+	public String getNumberDifferenceOfInputAndOutput() {
+		return numberDifferenceOfInputAndOutput;
+	}
+
+	public void setNumberDifferenceOfInputAndOutput(String numberDifferenceOfInputAndOutput) {
+		this.numberDifferenceOfInputAndOutput = numberDifferenceOfInputAndOutput;
+	}
 }

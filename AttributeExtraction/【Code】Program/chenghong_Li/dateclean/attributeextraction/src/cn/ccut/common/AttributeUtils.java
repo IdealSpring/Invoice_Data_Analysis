@@ -4,6 +4,7 @@ import cn.ccut.stage01.Enterprise;
 import cn.ccut.stage01.Invoice;
 import cn.ccut.stage03.DetailsExtraction;
 import cn.ccut.stage03.InvoicesDetailsS3;
+import org.apache.hadoop.fs.s3.INode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -1579,6 +1580,43 @@ public class AttributeUtils {
 			enterprise.setRedOutputInvoiceAmountRate("middle");
 		} else {
 			enterprise.setRedOutputInvoiceAmountRate("low");
+		}
+	}
+
+	/**
+	 * 属性21:
+	 * 		进销项发票数量差
+	 *
+	 * @param enterprise
+	 * @param inputInvoiceSet
+	 * @param outputInvoiceSet
+	 */
+	public static void setNumberDifferenceOfInputAndOutput(Enterprise enterprise, TreeSet<Invoice> inputInvoiceSet,
+														   TreeSet<Invoice> outputInvoiceSet) {
+		// 进项发票数量
+		int inputNumber = inputInvoiceSet.size();
+		// 销项发票数量
+		int outputNumber = outputInvoiceSet.size();
+		// 差
+		int differenceNum = Math.abs(inputNumber - outputNumber);
+
+		if ((inputNumber == 0) && (outputNumber == 0)) {
+			enterprise.setNumberDifferenceOfInputAndOutput("none");
+			return;
+		} else if (inputNumber == 0) {
+			enterprise.setNumberDifferenceOfInputAndOutput("noInput");
+			return;
+		} else if (outputNumber == 0) {
+			enterprise.setNumberDifferenceOfInputAndOutput("noOutput");
+			return;
+		} else {
+			if (differenceNum < 30) {
+				enterprise.setNumberDifferenceOfInputAndOutput("low");
+			} else if (differenceNum < 100) {
+				enterprise.setNumberDifferenceOfInputAndOutput("middle");
+			} else {
+				enterprise.setNumberDifferenceOfInputAndOutput("high");
+			}
 		}
 	}
 }
