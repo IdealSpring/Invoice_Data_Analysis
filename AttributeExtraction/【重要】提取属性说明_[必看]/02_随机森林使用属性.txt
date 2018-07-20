@@ -61,15 +61,21 @@
 		当进项金额小于等于销项金额的50%，或者销项金额小于等于进项金额的30%
 		标记异常
 		
+//13.属性名: inputInvoiceInvalid		是否有作废进项发票(改)
+//	属性值:
+//		none	-- 不存在
+//		exist	-- 存在
+
+//14.属性名: outputInvoiceInvalid		是否有作废销项发票(改)
+//	属性值:
+//		none	-- 不存在
+//		exist	-- 存在
+		
 13.属性名: inputInvoiceInvalid		是否有作废进项发票
 	属性值:
-		none	-- 不存在
-		exist	-- 存在
 
 14.属性名: outputInvoiceInvalid		是否有作废销项发票
 	属性值:
-		none	-- 不存在
-		exist	-- 存在
 
 15.属性名：lossAddStock			连续亏损仍然加大进货
 	属性值：
@@ -77,33 +83,41 @@
 		exist		--存在
 		unknown		--未知(进销项发票至少一项全无)
 
-16.属性名: InputAndOutputDeviation		进项销项商品不同指数
-	属性值:
-		连续值
+					16.属性名: InputAndOutputDeviation		进项销项商品不同指数
+						属性值:
+							连续值
 
-17.属性名: inputInvoiceBusinessScope	进项经营范围
-	属性值:
-		match				--相符
-		inconsistent		--背离
+					17.属性名: inputInvoiceBusinessScope	进项经营范围
+						属性值:
+							match				--相符
+							inconsistent		--背离
 
-18.属性名: outputInvoiceBusinessScope	销项经营范围
-	属性值:
-		match				--相符
-		inconsistent		--背离
+					18.属性名: outputInvoiceBusinessScope	销项经营范围
+						属性值:
+							match				--相符
+							inconsistent		--背离
 
-19.属性名: redInputInvoiceAmountRate		进项红字发票金额占比
+
+//19.属性名: redInputInvoiceAmountRate		进项红字发票金额占比(修改)
+//	属性值:
+//		none		-- 不存在红字发票
+//		low			-- 占比低(不超过总进项金额的一成)
+//		middle		-- 占比中
+//		high		-- 占比高(超过总进项金额的三成
+		
+19.属性名: redInvoiceQuantityRate		红字发票数量占比
 	属性值:
 		none		-- 不存在红字发票
-		low			-- 占比低(不超过总进项金额的一成)
-		middle		-- 占比中
-		high		-- 占比高(超过总进项金额的三成)
+		low			-- 低(红字发票数量/发票数量 < 0.1)
+		high		-- 高(红字发票数量/发票数量 >= 0.1)
+		abnormal	-- 异常(存在红字发票且没有正常发票)
 
-20.属性名: redOutputInvoiceAmountRate		销项红字发票金额占比
-	属性值:
-		none		-- 不存在红字发票
-		low			-- 占比低(不超过总销项金额的一成)
-		middle		-- 占比中
-		high		-- 占比高(超过总销项金额的三成)
+//20.属性名: redOutputInvoiceAmountRate		销项红字发票金额占比(作废)
+//	属性值:
+//		none		-- 不存在红字发票
+//		low			-- 占比低(不超过总销项金额的一成)
+//		middle		-- 占比中
+//		high		-- 占比高(超过总销项金额的三成)
 
 21.属性名: numberDifferenceOfInputAndOutput		进销项发票数量差
 	属性值:
@@ -113,4 +127,12 @@
 		low			-- 差别小
 		middle		-- 差别中
 		high 		-- 差别大
+		
+22.属性名: valueOfRedInovice		红字发票金额
+	属性值:
+		none		-- 不存在红字发票
+		low			-- 低(红字发票金额/发票金额 < 0.2)
+		middle		-- 中(0.2-0.5)
+		high		-- 高( > 0.5)
+		abnormal	-- 异常(存在红字发票且没有正常发票)
 		
