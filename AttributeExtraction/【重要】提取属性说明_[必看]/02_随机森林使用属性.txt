@@ -71,11 +71,19 @@
 //		none	-- 不存在
 //		exist	-- 存在
 		
-13.属性名: inputInvoiceInvalid		是否有作废进项发票
+13.属性名: inputInvoiceInvalid		进项发票作废金额占比
 	属性值:
+		noInput		-- 没有进项
+		onlyInvalid	-- 只有作废发票
+		high		-- 作废金额比例高(>0.2)
+		low			-- 作废金额比例低
 
-14.属性名: outputInvoiceInvalid		是否有作废销项发票
+14.属性名: outputInvoiceInvalid		销项发票作废金额占比
 	属性值:
+		noOutput	-- 没有销项
+		onlyInvalid	-- 只有作废发票
+		high		-- 作废金额比例高(>0.2)
+		low			-- 作废金额比例低
 
 15.属性名：lossAddStock			连续亏损仍然加大进货
 	属性值：
