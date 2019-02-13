@@ -42,5 +42,8 @@
 <div style="float:left;border:solid 1px 000;margin:2px;">
 	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg"  height="300" width="400" >
 	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg"  height="300" width="400" >
+	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/1.%E4%BA%8C%E7%AD%89%E5%A5%96%E5%A5%96%E7%89%8C.jpg"  height="300" width="400" >
+	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/2.%E6%9C%80%E4%BD%B3%E8%A1%A8%E7%8E%B0%E5%A5%96%E5%A5%96%E7%89%8C.jpg"  height="300" width="400" >
+	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/3%E4%BA%A7%E6%95%99%E8%9E%8D%E5%90%88%E5%88%9B%E6%96%B0%E5%A5%96.jpg"  height="300" width="400" >
 
 </div>
