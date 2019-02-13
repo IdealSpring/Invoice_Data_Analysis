@@ -39,7 +39,4 @@
 ## 最后
 ------
 这七个月是艰苦的，从除夕开始到比赛结束，从对大数据一无所知(每个名次都百度过)到最后95%的F1-score的预测指标。七个月来的风风雨雨，感谢我的两名队友与我相伴；每天晚上一起讨论问题和汇报自己的进展，两个人争论一个问题需要另一个人的仲裁……。我们这个team，一个人主要负责搭建基础建构、技术走向和管控整个项目；一个人有着别样的想法思路，每每提出一些想法，让人耳目一新豁然开朗；另一个人巧舌如簧、能答善辩、措辞标准，在最比决赛的舞台一展风采。感谢你们！
-<figure class="half">
-    <img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg" width="50%" height="50%" />
-	<img src="https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg" width="50%" height="50%" />
-</figure>
+![决赛照片](https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg)![决赛照片](https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/img/%E6%80%BB%E5%86%B3%E8%B5%9B%E7%85%A7%E7%89%87.jpg)
