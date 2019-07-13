@@ -26,7 +26,7 @@
 * 特征提取
 > 通过进销项增值税发票数据和纳税人信息共计提取出[22个特征](https://github.com/IdealSpring/Invoice_Data_Analysis/blob/master/AttributeExtraction/%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E6%8F%90%E5%8F%96%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E_%5B%E5%BF%85%E7%9C%8B%5D/02_%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E4%BD%BF%E7%94%A8%E5%B1%9E%E6%80%A7.txt)
 * 预测分析
-> 使用随机森林算法、朴素贝叶斯算法、梯度提升术算法和神经网络算法4种算法分别训练模型并进行预测，然后将每个模型预测出的结果使用Bagging算法来获取最终预测结果。
+> 使用随机森林算法、朴素贝叶斯算法、梯度提升数算法和神经网络算法4种算法分别训练模型并进行预测，然后将每个模型预测出的结果使用Bagging算法来获取最终预测结果。
 * [项目位置](https://github.com/IdealSpring/Invoice_Data_Analysis/tree/master/PredictionAlgorithm/zhipeng_Tong)
 ## 最终测试集F1-score
 
